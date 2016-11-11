@@ -1,10 +1,19 @@
 const Marzipano = require('marzipano');
 
+import Hotspot from './Hotspot';
+
 /**
  * Virtual reality 360 player library
  */
 export default class VR360Player {
   constructor(dom: HTMLElement) {
+
+    const hotspot = new Hotspot(0, 0);
+    hotspot.pitch = 10;
+
+    setTimeout(() => {
+      hotspot.pitch = 200;
+    }, 2000)
 
     // Create viewer.
     var viewer = new Marzipano.Viewer(dom);

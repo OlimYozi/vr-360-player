@@ -4,7 +4,6 @@
   "description": "Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.",
   "main": "index.js",
   "scripts": {
-    "postinstall": "typings install",
     "start": "webpack-dev-server --content-base build --inline --progress --host 0.0.0.0 --port 9202",
     "build:dev": "rimraf build && webpack --progress --profile --env.development",
     "build:prod": "rimraf build && webpack --progress --profile --bail --env.production",
@@ -30,6 +29,8 @@
   },
   "homepage": "https://github.com/Swiftwork/vr-360-player#readme",
   "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.46",
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
@@ -51,8 +52,6 @@
     "webpack-merge": "^0.15.0"
   },
   "dependencies": {
-    "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.46",
     "core-js": "^2.4.1",
     "marzipano": "git+https://github.com/google/marzipano.git",
     "normalize.css": "^5.0.0"

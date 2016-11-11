@@ -5,12 +5,10 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "removeComments": false,
-    "suppressImplicitAnyIndexErrors": true
-  },
-  "typeRoots": [
-    "node_modules/@types/"
-  ],
-  "types": [
-    "./project.d.ts"
-  ]
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "project.d.ts"
+    ]
+  }
 }

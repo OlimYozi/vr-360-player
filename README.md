@@ -1,28 +1,28 @@
-# 360-vr-player
-360 virtual reality player for 36 Technology by Trutoo
+# Virtual Reality 360 Degree Player
+Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.
 
-##Installation & Scripts
-To get started you are going to need [Node v5.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (only for deploying). Windows users can use a tool like: [CASH](https://github.com/dthree/cash) or [Cygwin](https://www.cygwin.com/). Then clone this repository either with a GUI or with the following command:
+## Installation & Scripts
+To get started you are going to need [Node v6.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (only for deploying). Windows users can use a tool like: [CASH](https://github.com/dthree/cash) or [Cygwin](https://www.cygwin.com/). Then clone this repository either with a GUI or with the following command:
 
-  $ git clone https://github.com/Swiftwork/project-hex
+  `$ git clone https://github.com/Swiftwork/project-hex`
 
 Finally install all dependencies with:
 
-  $ npm install
+  `$ npm install`
 
 Bellow are a list of NPM scripts that you can run to aid development.
 
 |Command|Description|
 |---|---|
 |`npm start`|Compiles the game and serves a local node against the dev environment|
-|`npm run build:[prod|dev]`|Compiles the game against the targeted environment|
+|`npm run build:[prod/dev]`|Compiles the game against the targeted environment|
 |`npm run deploy`|Runs a bash script to deploy the latest commit to gh-pages|
 |`npm test`|Not yet added|
 
 Now you are ready to build with ❤!
 
 <!--
-##Folder Structure
+## Folder Structure
 This is the general structure with a few files omitted for clarity's sake.
 
   360-vr-player/
@@ -39,13 +39,13 @@ This is the general structure with a few files omitted for clarity's sake.
   │    └─── server.js                Main express server compiled
 -->
 
-##Game Dependencies
+## Player Dependencies
 
 |Plugin|Version|
 |---|---|---|
 |core-js|^2.4.1|
 
-##Development Dependencies
+## Development Dependencies
 
 |Plugin|Version|
 |---|---|---|
