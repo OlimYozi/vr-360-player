@@ -1,22 +1,22 @@
 const Marzipano = require('marzipano');
 
-import Hotspot from './Hotspot';
+export interface ILifeCycle {
+  onCreate();
+  onResume();
+  onResize();
+  onPause();
+  onDestroy();
+}
 
 /**
  * Virtual reality 360 player library
  */
-export default class VR360Player {
-  constructor(dom: HTMLElement) {
+export default class VR360Player implements ILifeCycle {
 
-    const hotspot = new Hotspot(0, 0);
-    hotspot.pitch = 10;
-
-    setTimeout(() => {
-      hotspot.pitch = 200;
-    }, 2000)
+  constructor(public node: HTMLElement) {
 
     // Create viewer.
-    var viewer = new Marzipano.Viewer(dom);
+    var viewer = new Marzipano.Viewer(node);
 
     // Create source.
     var source = Marzipano.ImageUrlSource.fromString(
@@ -40,5 +40,25 @@ export default class VR360Player {
 
     // Display scene.
     scene.switchTo();
+  }
+
+  onCreate() {
+
+  }
+
+  onResume() {
+
+  }
+
+  onResize() {
+
+  }
+
+  onPause() {
+
+  }
+
+  onDestroy() {
+
   }
 }

@@ -33,3 +33,10 @@ interface String {
    */
   capitalize(): string;
 }
+
+interface Window {
+  /*
+   * This method stops window loading.
+   */
+  stop();
+}
