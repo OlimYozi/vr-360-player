@@ -52,15 +52,8 @@ module.exports = function (env) {
           loader: ExtractTextPlugin.extract({ loader: ['css', 'sass'] }),
         },
         {
-          test: /\.(png|jpe?g|svg|woff2?)$/,
+          test: /\.(json|png|jpe?g|svg|woff2?)$/,
           loader: 'file',
-          options: {
-            name: PROD ? 'assets/[hash].[ext]' : 'assets/[name].[ext]',
-          },
-        },
-        {
-          test: /\.babylon$/,
-          loader: 'babylon-file',
           options: {
             name: PROD ? 'assets/[hash].[ext]' : 'assets/[name].[ext]',
           },
@@ -111,6 +104,7 @@ module.exports = function (env) {
           out: path.resolve(process.cwd(), 'docs'),
           tsconfig: 'tsconfig.json',
           exclude: '',
+          excludePrivate: true,
           mode: 'file',
         }, ['./node_modules/@types', './project.d.ts', './src/player']),
       ],

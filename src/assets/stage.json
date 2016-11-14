@@ -1,0 +1,126 @@
+{
+  "scenes": [
+    {
+      "id": "0-livingroom",
+      "name": "livingroom",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        }
+      ],
+      "faceSize": 1024,
+      "initialViewParameters": {
+        "yaw": -0.956990020290096,
+        "pitch": 0.19073870557657457,
+        "fov": 2.054169029464864
+      },
+      "linkHotspots": [
+        {
+          "yaw": -2.4996301372377463,
+          "pitch": 0.02247465151891248,
+          "rotation": 5.497787143782138,
+          "target": "2-kitchen"
+        },
+        {
+          "yaw": 2.609813231764882,
+          "pitch": 0.04549510798771905,
+          "rotation": 4.71238898038469,
+          "target": "1-bedroom"
+        }
+      ],
+      "infoHotspots": [
+        {
+          "yaw": -0.4561130966751321,
+          "pitch": -0.1087112728817754,
+          "title": "This is the view",
+          "text": "The view is amazing"
+        }
+      ]
+    },
+    {
+      "id": "1-bedroom",
+      "name": "bedroom",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        }
+      ],
+      "faceSize": 1024,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.7512806935278071,
+          "pitch": 0.16461600159081158,
+          "rotation": 0,
+          "target": "0-livingroom"
+        }
+      ],
+      "infoHotspots": [
+        {
+          "yaw": -0.9359818606274573,
+          "pitch": 0.44753093780639297,
+          "title": "I love this bed",
+          "text": "Best bed ever"
+        }
+      ]
+    },
+    {
+      "id": "2-kitchen",
+      "name": "kitchen",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        }
+      ],
+      "faceSize": 1024,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [],
+      "infoHotspots": []
+    }
+  ],
+  "name": "VR 360 Player",
+  "settings": {
+    "mouseViewMode": "drag",
+    "autorotateEnabled": false,
+    "fullscreenButton": false,
+    "viewControlButtons": false
+  }
+}

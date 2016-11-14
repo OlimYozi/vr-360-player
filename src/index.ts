@@ -1,8 +1,11 @@
-import VR360Player from './player/VR360Player';
+import CorePlayer from './player/CorePlayer';
 
 import './styles/index.scss';
 
-const player = new VR360Player(<HTMLElement>document.getElementById('vr-360-player'));
+const player = new CorePlayer(
+  <HTMLElement>document.getElementById('vr-360-player'),
+  require('./assets/stage.json')
+);
 
 /* EVENT LISTENERS */
 
