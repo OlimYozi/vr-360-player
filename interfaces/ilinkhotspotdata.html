@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IHotspot | vr-360-player</title>
+	<title>ILinkHotspotData | vr-360-player</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ihotspot.html">IHotspot</a>
+					<a href="ilinkhotspotdata.html">ILinkHotspotData</a>
 				</li>
 			</ul>
-			<h1>Interface IHotspot</h1>
+			<h1>Interface ILinkHotspotData</h1>
 		</div>
 	</div>
 </header>
@@ -68,14 +68,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IHotspot</span>
+						<a href="ihotspotdata.html" class="tsd-signature-type">IHotspotData</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">ILinkHotspotData</span>
+							</li>
+						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/hotspot.html" class="tsd-signature-type">Hotspot</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -85,7 +84,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ihotspot.html#pitch" class="tsd-kind-icon">pitch</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ilinkhotspotdata.html#pitch" class="tsd-kind-icon">pitch</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilinkhotspotdata.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilinkhotspotdata.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ilinkhotspotdata.html#yaw" class="tsd-kind-icon">yaw</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,13 +95,45 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="pitch" class="tsd-anchor"></a>
 					<h3>pitch</h3>
 					<div class="tsd-signature tsd-kind-icon">pitch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="ihotspotdata.html">IHotspotData</a>.<a href="ihotspotdata.html#pitch">pitch</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/bdfbfb4/src/player/Hotspot.ts#L2">Hotspot.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L7">Entities/Hotspot/Hotspot.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rotation" class="tsd-anchor"></a>
+					<h3>rotation</h3>
+					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/LinkHotspot.ts#L11">Entities/Hotspot/LinkHotspot.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="target" class="tsd-anchor"></a>
+					<h3>target</h3>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/LinkHotspot.ts#L10">Entities/Hotspot/LinkHotspot.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="yaw" class="tsd-anchor"></a>
+					<h3>yaw</h3>
+					<div class="tsd-signature tsd-kind-icon">yaw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="ihotspotdata.html">IHotspotData</a>.<a href="ihotspotdata.html#yaw">yaw</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L6">Entities/Hotspot/Hotspot.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -116,25 +150,100 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="../classes/controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/dom.html" class="tsd-kind-icon">DOM</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/deviceorientationservice.html" class="tsd-kind-icon">Device<wbr>Orientation<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/fs.html" class="tsd-kind-icon">FS</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/http.html" class="tsd-kind-icon">HTTP</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/hotspot.html" class="tsd-kind-icon">Hotspot</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/vr360player.html" class="tsd-kind-icon">VR360<wbr>Player</a>
+						<a href="../classes/infohotspot.html" class="tsd-kind-icon">Info<wbr>Hotspot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/level.html" class="tsd-kind-icon">Level</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/linkhotspot.html" class="tsd-kind-icon">Link<wbr>Hotspot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mode.html" class="tsd-kind-icon">Mode</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/scene.html" class="tsd-kind-icon">Scene</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/vector3.html" class="tsd-kind-icon">Vector3</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/wakelockservice.html" class="tsd-kind-icon">Wake<wbr>Lock<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ihotspotdata.html" class="tsd-kind-icon">IHotspot<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="iinfohotspotdata.html" class="tsd-kind-icon">IInfo<wbr>Hotspot<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ileveldata.html" class="tsd-kind-icon">ILevel<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ilifecycle.html" class="tsd-kind-icon">ILife<wbr>Cycle</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ihotspot.html" class="tsd-kind-icon">IHotspot</a>
+						<a href="ilinkhotspotdata.html" class="tsd-kind-icon">ILink<wbr>Hotspot<wbr>Data</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ilinkhotspotdata.html#pitch" class="tsd-kind-icon">pitch</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ihotspot.html#pitch" class="tsd-kind-icon">pitch</a>
+								<a href="ilinkhotspotdata.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ilinkhotspotdata.html#target" class="tsd-kind-icon">target</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ilinkhotspotdata.html#yaw" class="tsd-kind-icon">yaw</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="iscenedata.html" class="tsd-kind-icon">IScene<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="istagejson.html" class="tsd-kind-icon">IStageJSON</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#marzipano" class="tsd-kind-icon">Marzipano</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#icon" class="tsd-kind-icon">icon</a>
 					</li>
 				</ul>
 			</nav>

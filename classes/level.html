@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hotspot | vr-360-player</title>
+	<title>Level | vr-360-player</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,36 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="hotspot.html">Hotspot</a>
+					<a href="level.html">Level</a>
 				</li>
 			</ul>
-			<h1>Class Hotspot</h1>
+			<h1>Class Level</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Hotspot class for adding focus points to the CorePlayer</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Hotspot</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a>
-							</li>
-							<li>
-								<a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a>
-							</li>
-						</ul>
+						<span class="target">Level</span>
 					</li>
 				</ul>
 			</section>
@@ -94,20 +79,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="hotspot.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="level.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="hotspot.html#node" class="tsd-kind-icon">node</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="hotspot.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="level.html#fallbackonly" class="tsd-kind-icon">fallback<wbr>Only</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="level.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="level.html#tilesize" class="tsd-kind-icon">tile<wbr>Size</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hotspot.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="level.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
 					</div>
@@ -119,25 +105,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Hotspot<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a>, _position<span class="tsd-signature-symbol">?: </span><a href="vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Level<span class="tsd-signature-symbol">(</span>_tileSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, _size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, _fallbackOnly<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="level.html" class="tsd-signature-type">Level</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L13">Entities/Hotspot/Hotspot.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L7">Entities/Level.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>_player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _tileSize: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _position: <a href="vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _size: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _fallbackOnly: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="hotspot.html" class="tsd-signature-type">Hotspot</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="level.html" class="tsd-signature-type">Level</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -145,31 +134,31 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="node" class="tsd-anchor"></a>
-					<h3>node</h3>
+					<a name="fallbackonly" class="tsd-anchor"></a>
+					<h3>fallback<wbr>Only</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> node<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SVGSVGElement</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> node<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SVGSVGElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> fallbackOnly<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> fallbackOnly<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L22">Entities/Hotspot/Hotspot.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L39">Entities/Level.ts:39</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">SVGSVGElement</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L26">Entities/Hotspot/Hotspot.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L43">Entities/Level.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">SVGSVGElement</span></h5>
+									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -177,41 +166,63 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="position" class="tsd-anchor"></a>
-					<h3>position</h3>
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> position<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector3.html" class="tsd-signature-type">Vector3</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> position<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><a href="vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> size<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L36">Entities/Hotspot/Hotspot.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L31">Entities/Level.ts:31</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Retrieve the hotspot&#39;s position</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="vector3.html" class="tsd-signature-type">Vector3</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L31">Entities/Hotspot/Hotspot.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L35">Entities/Level.ts:35</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Change the hotspot&#39;s position and update the dom node</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>position: <a href="vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="tilesize" class="tsd-anchor"></a>
+					<h3>tile<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> tileSize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> tileSize<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L23">Entities/Level.ts:23</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L27">Entities/Level.ts:27</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -225,25 +236,22 @@
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a>, json<span class="tsd-signature-symbol">: </span><a href="../interfaces/ihotspotdata.html" class="tsd-signature-type">IHotspotData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
+						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><a href="../interfaces/ileveldata.html" class="tsd-signature-type">ILevelData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="level.html" class="tsd-signature-type">Level</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Hotspot/Hotspot.ts#L40">Entities/Hotspot/Hotspot.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Level.ts#L51">Entities/Level.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
-								</li>
-								<li>
-									<h5>json: <a href="../interfaces/ihotspotdata.html" class="tsd-signature-type">IHotspotData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<h5>json: <a href="../interfaces/ileveldata.html" class="tsd-signature-type">ILevelData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="hotspot.html" class="tsd-signature-type">Hotspot</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="level.html" class="tsd-signature-type">Level</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -277,33 +285,36 @@
 					<li class=" tsd-kind-class">
 						<a href="http.html" class="tsd-kind-icon">HTTP</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="hotspot.html" class="tsd-kind-icon">Hotspot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="infohotspot.html" class="tsd-kind-icon">Info<wbr>Hotspot</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="hotspot.html" class="tsd-kind-icon">Hotspot</a>
+						<a href="level.html" class="tsd-kind-icon">Level</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="hotspot.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="level.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="hotspot.html#node" class="tsd-kind-icon">node</a>
+								<a href="level.html#fallbackonly" class="tsd-kind-icon">fallback<wbr>Only</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="hotspot.html#position" class="tsd-kind-icon">position</a>
+								<a href="level.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="level.html#tilesize" class="tsd-kind-icon">tile<wbr>Size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="hotspot.html#fromjson" class="tsd-kind-icon">fromJSON</a>
+								<a href="level.html#fromjson" class="tsd-kind-icon">fromJSON</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="infohotspot.html" class="tsd-kind-icon">Info<wbr>Hotspot</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="level.html" class="tsd-kind-icon">Level</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="linkhotspot.html" class="tsd-kind-icon">Link<wbr>Hotspot</a>
 					</li>
