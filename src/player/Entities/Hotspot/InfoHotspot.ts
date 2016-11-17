@@ -1,21 +1,29 @@
+import CorePlayer from '../../CorePlayer';
 import Vector3 from '../../Math/Vector3';
-import Hotspot, { IHotspot } from './Hotspot';
+import Hotspot, { IHotspotData } from './Hotspot';
+import DOM from '../../Utils/DOM';
 
-export interface IInfoHotspot extends IHotspot {
+/* ASSETS */
+const icon = require('!raw!../../../assets/icons/icon_hotspot.svg');
+
+export interface IInfoHotspotData extends IHotspotData {
   title: string;
   text: string;
 }
 
-export default class InfoHotspot extends Hotspot implements IInfoHotspot {
+export default class InfoHotspot extends Hotspot {
 
   constructor(
-    position: Vector3,
-    private _title: string,
+    _player: CorePlayer,
+    _position?: Vector3,
+    private _title?: string,
     private _text?: string
   ) {
-    super(position);
+    super(_player, _position);
     this.title = _title || '';
     this.text = _text || '';
+    this.node = <SVGSVGElement>DOM.createNode(icon);
+    this.node.classList.add('hotspot');
   }
 
   //------------------------------------------------------------------------------------
@@ -43,13 +51,13 @@ export default class InfoHotspot extends Hotspot implements IInfoHotspot {
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
-  static fromJSON(json: IInfoHotspot | string): InfoHotspot {
+  static fromJSON(player: CorePlayer, json: IInfoHotspotData | string): InfoHotspot {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
-        return !key ? InfoHotspot.fromJSON(value) : value;
+        return !key ? InfoHotspot.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(Object.create(InfoHotspot.prototype), json, {
+      return Object.assign(new InfoHotspot(player), super.fromJSON(player, json), {
         // Special Cases Object.fromJSON(json.object);
       });
     }

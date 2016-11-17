@@ -1,9 +1,3 @@
-export interface IVector3 {
-  x: number;
-  y: number;
-  z: number;
-}
-
 export default class Vector3 {
 
   constructor(
@@ -200,6 +194,10 @@ export default class Vector3 {
     return this._z;
   }
 
+  get fov(): number {
+    return this._z;
+  }
+
   set yaw(x: number) {
     this._x = x;
   }
@@ -209,6 +207,10 @@ export default class Vector3 {
   }
 
   set roll(z: number) {
+    this._z = z;
+  }
+
+  set fov(z: number) {
     this._z = z;
   }
 
@@ -238,21 +240,5 @@ export default class Vector3 {
 
   set b(z: number) {
     this._z = z;
-  }
-
-  //------------------------------------------------------------------------------------
-  // SERIALIZE
-  //------------------------------------------------------------------------------------
-
-  static fromJSON(json: IVector3 | string): Vector3 {
-    if (typeof json === 'string') {
-      return JSON.parse(json, (key: string, value: any) => {
-        return !key ? Vector3.fromJSON(value) : value;
-      });
-    } else {
-      return Object.assign(Object.create(Vector3.prototype), json, {
-        // Special Cases Object.fromJSON(json.object);
-      });
-    }
   }
 }

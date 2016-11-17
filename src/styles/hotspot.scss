@@ -1,0 +1,15 @@
+.hotspot {
+  width: 64px;
+  height: 64px;
+  
+  #gaze-ring {
+    stroke-dasharray: calc(464px * 3.142);
+    stroke-dashoffset: calc(464px * 3.142);
+    transition: stroke-dashoffset 500ms;
+  }
+
+  &.active #gaze-ring {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1600ms linear;
+  }
+}

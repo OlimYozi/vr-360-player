@@ -1,27 +1,37 @@
+import CorePlayer from '../../CorePlayer';
 import Vector3 from '../../Math/Vector3';
-import Hotspot, { IHotspot } from './Hotspot';
+import Hotspot, { IHotspotData } from './Hotspot';
+import DOM from '../../Utils/DOM';
 
-export interface ILinkHotspot extends IHotspot {
+/* ASSETS */
+const icon = require('!raw!../../../assets/icons/icon_hotspot.svg');
+
+export interface ILinkHotspotData extends IHotspotData {
   target: string;
   rotation: number;
 }
 
-export default class LinkHotspot extends Hotspot implements ILinkHotspot {
+export default class LinkHotspot extends Hotspot {
 
   constructor(
-    position: Vector3,
-    private _target: string,
+    _player: CorePlayer,
+    _position?: Vector3,
+    private _target?: string,
     private _rotation?: number
   ) {
-    super(position);
+    super(_player, _position);
     this.target = _target || '';
     this.rotation = _rotation || 0;
+    this.node = <SVGSVGElement>DOM.createNode(icon);
+    this.node.classList.add('hotspot');
+    this.node.addEventListener('click', (event: MouseEvent) => {
+      _player.sceneManager.switchScene(this.target);
+    })
   }
 
   //------------------------------------------------------------------------------------
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
-
 
   public get target(): string {
     return this._target;
@@ -43,13 +53,13 @@ export default class LinkHotspot extends Hotspot implements ILinkHotspot {
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
-  static fromJSON(json: ILinkHotspot | string): LinkHotspot {
+  static fromJSON(player: CorePlayer, json: ILinkHotspotData | string): LinkHotspot {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
-        return !key ? LinkHotspot.fromJSON(value) : value;
+        return !key ? LinkHotspot.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(Object.create(LinkHotspot.prototype), json, {
+      return Object.assign(new LinkHotspot(player), super.fromJSON(player, json), {
         // Special Cases Object.fromJSON(json.object);
       });
     }

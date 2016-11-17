@@ -112,7 +112,14 @@
         "yaw": 0,
         "fov": 1.5707963267948966
       },
-      "linkHotspots": [],
+      "linkHotspots": [
+        {
+          "yaw": -0.4561130966751321,
+          "pitch": -0.1087112728817754,
+          "target": "0-livingroom",
+          "rotation": 0
+        }
+      ],
       "infoHotspots": []
     }
   ],

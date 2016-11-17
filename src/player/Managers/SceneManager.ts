@@ -1,8 +1,9 @@
 import HTTP from '../Utils/HTTP';
-import Scene, { IScene } from '../Entities/Scene';
+import Scene, { ISceneData } from '../Entities/Scene';
+import CorePlayer, { ILifeCycle } from '../CorePlayer';
 
 export interface IStageJSON {
-  scenes: Scene[];
+  scenes: ISceneData[];
   name: string;
   settings: {
     autorotateEnabled: boolean,
@@ -14,16 +15,18 @@ export default class SceneManager {
   private _scenes = new Map<string, Scene>();
   private _autoRotate = false;
   private _current: Scene;
+  private _events = [];
 
-  constructor() {
+  constructor(public player: CorePlayer) {
   }
 
   public load(json: string) {
     let data = <IStageJSON>JSON.parse(json);
-    data.scenes.forEach((scene: IScene) => {
-      this.addScene(scene.id, Scene.fromJSON(scene));
+    data.scenes.forEach((sceneJSON: ISceneData) => {
+      let scene = Scene.fromJSON(this.player, sceneJSON);
+      scene.onCreate();
+      this.addScene(sceneJSON.id, scene);
     });
-    this.current = this.getScene(data.scenes[0].id);
     this.autoRotate = data.settings.autorotateEnabled;
   }
 
@@ -45,6 +48,57 @@ export default class SceneManager {
   public getScene(id: string): Scene {
     return this.scenes.get(id);
   }
+
+  public switchScene(id: string, done?: () => void) {
+    if (this.current) {
+      if (done && this.current.id === id) return done();
+
+      this.current.onDetatch(() => {
+        this.emit('sceneDetached', this.current);
+
+        this.current = this.scenes.get(id);
+        this.current.onAttach();
+        this.emit('sceneAttached', this.current);
+
+        if (done) return done();
+      });
+
+    } else {
+      this.current = this.scenes.get(id);
+      this.current.onAttach();
+      this.emit('sceneAttached', this.current);
+
+      if (done) return done();
+    }
+  }
+
+  /** Add a new EventListener */
+  public addEventListener(event: string, fn: (event?: string, data?: any) => void) {
+    var handlerList = this._events[event] = this._events[event] || [];
+    handlerList.push(fn);
+  };
+
+  /** Remove an added EventListener */
+  public removeEventListener(event: string, fn: (event?: string, data?: any) => void) {
+    var handlerList = this._events[event];
+    if (handlerList) {
+      var index = handlerList.indexOf(fn);
+      if (index >= 0) {
+        handlerList.splice(index, 1);
+      }
+    }
+  };
+
+  /** Emit a new event */
+  public emit(event: string, data: any) {
+    var handlerList = this._events[event];
+    if (handlerList) {
+      for (var i = 0; i < handlerList.length; i++) {
+        var fn = handlerList[i];
+        fn.apply(this, [event, data]);
+      }
+    }
+  };
 
   //------------------------------------------------------------------------------------
   // GETTERS & SETTERS

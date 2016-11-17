@@ -2,6 +2,30 @@
 // EXTEND BASICS
 //------------------------------------------------------------------------------------
 
+interface Window {
+  /** This method stops window loading. */
+  stop();
+
+  /** Provides web developers with information from the physical orientation of the device. */
+  DeviceOrientationEvent();
+}
+
+interface Document {
+  /** This method exits fullscreen mode. */
+  exitFullscreen();
+  /** This method exits fullscreen mode in Mozilla Firefox. */
+  mozCancelFullScreen();
+  /** This method exits fullscreen mode in Google Chrome and Safari. */
+  webkitExitFullscreen();
+  /** This method exits fullscreen mode in Internet Explorer. */
+  msExitFullscreen();
+}
+
+interface Screen {
+  /** Locks the device screen to a specified orientation. */
+  lockOrientation(orientation: string): void;
+}
+
 interface Math {
   /**
    * Returns a random value between a given maximum and minimum.
@@ -28,22 +52,6 @@ interface Math {
 }
 
 interface String {
-  /**
-   * Capitalizes the first letter of the string.
-   */
+  /** Capitalizes the first letter of the string. */
   capitalize(): string;
-}
-
-interface Window {
-  /**
-   * This method stops window loading.
-   */
-  stop();
-}
-
-interface Screen {
-  /**
-   * If available contains the device orientation object
-   */
-  orientation: any;
 }

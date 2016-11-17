@@ -1,0 +1,19 @@
+.controls {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 2rem;
+  bottom: 1rem;
+
+  > * {
+    display: inline-block;
+    margin-left: 2rem;
+    width: 4rem;
+    height: 4rem;
+
+    &.icon_vr { background-image: url('../assets/icons/icon_vr.svg') }
+    &.icon_panorama { background-image: url('../assets/icons/icon_panorama.svg') }
+    &.icon_eye_left { background-image: url('../assets/icons/icon_eye_left.svg') }
+    &.icon_eye_right { background-image: url('../assets/icons/icon_eye_right.svg') }
+  }
+}

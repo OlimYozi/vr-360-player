@@ -13,7 +13,11 @@ html
 
     #vr-360-player
 
-    //#{require("!raw!./assets/icons/icon_crosshair.svg")}
+    menu.controls
+      a#eye-toggler.icon_eye_left(style="display: none")
+      a#mode-toggler.icon_vr
+
+    i#crosshair
     
     script(src="vendor.js")
     script(src="index.js")
