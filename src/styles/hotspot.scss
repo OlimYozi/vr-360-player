@@ -1,6 +1,7 @@
 .hotspot {
   width: 64px;
   height: 64px;
+  margin: -32px 0 0 -32px;
   
   #gaze-ring {
     stroke-dasharray: calc(464px * 3.142);

@@ -1,10 +1,12 @@
 #crosshair {
   position: absolute;
+  display: none;
   top: 50%;
   left: 25%;
   margin: -32px 0 0 -32px;
   width: 64px;
   height: 64px;
+  pointer-events: none;
   
   background-image: url('../assets/icons/icon_crosshair.svg');
 }

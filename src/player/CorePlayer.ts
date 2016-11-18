@@ -84,9 +84,11 @@ export default class CorePlayer implements ILifeCycle {
     } else {
       this._mode = this._panoramaMode;
     }
-    this.sceneManager.current.onAttach();
-    this.sceneManager.emit('sceneAttached', this.sceneManager.current);
     this.mode.onCreate();
+
+    // Detach and re-attach scene
+    this.sceneManager.switchScene(this.sceneManager.current.id);
+
     return this.mode;
   }
 

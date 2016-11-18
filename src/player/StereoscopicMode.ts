@@ -15,7 +15,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   private _deviceOrientationService: DeviceOrientationService;
 
   /* SETTINGS */
-  private _dominantEye: 'left' | 'right' = 'right';
+  private _dominantEye: 'left' | 'right' = 'left';
 
   /* SCENE */
   private _scene: Scene;
@@ -82,6 +82,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
 
   public toggleEye(): 'left' | 'right' {
     this._dominantEye = this._dominantEye === 'left' ? 'right' : 'left';
+    this._scene.setEye(this._dominantEye);
     return this._dominantEye;
   }
 
@@ -118,4 +119,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
+  public get dominantEye(): 'left' | 'right' {
+    return this._dominantEye;
+  }
 }

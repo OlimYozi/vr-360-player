@@ -51,8 +51,6 @@ export default class SceneManager {
 
   public switchScene(id: string, done?: () => void) {
     if (this.current) {
-      if (done && this.current.id === id) return done();
-
       this.current.onDetatch(() => {
         this.emit('sceneDetached', this.current);
 

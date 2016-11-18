@@ -75,17 +75,16 @@ export default class Scene implements ILifeCycle {
 
   onAttach() {
     const stage = this._player.viewer.stage();
-    if (!stage.hasLayer(this._layers[0]))
-      stage.addLayer(this._layers[0]);
+    stage.addLayer(this._layers[0]);
 
     if (this._player.mode instanceof PanoramaMode) {
       this._layers[0].setEffects({ rect: { relativeWidth: 1 } });
+      this.setEye('left');
     } else {
       this._layers[0].setEffects({ rect: { relativeWidth: 0.5 } });
-      if (!stage.hasLayer(this._layers[1]))
-        stage.addLayer(this._layers[1]);
+      stage.addLayer(this._layers[1]);
+      this.setEye((<StereoscopicMode>this._player.mode).dominantEye);
     }
-    this._hotspotContainer._updatePositionAndSize();
     this._hotspotContainer.show();
   }
 
@@ -141,6 +140,15 @@ export default class Scene implements ILifeCycle {
       { effects: { rect: rect } }
     ));
     this._layers[index].pinFirstLevel();
+  }
+
+  public setEye(eye: 'left' | 'right') {
+    if (eye === 'left') {
+      this._hotspotContainer.setRect(this._layers[0].effects().rect);
+    } else {
+      this._hotspotContainer.setRect(this._layers[1].effects().rect);
+    }
+    this._hotspotContainer._update();
   }
 
   //------------------------------------------------------------------------------------
