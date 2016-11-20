@@ -12,7 +12,6 @@ import DeviceOrientationService from './Services/DeviceOrientationService';
 export default class StereoscopicMode extends Mode implements ILifeCycle {
 
   private _wakeLockService: WakeLockService;
-  private _deviceOrientationService: DeviceOrientationService;
 
   /* SETTINGS */
   private _dominantEye: 'left' | 'right' = 'left';
@@ -23,36 +22,35 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   private _center = new Vector3();
   private _navigationTimeout;
 
-  constructor(public player: CorePlayer) {
-    super(player);
+  constructor(_player: CorePlayer) {
+    super(_player);
   }
 
   onCreate() {
     super.onCreate();
     this._wakeLockService = new WakeLockService();
-    this._deviceOrientationService = new DeviceOrientationService();
 
     // Request fullscreen on launch
-    this.player.requestFullscreen();
+    this._player.requestFullscreen();
 
     // Lock the screen orientation.
-    if (screen.lockOrientation) {
-      screen.lockOrientation('landscape');
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape').then(null, (error) => {
+        // Catch promise error to avoid console error print.
+      });
     }
+
     // Prevent display from sleeping on mobile devices.
     this._wakeLockService.enable();
 
-    // Insert stage into the DOM
-    this.player.controls.registerMethod('deviceOrientation', this._deviceOrientationService);
-    this.player.controls.enableMethod('deviceOrientation');
     this.onResize();
 
     // Bind methods to this context
     this.onSceneChange = this.onSceneChange.bind(this);
     this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
 
-    this.player.sceneManager.addEventListener('sceneAttached', this.onSceneChange);
-    this._deviceOrientationService.addEventListener('parameterDynamics', this.onDeviceOrientation);
+    this._player.sceneManager.addEventListener('sceneAttached', this.onSceneChange);
+    this.deviceOrientationService.addEventListener('parameterDynamics', this.onDeviceOrientation);
 
     return true;
   }
@@ -72,7 +70,11 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   }
 
   onDestroy() {
-    this.player.controls.unregisterMethod('deviceOrientation');
+    this._player.sceneManager.removeEventListener('sceneAttached', this.onSceneChange);
+    this.deviceOrientationService.removeEventListener('parameterDynamics', this.onDeviceOrientation);
+
+    this._wakeLockService.onDestroy();
+    this._wakeLockService = null;
     super.onDestroy();
   }
 
@@ -90,8 +92,8 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     if (!this._scene)
       return;
 
-    this._center.yaw = this._scene.view.yaw();
-    this._center.pitch = this._scene.view.pitch();
+    this._center.yaw = this._player.sceneManager.current.view.yaw();
+    this._center.pitch = this._player.sceneManager.current.view.pitch();
 
     this._hotspots.forEach((hotspot: Hotspot) => {
       if (hotspot.position.distance(this._center) < 0.2) {
@@ -99,7 +101,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
           hotspot.node.classList.add('active');
           this._navigationTimeout = setTimeout(() => {
             if (hotspot['target'])
-              this.player.sceneManager.switchScene(hotspot['target']);
+              this._player.sceneManager.switchScene(hotspot['target']);
           }, 1600);
         }
       } else {

@@ -19,6 +19,10 @@ export default class WakeLockService {
     }
   }
 
+  onDestroy() {
+    this.disable();
+  }
+
   private android() {
     var video = document.createElement('video');
     video.addEventListener('ended', function () {

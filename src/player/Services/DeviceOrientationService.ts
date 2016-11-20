@@ -48,6 +48,9 @@ export default class DeviceOrientationService {
   }
 
   private onDeviceOrientation(event: DeviceOrientationEvent) {
+    if (event.alpha === null || event.beta === null || event.gamma === null)
+      return;
+
     const previous = this._previous;
     const current = this._current;
     const tmp = this._tmp;

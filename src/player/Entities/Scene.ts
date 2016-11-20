@@ -20,8 +20,12 @@ export interface ISceneData {
 
 export default class Scene implements ILifeCycle {
 
-  //static LIMITER = Marzipano.RectilinearView.limit.traditional(4096, 100 * Math.PI / 180);
-  static LIMITER = Marzipano.util.compose(
+  static PANORAMA_LIMITER = Marzipano.util.compose(
+    Marzipano.RectilinearView.limit.vfov(110 * Math.PI / 180, 110 * Math.PI / 180),
+    Marzipano.RectilinearView.limit.hfov(110 * Math.PI / 180, 110 * Math.PI / 180),
+    Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2));
+
+  static STEREOSCOPIC_LIMITER = Marzipano.util.compose(
     Marzipano.RectilinearView.limit.vfov(90 * Math.PI / 180, 90 * Math.PI / 180),
     Marzipano.RectilinearView.limit.hfov(90 * Math.PI / 180, 90 * Math.PI / 180),
     Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2));
@@ -33,6 +37,7 @@ export default class Scene implements ILifeCycle {
   private _initialViewParameters: Vector3;
   private _linkHotspots: LinkHotspot[];
   private _infoHotspots: InfoHotspot[];
+
 
   private _geometry: any;
   private _view: any;
@@ -51,7 +56,7 @@ export default class Scene implements ILifeCycle {
 
   onCreate(): boolean {
     this._geometry = new Marzipano.CubeGeometry(this.levels);
-    this._view = new Marzipano.RectilinearView(null, Scene.LIMITER);
+    this._view = new Marzipano.RectilinearView(this._initialViewParameters, Scene.PANORAMA_LIMITER);
 
     this.createLayer(this._player.viewer.stage(), 'left', { relativeWidth: 0.5, relativeX: 0 });
     this.createLayer(this._player.viewer.stage(), 'right', { relativeWidth: 0.5, relativeX: 0.5 });
@@ -78,13 +83,16 @@ export default class Scene implements ILifeCycle {
     stage.addLayer(this._layers[0]);
 
     if (this._player.mode instanceof PanoramaMode) {
+      this._view.setLimiter(Scene.PANORAMA_LIMITER);
       this._layers[0].setEffects({ rect: { relativeWidth: 1 } });
       this.setEye('left');
     } else {
+      this._view.setLimiter(Scene.STEREOSCOPIC_LIMITER);
       this._layers[0].setEffects({ rect: { relativeWidth: 0.5 } });
       stage.addLayer(this._layers[1]);
       this.setEye((<StereoscopicMode>this._player.mode).dominantEye);
     }
+
     this._hotspotContainer.show();
   }
 
@@ -109,8 +117,8 @@ export default class Scene implements ILifeCycle {
   }
 
   onDestroy() {
+    this._view.destroy();
     for (var i = 0; i < this._layers.length; i++) {
-      this._view.destroy();
       this._textureStores[i].destroy();
       this._layers[i].destroy();
       this._hotspotContainer.destroy();
@@ -211,15 +219,9 @@ export default class Scene implements ILifeCycle {
     this._infoHotspots = value;
   }
 
-
   public get view(): any {
     return this._view;
   }
-
-  public set view(value: any) {
-    this._view = value;
-  }
-
 
   //------------------------------------------------------------------------------------
   // SERIALIZE

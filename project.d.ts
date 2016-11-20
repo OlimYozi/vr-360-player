@@ -22,8 +22,12 @@ interface Document {
 }
 
 interface Screen {
-  /** Locks the device screen to a specified orientation. */
-  lockOrientation(orientation: string): void;
+  /** Orientation object for device sensor. */
+  orientation: {
+
+    /** Locks the device screen to a specified orientation. */
+    lock(orientation: string): Promise<void>;
+  }
 }
 
 interface Math {
