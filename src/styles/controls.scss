@@ -2,15 +2,26 @@
   position: absolute;
   margin: 0;
   padding: 0;
-  right: 2rem;
-  bottom: 1rem;
+  right: 1rem;
+  bottom: 0.5rem;
+
+  @media (min-width: 996px) {
+    right: 2rem;
+    bottom: 1rem;
+  }
 
   > * {
     display: inline-block;
-    margin-left: 2rem;
-    width: 4rem;
-    height: 4rem;
+    margin-left: 1.5rem;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
+
+    @media (min-width: 996px) {
+      margin-left: 2rem;
+      width: 4rem;
+      height: 4rem;
+    }
 
     &.icon_vr { background-image: url('../assets/icons/icon_vr.svg') }
     &.icon_panorama { background-image: url('../assets/icons/icon_panorama.svg') }

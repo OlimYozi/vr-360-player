@@ -88,7 +88,8 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     return this._dominantEye;
   }
 
-  private onDeviceOrientation() {
+  protected onDeviceOrientation() {
+    super.onDeviceOrientation();
     if (!this._scene)
       return;
 
