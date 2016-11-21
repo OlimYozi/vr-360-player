@@ -1,3 +1,4 @@
+/*
 .hotspot {
   width: 64px;
   height: 64px;
@@ -12,5 +13,83 @@
   &.active #gaze-ring {
     stroke-dashoffset: 0;
     transition: stroke-dashoffset 1600ms linear;
+  }
+}
+*/
+
+.hotspot {
+  display: block;
+  margin: -24px 0 0 -24px;
+  padding-top: 4px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  color: #fff;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  user-select: none;
+  box-shadow: inset 0 0 0 0 rgba(255,255,255,0.5);
+  cursor: pointer;
+  box-sizing: border-box;
+
+  @media (min-width: 996px) {
+    margin: -32px 0 0 -32px;
+    padding-top: 12px;
+    width: 64px;
+    height: 64px;
+  }
+
+  i {
+    display: inline-block;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 32px;
+
+    @media (min-width: 996px) {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+
+  &.info {
+    transition-property: border-radius, width, height, color, background;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+
+    h3, p {
+      margin: 8px 0;
+      opacity: 0;
+      transition: opacity 200ms linear;
+    }
+
+    &.active, &:hover {
+      width: 200px;
+      height: 140px;
+      color: #202020;
+      background: #fff;
+      border-radius: 6px;
+
+      transition-duration: 100ms, 300ms, 300ms, 100ms;
+      transition-delay: 0ms, 100ms, 300ms;
+
+      h3, p {
+        opacity: 1;
+        transition-delay: 700ms;
+      }
+    }
+  }
+
+  &.link {
+    transition: box-shadow 300ms linear;
+
+    &.active {
+      box-shadow: inset 0 0 0 32px rgba(255,255,255,0.5);
+      transition: box-shadow 1500ms linear;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 32px rgba(255,255,255,0.5);
+      transition: box-shadow 200ms linear;
+    }
   }
 }

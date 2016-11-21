@@ -97,13 +97,13 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     this._center.pitch = this._player.sceneManager.current.view.pitch();
 
     this._hotspots.forEach((hotspot: Hotspot) => {
-      if (hotspot.position.distance(this._center) < 0.2) {
+      if (hotspot.position.distance(this._center) < 0.15) {
         if (!hotspot.node.classList.contains('active')) {
           hotspot.node.classList.add('active');
           this._navigationTimeout = setTimeout(() => {
             if (hotspot['target'])
               this._player.sceneManager.switchScene(hotspot['target']);
-          }, 1600);
+          }, 1500);
         }
       } else {
         if (hotspot.node.classList.contains('active'))

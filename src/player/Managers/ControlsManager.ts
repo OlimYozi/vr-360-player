@@ -54,11 +54,11 @@ export default class ControlsManager implements ILifeCycle {
 
   public setSensorToggleState(active: boolean) {
     if (active) {
-      this._sensorToggle.classList.remove('icon_orientation_drag');
-      this._sensorToggle.classList.add('icon_orientation_sensor');
-    } else {
       this._sensorToggle.classList.remove('icon_orientation_sensor');
       this._sensorToggle.classList.add('icon_orientation_drag');
+    } else {
+      this._sensorToggle.classList.remove('icon_orientation_drag');
+      this._sensorToggle.classList.add('icon_orientation_sensor');
     }
   }
 

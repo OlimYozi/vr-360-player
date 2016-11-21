@@ -13,17 +13,34 @@ export interface IInfoHotspotData extends IHotspotData {
 
 export default class InfoHotspot extends Hotspot {
 
+  private _title: string;
+  private _text: string;
+
   constructor(
     _player: CorePlayer,
     _position?: Vector3,
-    private _title?: string,
-    private _text?: string
+    _title?: string,
+    _text?: string
   ) {
     super(_player, _position);
-    this.title = _title || '';
-    this.text = _text || '';
-    this.node = <SVGSVGElement>DOM.createNode(icon);
-    this.node.classList.add('hotspot');
+    this.title = _title || this.title || '';
+    this.text = _text || this.text || '';
+
+    //this.node = <HTMLElement>DOM.createNode(icon);
+    this.node.classList.add('info');
+
+    const icon = document.createElement('i');
+    icon.innerHTML = '&#x2139;';
+
+    const title = document.createElement('h3');
+    title.innerHTML = this.title;
+
+    const text = document.createElement('p');
+    text.innerHTML = this.text;
+
+    this.node.appendChild(icon);
+    this.node.appendChild(title);
+    this.node.appendChild(text);
   }
 
   //------------------------------------------------------------------------------------
@@ -57,9 +74,11 @@ export default class InfoHotspot extends Hotspot {
         return !key ? InfoHotspot.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(new InfoHotspot(player), super.fromJSON(player, json), {
+      const hotspot = Object.assign(Object.create(InfoHotspot.prototype), super.fromJSON(player, json), {
         // Special Cases Object.fromJSON(json.object);
       });
+      InfoHotspot.apply(hotspot);
+      return hotspot;
     }
   }
 }

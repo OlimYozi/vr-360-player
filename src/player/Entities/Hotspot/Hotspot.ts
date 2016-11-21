@@ -1,3 +1,5 @@
+const Marzipano = require('marzipano');
+
 import Vector3 from '../../Math/Vector3';
 import CorePlayer from '../../CorePlayer';
 
@@ -10,20 +12,32 @@ export interface IHotspotData {
 /** Hotspot class for adding focus points to the CorePlayer */
 export default class Hotspot {
 
-  private _node: SVGSVGElement;
+  protected _player: CorePlayer;
+  protected _position: Vector3;
+  protected _node: HTMLElement;
 
   constructor(
-    private _player: CorePlayer,
-    private _position?: Vector3
+    _player?: CorePlayer,
+    _position?: Vector3
   ) {
-    this.position = _position || new Vector3();
+    this._player = _player || this._player || null;
+    this.position = _position || this._position || new Vector3();
+    this.node = document.createElement('div');
+    this.node.classList.add('hotspot');
+
+    const eventList = ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'];
+    eventList.forEach((event: string) => {
+      this.node.addEventListener(event, function (event) {
+        event.stopPropagation();
+      });
+    })
   }
 
-  public get node(): SVGSVGElement {
+  public get node(): HTMLElement {
     return this._node;
   }
 
-  public set node(value: SVGSVGElement) {
+  public set node(value: HTMLElement) {
     this._node = value;
   }
 
@@ -43,9 +57,12 @@ export default class Hotspot {
         return !key ? Hotspot.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(new Hotspot(player), json, {
+      const hotspot = Object.assign(Object.create(Hotspot.prototype), json, {
+        _player: player,
         position: new Vector3(json.yaw, json.pitch),
       });
+      Hotspot.apply(hotspot);
+      return hotspot;
     }
   }
 }

@@ -2,6 +2,7 @@ import CorePlayer from '../../CorePlayer';
 import Vector3 from '../../Math/Vector3';
 import Hotspot, { IHotspotData } from './Hotspot';
 import DOM from '../../Utils/DOM';
+import CSS from '../../Utils/CSS';
 
 /* ASSETS */
 const icon = require('!raw!../../../assets/icons/icon_hotspot.svg');
@@ -13,19 +14,29 @@ export interface ILinkHotspotData extends IHotspotData {
 
 export default class LinkHotspot extends Hotspot {
 
+  private _target: string;
+  private _rotation: number;
+
   constructor(
     _player: CorePlayer,
     _position?: Vector3,
-    private _target?: string,
-    private _rotation?: number
+    _target?: string,
+    _rotation?: number
   ) {
     super(_player, _position);
-    this.target = _target || '';
-    this.rotation = _rotation || 0;
-    this.node = <SVGSVGElement>DOM.createNode(icon);
-    this.node.classList.add('hotspot');
+    this.target = _target || this.target || '';
+    this.rotation = _rotation || this.rotation || 0;
+
+    //this.node = <HTMLElement>DOM.createNode(icon);
+    this.node.classList.add('link');
+
+    const icon = document.createElement('i');
+    icon.innerHTML = '&#10140;';
+    CSS.SetRules(icon, { transform: `rotate(${this.rotation - (Math.PI / 2)}rad)` });
+
+    this.node.appendChild(icon);
     this.node.addEventListener('click', (event: MouseEvent) => {
-      _player.sceneManager.switchScene(this.target);
+      this._player.sceneManager.switchScene(this.target);
     })
   }
 
@@ -59,9 +70,11 @@ export default class LinkHotspot extends Hotspot {
         return !key ? LinkHotspot.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(new LinkHotspot(player), super.fromJSON(player, json), {
+      const hotspot = Object.assign(Object.create(LinkHotspot.prototype), super.fromJSON(player, json), {
         // Special Cases Object.fromJSON(json.object);
       });
+      LinkHotspot.apply(hotspot);
+      return hotspot;
     }
   }
 }

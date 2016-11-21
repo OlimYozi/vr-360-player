@@ -1,3 +1,4 @@
+/*
 #crosshair {
   position: absolute;
   display: none;
@@ -9,4 +10,18 @@
   pointer-events: none;
   
   background-image: url('../assets/icons/icon_crosshair.svg');
+}
+*/
+
+#crosshair {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 25%;
+  margin: -4px 0 0 -4px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  pointer-events: none;
+  border-radius: 50%;
 }

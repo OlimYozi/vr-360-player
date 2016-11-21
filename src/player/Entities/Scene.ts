@@ -1,6 +1,7 @@
 const Marzipano = require('marzipano');
 
 import CorePlayer, { ILifeCycle } from '../CorePlayer';
+import CSS from '../Utils/CSS';
 import PanoramaMode from '../PanoramaMode';
 import StereoscopicMode from '../StereoscopicMode';
 import Vector3 from '../Math/Vector3';
@@ -221,6 +222,10 @@ export default class Scene implements ILifeCycle {
 
   public get view(): any {
     return this._view;
+  }
+
+  public get layers(): any[] {
+    return this._layers;
   }
 
   //------------------------------------------------------------------------------------

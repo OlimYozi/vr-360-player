@@ -40,7 +40,7 @@
       ],
       "infoHotspots": [
         {
-          "yaw": -0.4561130966751321,
+          "yaw": 0.1561130966751321,
           "pitch": -0.1087112728817754,
           "title": "This is the view",
           "text": "The view is amazing"
@@ -73,18 +73,18 @@
       },
       "linkHotspots": [
         {
-          "yaw": -1.7512806935278071,
-          "pitch": 0.16461600159081158,
+          "yaw": -1.1512806935278071,
+          "pitch": 0.35461600159081158,
           "rotation": 0,
           "target": "0-livingroom"
         }
       ],
       "infoHotspots": [
         {
-          "yaw": -0.9359818606274573,
-          "pitch": 0.44753093780639297,
+          "yaw": 0,
+          "pitch": 0.34753093780639297,
           "title": "I love this bed",
-          "text": "Best bed ever"
+          "text": "Best bed ever. It's soooo soft and comfortable!"
         }
       ]
     },
@@ -114,10 +114,10 @@
       },
       "linkHotspots": [
         {
-          "yaw": -0.4561130966751321,
-          "pitch": -0.1087112728817754,
+          "yaw": 0.6061130966751321,
+          "pitch": 0.4587112728817754,
           "target": "0-livingroom",
-          "rotation": 0
+          "rotation": -0.39269908169
         }
       ],
       "infoHotspots": []
