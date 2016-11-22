@@ -94,10 +94,17 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#player" class="tsd-kind-icon">player</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="stereoscopicmode.html#_player" class="tsd-kind-icon">_player</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="stereoscopicmode.html#deviceorientationservice" class="tsd-kind-icon">device<wbr>Orientation<wbr>Service</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="stereoscopicmode.html#dominanteye" class="tsd-kind-icon">dominant<wbr>Eye</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -105,10 +112,12 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="stereoscopicmode.html#ondeviceorientation" class="tsd-kind-icon">on<wbr>Device<wbr>Orientation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stereoscopicmode.html#toggleeye" class="tsd-kind-icon">toggle<wbr>Eye</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="stereoscopicmode.html#togglesensor" class="tsd-kind-icon">toggle<wbr>Sensor</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,20 +129,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Stereoscopic<wbr>Mode<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stereoscopicmode.html" class="tsd-signature-type">StereoscopicMode</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Stereoscopic<wbr>Mode<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stereoscopicmode.html" class="tsd-signature-type">StereoscopicMode</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L24">StereoscopicMode.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L23">StereoscopicMode.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5>_player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="stereoscopicmode.html" class="tsd-signature-type">StereoscopicMode</a></h4>
@@ -141,18 +150,59 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="player" class="tsd-anchor"></a>
-					<h3>player</h3>
-					<div class="tsd-signature tsd-kind-icon">player<span class="tsd-signature-symbol">:</span> <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_player" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _player</h3>
+					<div class="tsd-signature tsd-kind-icon">_player<span class="tsd-signature-symbol">:</span> <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#player">player</a></p>
+						<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#_player">_player</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L26">StereoscopicMode.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Mode.ts#L11">Mode.ts:11</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="deviceorientationservice" class="tsd-anchor"></a>
+					<h3>device<wbr>Orientation<wbr>Service</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> deviceOrientationService<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="deviceorientationservice.html" class="tsd-signature-type">DeviceOrientationService</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#deviceorientationservice">deviceOrientationService</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Mode.ts#L70">Mode.ts:70</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="deviceorientationservice.html" class="tsd-signature-type">DeviceOrientationService</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="dominanteye" class="tsd-anchor"></a>
+					<h3>dominant<wbr>Eye</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> dominantEye<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L125">StereoscopicMode.ts:125</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"left"</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">"right"</span>
+							</h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -169,7 +219,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L30">StereoscopicMode.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L29">StereoscopicMode.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -188,7 +238,25 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L74">StereoscopicMode.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L72">StereoscopicMode.ts:72</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="ondeviceorientation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Device<wbr>Orientation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Device<wbr>Orientation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#ondeviceorientation">onDeviceOrientation</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L91">StereoscopicMode.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -207,7 +275,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L69">StereoscopicMode.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L67">StereoscopicMode.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -226,7 +294,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L65">StereoscopicMode.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L63">StereoscopicMode.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -245,7 +313,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L60">StereoscopicMode.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L58">StereoscopicMode.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -262,13 +330,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/StereoscopicMode.ts#L83">StereoscopicMode.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/StereoscopicMode.ts#L85">StereoscopicMode.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"left"</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">"right"</span>
 							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="togglesensor" class="tsd-anchor"></a>
+					<h3>toggle<wbr>Sensor</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Sensor<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#togglesensor">toggleSensor</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Mode.ts#L52">Mode.ts:52</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -285,6 +371,9 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="css.html" class="tsd-kind-icon">CSS</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -295,6 +384,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="deviceorientationservice.html" class="tsd-kind-icon">Device<wbr>Orientation<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="easing.html" class="tsd-kind-icon">Easing</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="fs.html" class="tsd-kind-icon">FS</a>
@@ -334,14 +426,23 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="stereoscopicmode.html#player" class="tsd-kind-icon">player</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="stereoscopicmode.html#_player" class="tsd-kind-icon">_player</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="stereoscopicmode.html#deviceorientationservice" class="tsd-kind-icon">device<wbr>Orientation<wbr>Service</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="stereoscopicmode.html#dominanteye" class="tsd-kind-icon">dominant<wbr>Eye</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="stereoscopicmode.html#ondeviceorientation" class="tsd-kind-icon">on<wbr>Device<wbr>Orientation</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a>
@@ -355,10 +456,16 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="stereoscopicmode.html#toggleeye" class="tsd-kind-icon">toggle<wbr>Eye</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="stereoscopicmode.html#togglesensor" class="tsd-kind-icon">toggle<wbr>Sensor</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="transition.html" class="tsd-kind-icon">Transition</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="vector3.html" class="tsd-kind-icon">Vector3</a>
 					</li>

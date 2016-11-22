@@ -91,7 +91,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scene.html#limiter" class="tsd-kind-icon">LIMITER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scene.html#panorama_limiter" class="tsd-kind-icon">PANORAMA_<wbr>LIMITER</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scene.html#stereoscopic_limiter" class="tsd-kind-icon">STEREOSCOPIC_<wbr>LIMITER</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -101,10 +102,11 @@
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#infohotspots" class="tsd-kind-icon">info<wbr>Hotspots</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#initialviewparameters" class="tsd-kind-icon">initial<wbr>View<wbr>Parameters</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#layers" class="tsd-kind-icon">layers</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#levels" class="tsd-kind-icon">levels</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#linkhotspots" class="tsd-kind-icon">link<wbr>Hotspots</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#view" class="tsd-kind-icon">view</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -118,6 +120,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#seteye" class="tsd-kind-icon">set<wbr>Eye</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="scene.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
@@ -136,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L42">Entities/Scene.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L48">Entities/Scene.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -153,12 +156,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="limiter" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> LIMITER</h3>
-					<div class="tsd-signature tsd-kind-icon">LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.util.compose(Marzipano.RectilinearView.limit.vfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.hfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2))</span></div>
+					<a name="panorama_limiter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> PANORAMA_<wbr>LIMITER</h3>
+					<div class="tsd-signature tsd-kind-icon">PANORAMA_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.util.compose(Marzipano.RectilinearView.limit.vfov(110 * Math.PI / 180, 110 * Math.PI / 180),Marzipano.RectilinearView.limit.hfov(110 * Math.PI / 180, 110 * Math.PI / 180),Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L24">Entities/Scene.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L24">Entities/Scene.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="stereoscopic_limiter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> STEREOSCOPIC_<wbr>LIMITER</h3>
+					<div class="tsd-signature tsd-kind-icon">STEREOSCOPIC_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.util.compose(Marzipano.RectilinearView.limit.vfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.hfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2))</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L29">Entities/Scene.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L182">Entities/Scene.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L199">Entities/Scene.ts:199</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -184,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L186">Entities/Scene.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L203">Entities/Scene.ts:203</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -208,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L150">Entities/Scene.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L167">Entities/Scene.ts:167</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -216,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L154">Entities/Scene.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L171">Entities/Scene.ts:171</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -240,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L198">Entities/Scene.ts:198</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L215">Entities/Scene.ts:215</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -248,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L202">Entities/Scene.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L219">Entities/Scene.ts:219</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L174">Entities/Scene.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L191">Entities/Scene.ts:191</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="vector3.html" class="tsd-signature-type">Vector3</a></h4>
@@ -280,7 +293,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L178">Entities/Scene.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L195">Entities/Scene.ts:195</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -290,6 +303,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="layers" class="tsd-anchor"></a>
+					<h3>layers</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> layers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L227">Entities/Scene.ts:227</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -304,7 +334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L166">Entities/Scene.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L183">Entities/Scene.ts:183</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="level.html" class="tsd-signature-type">Level</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -312,7 +342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L170">Entities/Scene.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L187">Entities/Scene.ts:187</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -336,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L190">Entities/Scene.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L207">Entities/Scene.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -344,7 +374,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L194">Entities/Scene.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L211">Entities/Scene.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -368,7 +398,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L158">Entities/Scene.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L175">Entities/Scene.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -376,7 +406,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L162">Entities/Scene.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L179">Entities/Scene.ts:179</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -389,35 +419,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="view" class="tsd-anchor"></a>
 					<h3>view</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> view<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> view<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L207">Entities/Scene.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L223">Entities/Scene.ts:223</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L211">Entities/Scene.ts:211</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -434,7 +449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L131">Entities/Scene.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L139">Entities/Scene.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -463,7 +478,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L76">Entities/Scene.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L82">Entities/Scene.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -481,7 +496,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L52">Entities/Scene.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L58">Entities/Scene.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -499,7 +514,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L112">Entities/Scene.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L120">Entities/Scene.ts:120</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -516,7 +531,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L98">Entities/Scene.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L106">Entities/Scene.ts:106</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -552,7 +567,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L109">Entities/Scene.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L117">Entities/Scene.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -570,7 +585,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L95">Entities/Scene.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L103">Entities/Scene.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -588,9 +603,32 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L92">Entities/Scene.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L100">Entities/Scene.ts:100</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seteye" class="tsd-anchor"></a>
+					<h3>set<wbr>Eye</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Eye<span class="tsd-signature-symbol">(</span>eye<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L154">Entities/Scene.ts:154</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eye: <span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -605,7 +643,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/e561ac3/src/player/Entities/Scene.ts#L220">Entities/Scene.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/Swiftwork/vr-360-player/blob/d4694f0/src/player/Entities/Scene.ts#L235">Entities/Scene.ts:235</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -634,6 +672,9 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="css.html" class="tsd-kind-icon">CSS</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -644,6 +685,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="deviceorientationservice.html" class="tsd-kind-icon">Device<wbr>Orientation<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="easing.html" class="tsd-kind-icon">Easing</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="fs.html" class="tsd-kind-icon">FS</a>
@@ -678,7 +722,10 @@
 								<a href="scene.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="scene.html#limiter" class="tsd-kind-icon">LIMITER</a>
+								<a href="scene.html#panorama_limiter" class="tsd-kind-icon">PANORAMA_<wbr>LIMITER</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="scene.html#stereoscopic_limiter" class="tsd-kind-icon">STEREOSCOPIC_<wbr>LIMITER</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="scene.html#facesize" class="tsd-kind-icon">face<wbr>Size</a>
@@ -692,6 +739,9 @@
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="scene.html#initialviewparameters" class="tsd-kind-icon">initial<wbr>View<wbr>Parameters</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="scene.html#layers" class="tsd-kind-icon">layers</a>
+							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="scene.html#levels" class="tsd-kind-icon">levels</a>
 							</li>
@@ -701,7 +751,7 @@
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="scene.html#name" class="tsd-kind-icon">name</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="scene.html#view" class="tsd-kind-icon">view</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -728,6 +778,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="scene.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="scene.html#seteye" class="tsd-kind-icon">set<wbr>Eye</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="scene.html#fromjson" class="tsd-kind-icon">fromJSON</a>
 							</li>
@@ -740,6 +793,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="vector3.html" class="tsd-kind-icon">Vector3</a>
