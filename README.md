@@ -2,9 +2,11 @@
 Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.
 
 ## Installation & Scripts
-To get started you are going to need [Node v6.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (only for deploying). Windows users can use a tool like: [CASH](https://github.com/dthree/cash) or [Cygwin](https://www.cygwin.com/). Then clone this repository either with a GUI or with the following command:
+To get started you are going to need [Node v6.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (only for deploying).
+Windows users can use a tool like: [CASH](https://github.com/dthree/cash) or [Cygwin](https://www.cygwin.com/).
+Then clone this repository either with a GUI or with the following command:
 
-  `$ git clone https://github.com/Swiftwork/project-hex`
+  `$ git clone https://github.com/trutoo/vr-360-player`
 
 Finally install all dependencies with:
 
@@ -17,44 +19,138 @@ Bellow are a list of NPM scripts that you can run to aid development.
 |`npm start`|Compiles the game and serves a local node against the dev environment|
 |`npm run build:[prod/dev]`|Compiles the game against the targeted environment|
 |`npm run deploy`|Runs a bash script to deploy the latest commit to gh-pages|
-|`npm test`|Not yet added|
+<!--|`npm test`|Not yet added|-->
 
 Now you are ready to build with ❤!
 
-<!--
-## Folder Structure
-This is the general structure with a few files omitted for clarity's sake.
+## Stage Creation
+To create a new stage use [Marzipano's web based tool](http://www.marzipano.net/tool) and accompanied by your own generated images.
+Supported parameters are as follows:
 
-  360-vr-player/
-  ├─── build/
-  │    ├─── public/
-  │    │    ├─── assets/
-  │    │    │    ├─── debug/         Temp folder for hot reload files
-  │    │    │    └─── *.*            All assets requested through require/import
-  │    │    │
-  │    │    ├─── main.js             JS entry point for browsers
-  │    │    └─── main.css            CSS entry point for browsers (production only)
-  │    │   
-  │    ├─── assets.json              References to files hash id based on file name
-  │    └─── server.js                Main express server compiled
--->
+* Sphere (equirectangular) or cubefaces
+* Equirectangular aspect ratio 2:1
+* Cube filename suffixes _b, _d, _f, _l, _r, _u
+* JPEG or TIFF
+* Maximum sphere size 23000x11500px
+* Maximum cube size 16000x16000px
+
+### Stage Structure
+
+```
+-- Structure --
+
+project/
+│
+├─ tiles/
+│  └─ 0-scene-id/
+│     └─ left/
+│        └─ 1/
+│           └─ f/
+│              └─ y/
+│                 └─ x.jpg
+│
+└─ stage.json
+
+-- Definition --
+
+Tiles: folder defined by stage.json for scenes, eyes, levels, faces, y, and x.
+Scenes: one for each scene id set in the Marzipano tool.
+Eyes: scenes must contain both a left and a right eye (must be created manually).
+Levels: larger images are split n times into smaller tile levels to improve loading.
+Faces: levels must contain all 6 faces [b: back, d: down, f: front, l: left, r: right, u: up].
+Y: the vertical coordinate of tile.
+X: the horizontal coordinate of tile and file extension jpg.
+
+stage.json: Main stage configuration file using JSON format* described below
+```
+\* [JSON format](https://en.wikipedia.org/wiki/JSON)
+
+### Stage Configuration
+
+```json
+{
+  "scenes": [
+    {
+      "id": "0-livingroom",
+      "name": "livingroom",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        }
+      ],
+      "faceSize": 1024,
+      "initialViewParameters": {
+        "yaw": -1.570796326794896,
+        "pitch": 0,
+        "fov": 2.054169029464864
+      },
+      "linkHotspots": [
+        {
+          "yaw": -2.4996301372377463,
+          "pitch": 0.02247465151891248,
+          "rotation": 5.497787143782138,
+          "target": "2-kitchen"
+        },
+        {
+          "yaw": 2.609813231764882,
+          "pitch": 0.04549510798771905,
+          "rotation": 4.71238898038469,
+          "target": "1-bedroom"
+        }
+      ],
+      "infoHotspots": [
+        {
+          "yaw": 0.1561130966751321,
+          "pitch": -0.1087112728817754,
+          "title": "This is the view",
+          "text": "The view is amazing"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Player Dependencies
 
 |Plugin|Version|
 |---|---|---|
 |core-js|^2.4.1|
+|marzipano|git+https://github.com/google/marzipano.git|
+|normalize.css|^5.0.0|
 
 ## Development Dependencies
 
 |Plugin|Version|
 |---|---|---|
+|@types/core-js|^0.9.34|
+|@types/node|^6.0.46|
+|awesome-typescript-loader|^2.2.4|
+|css-loader|^0.25.0|
+|extract-text-webpack-plugin|^2.0.0-beta.4|
 |file-loader|^0.9.0|
+|html-webpack-plugin|^2.24.1|
+|ify-loader|^1.0.3|
+|node-sass|^3.11.2|
 |path|^0.12.7|
+|pug|^2.0.0-beta6|
+|pug-loader|^2.3.0|
 |raw-loader|^0.5.1|
 |rimraf|^2.5.4|
-|typescript|^2.0.2|
-|typings|^1.3.3|
-|webpack|^1.13.2|
-|webpack-dev-server|^1.16.1|
-|webpack-merge|^0.14.1|
+|sass-loader|^4.0.2|
+|typedoc|^0.5.1|
+|typedoc-webpack-plugin|^1.1.3|
+|typescript|^2.0.8|
+|webpack|^2.1.0-beta.25|  
+|webpack-dev-server|^2.1.0-beta.10|
+|webpack-merge|^0.15.0|
