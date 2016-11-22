@@ -65,8 +65,10 @@
 				<h1 id="virtual-reality-360-degree-player">Virtual Reality 360 Degree Player</h1>
 				<p>Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.</p>
 				<h2 id="installation-scripts">Installation &amp; Scripts</h2>
-				<p>To get started you are going to need <a href="https://nodejs.org/en/">Node v6.0+</a> and <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell">BASH</a>) (only for deploying). Windows users can use a tool like: <a href="https://github.com/dthree/cash">CASH</a> or <a href="https://www.cygwin.com/">Cygwin</a>. Then clone this repository either with a GUI or with the following command:</p>
-				<p>  <code>$ git clone https://github.com/Swiftwork/project-hex</code></p>
+				<p>To get started you are going to need <a href="https://nodejs.org/en/">Node v6.0+</a> and <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell">BASH</a>) (only for deploying).
+					Windows users can use a tool like: <a href="https://github.com/dthree/cash">CASH</a> or <a href="https://www.cygwin.com/">Cygwin</a>.
+				Then clone this repository either with a GUI or with the following command:</p>
+				<p>  <code>$ git clone https://github.com/trutoo/vr-360-player</code></p>
 				<p>Finally install all dependencies with:</p>
 				<p>  <code>$ npm install</code></p>
 				<p>Bellow are a list of NPM scripts that you can run to aid development.</p>
@@ -90,30 +92,101 @@
 							<td><code>npm run deploy</code></td>
 							<td>Runs a bash script to deploy the latest commit to gh-pages</td>
 						</tr>
-						<tr>
-							<td><code>npm test</code></td>
-							<td>Not yet added</td>
-						</tr>
 					</tbody>
 				</table>
+				<!--|`npm test`|Not yet added|-->
 				<p>Now you are ready to build with ❤!</p>
-				<!--
-## Folder Structure
-This is the general structure with a few files omitted for clarity's sake.
+				<h2 id="stage-creation">Stage Creation</h2>
+				<p>To create a new stage use <a href="http://www.marzipano.net/tool">Marzipano&#39;s web based tool</a> and accompanied by your own generated images.
+				Supported parameters are as follows:</p>
+				<ul>
+					<li>Sphere (equirectangular) or cubefaces</li>
+					<li>Equirectangular aspect ratio 2:1</li>
+					<li>Cube filename suffixes _b, _d, _f, _l, _r, _u</li>
+					<li>JPEG or TIFF</li>
+					<li>Maximum sphere size 23000x11500px</li>
+					<li>Maximum cube size 16000x16000px</li>
+				</ul>
+				<h3 id="stage-structure">Stage Structure</h3>
+				<pre><code><span class="hljs-comment">-- Structure --</span>
 
-  360-vr-player/
-  ├─── build/
-  │    ├─── public/
-  │    │    ├─── assets/
-  │    │    │    ├─── debug/         Temp folder for hot reload files
-  │    │    │    └─── *.*            All assets requested through require/import
-  │    │    │
-  │    │    ├─── main.js             JS entry point for browsers
-  │    │    └─── main.css            CSS entry point for browsers (production only)
-  │    │   
-  │    ├─── assets.json              References to files hash id based on file name
-  │    └─── server.js                Main express server compiled
--->
+project/
+│
+├─ tiles/
+│  └─ <span class="hljs-number">0</span>-scene-id/
+│     └─ left/
+│        └─ <span class="hljs-number">1</span>/
+│           └─ f/
+│              └─ y/
+│                 └─ x.jpg
+│
+└─ stage.json
+
+<span class="hljs-comment">-- Definition --</span>
+
+Tiles: <span class="hljs-built_in">folder</span> defined <span class="hljs-keyword">by</span> stage.json <span class="hljs-keyword">for</span> scenes, eyes, levels, faces, y, <span class="hljs-keyword">and</span> x.
+Scenes: <span class="hljs-literal">one</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> scene id <span class="hljs-built_in">set</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> Marzipano tool.
+Eyes: scenes must contain both <span class="hljs-keyword">a</span> left <span class="hljs-keyword">and</span> <span class="hljs-keyword">a</span> <span class="hljs-literal">right</span> eye (must be created manually).
+Levels: larger images are <span class="hljs-built_in">split</span> n times <span class="hljs-keyword">into</span> smaller tile levels <span class="hljs-built_in">to</span> improve loading.
+Faces: levels must contain all <span class="hljs-number">6</span> faces [b: back, d: down, f: front, l: left, r: <span class="hljs-literal">right</span>, u: up].
+Y: <span class="hljs-keyword">the</span> vertical coordinate <span class="hljs-keyword">of</span> tile.
+X: <span class="hljs-keyword">the</span> horizontal coordinate <span class="hljs-keyword">of</span> tile <span class="hljs-keyword">and</span> <span class="hljs-built_in">file</span> extension jpg.
+
+stage.json: Main stage configuration <span class="hljs-built_in">file</span> <span class="hljs-keyword">using</span> JSON <span class="hljs-built_in">format</span>* described below
+</code></pre><p>* <a href="https://en.wikipedia.org/wiki/JSON">JSON format</a></p>
+				<h3 id="stage-configuration">Stage Configuration</h3>
+				<pre><code class="lang-json">{
+  <span class="hljs-attr">"scenes"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"0-livingroom"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"livingroom"</span>,
+      <span class="hljs-attr">"levels"</span>: [
+        {
+          <span class="hljs-attr">"tileSize"</span>: <span class="hljs-number">256</span>,
+          <span class="hljs-attr">"size"</span>: <span class="hljs-number">256</span>,
+          <span class="hljs-attr">"fallbackOnly"</span>: <span class="hljs-literal">true</span>
+        },
+        {
+          <span class="hljs-attr">"tileSize"</span>: <span class="hljs-number">512</span>,
+          <span class="hljs-attr">"size"</span>: <span class="hljs-number">512</span>
+        },
+        {
+          <span class="hljs-attr">"tileSize"</span>: <span class="hljs-number">512</span>,
+          <span class="hljs-attr">"size"</span>: <span class="hljs-number">1024</span>
+        }
+      ],
+      <span class="hljs-attr">"faceSize"</span>: <span class="hljs-number">1024</span>,
+      <span class="hljs-attr">"initialViewParameters"</span>: {
+        <span class="hljs-attr">"yaw"</span>: <span class="hljs-number">-1.570796326794896</span>,
+        <span class="hljs-attr">"pitch"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"fov"</span>: <span class="hljs-number">2.054169029464864</span>
+      },
+      <span class="hljs-attr">"linkHotspots"</span>: [
+        {
+          <span class="hljs-attr">"yaw"</span>: <span class="hljs-number">-2.4996301372377463</span>,
+          <span class="hljs-attr">"pitch"</span>: <span class="hljs-number">0.02247465151891248</span>,
+          <span class="hljs-attr">"rotation"</span>: <span class="hljs-number">5.497787143782138</span>,
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"2-kitchen"</span>
+        },
+        {
+          <span class="hljs-attr">"yaw"</span>: <span class="hljs-number">2.609813231764882</span>,
+          <span class="hljs-attr">"pitch"</span>: <span class="hljs-number">0.04549510798771905</span>,
+          <span class="hljs-attr">"rotation"</span>: <span class="hljs-number">4.71238898038469</span>,
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"1-bedroom"</span>
+        }
+      ],
+      <span class="hljs-attr">"infoHotspots"</span>: [
+        {
+          <span class="hljs-attr">"yaw"</span>: <span class="hljs-number">0.1561130966751321</span>,
+          <span class="hljs-attr">"pitch"</span>: <span class="hljs-number">-0.1087112728817754</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"This is the view"</span>,
+          <span class="hljs-attr">"text"</span>: <span class="hljs-string">"The view is amazing"</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
 				<h2 id="player-dependencies">Player Dependencies</h2>
 				<table>
 					<thead>
@@ -127,6 +200,14 @@ This is the general structure with a few files omitted for clarity's sake.
 							<td>core-js</td>
 							<td>^2.4.1</td>
 						</tr>
+						<tr>
+							<td>marzipano</td>
+							<td>git+<a href="https://github.com/google/marzipano.git">https://github.com/google/marzipano.git</a></td>
+						</tr>
+						<tr>
+							<td>normalize.css</td>
+							<td>^5.0.0</td>
+						</tr>
 					</tbody>
 				</table>
 				<h2 id="development-dependencies">Development Dependencies</h2>
@@ -139,12 +220,52 @@ This is the general structure with a few files omitted for clarity's sake.
 					</thead>
 					<tbody>
 						<tr>
+							<td>@types/core-js</td>
+							<td>^0.9.34</td>
+						</tr>
+						<tr>
+							<td>@types/node</td>
+							<td>^6.0.46</td>
+						</tr>
+						<tr>
+							<td>awesome-typescript-loader</td>
+							<td>^2.2.4</td>
+						</tr>
+						<tr>
+							<td>css-loader</td>
+							<td>^0.25.0</td>
+						</tr>
+						<tr>
+							<td>extract-text-webpack-plugin</td>
+							<td>^2.0.0-beta.4</td>
+						</tr>
+						<tr>
 							<td>file-loader</td>
 							<td>^0.9.0</td>
 						</tr>
 						<tr>
+							<td>html-webpack-plugin</td>
+							<td>^2.24.1</td>
+						</tr>
+						<tr>
+							<td>ify-loader</td>
+							<td>^1.0.3</td>
+						</tr>
+						<tr>
+							<td>node-sass</td>
+							<td>^3.11.2</td>
+						</tr>
+						<tr>
 							<td>path</td>
 							<td>^0.12.7</td>
+						</tr>
+						<tr>
+							<td>pug</td>
+							<td>^2.0.0-beta6</td>
+						</tr>
+						<tr>
+							<td>pug-loader</td>
+							<td>^2.3.0</td>
 						</tr>
 						<tr>
 							<td>raw-loader</td>
@@ -155,24 +276,32 @@ This is the general structure with a few files omitted for clarity's sake.
 							<td>^2.5.4</td>
 						</tr>
 						<tr>
-							<td>typescript</td>
-							<td>^2.0.2</td>
+							<td>sass-loader</td>
+							<td>^4.0.2</td>
 						</tr>
 						<tr>
-							<td>typings</td>
-							<td>^1.3.3</td>
+							<td>typedoc</td>
+							<td>^0.5.1</td>
+						</tr>
+						<tr>
+							<td>typedoc-webpack-plugin</td>
+							<td>^1.1.3</td>
+						</tr>
+						<tr>
+							<td>typescript</td>
+							<td>^2.0.8</td>
 						</tr>
 						<tr>
 							<td>webpack</td>
-							<td>^1.13.2</td>
+							<td>^2.1.0-beta.25</td>
 						</tr>
 						<tr>
 							<td>webpack-dev-server</td>
-							<td>^1.16.1</td>
+							<td>^2.1.0-beta.10</td>
 						</tr>
 						<tr>
 							<td>webpack-merge</td>
-							<td>^0.14.1</td>
+							<td>^0.15.0</td>
 						</tr>
 					</tbody>
 				</table>
