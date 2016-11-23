@@ -6,6 +6,7 @@ import StereoscopicMode from '../StereoscopicMode';
 export default class ControlsManager implements ILifeCycle {
 
   /* Nodes */
+  private _controls: HTMLElement;
   private _crosshair: HTMLElement;
   private _sensorToggle: HTMLElement;
   private _modeToggler: HTMLElement;
@@ -19,6 +20,7 @@ export default class ControlsManager implements ILifeCycle {
   }
 
   onCreate() {
+    this._controls = document.getElementById('controls');
     this._crosshair = document.getElementById('crosshair');
     this._sensorToggle = document.getElementById('sensor-toggler');
     this._modeToggler = document.getElementById('mode-toggler');
@@ -47,6 +49,14 @@ export default class ControlsManager implements ILifeCycle {
   //------------------------------------------------------------------------------------
   // METHODS
   //------------------------------------------------------------------------------------
+
+  public showControls() {
+    this._controls.classList.add('shown');
+  }
+
+  public hideControls() {
+    this._controls.classList.remove('shown');
+  }
 
   public showSensorToggle() {
     this._sensorToggle.style.display = 'inline-block';

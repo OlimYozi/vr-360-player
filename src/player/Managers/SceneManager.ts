@@ -1,6 +1,9 @@
+const Marzipano = require('marzipano');
+
 import HTTP from '../Utils/HTTP';
-import Scene, { ISceneData } from '../Entities/Scene';
+import Transition from '../Utils/Transition';
 import CorePlayer, { ILifeCycle } from '../CorePlayer';
+import Scene, { ISceneData } from '../Entities/Scene';
 
 export interface IStageJSON {
   scenes: ISceneData[];
@@ -11,6 +14,10 @@ export interface IStageJSON {
 }
 
 export default class SceneManager {
+
+  static TRANSITION_DURATION = 300;
+  static TRANSITION_ATTACH = Transition.FadeIn();
+  static TRANSITION_DETATCH = Transition.FadeOut();
 
   private _scenes = new Map<string, Scene>();
   private _autoRotate = false;
@@ -49,26 +56,56 @@ export default class SceneManager {
     return this.scenes.get(id);
   }
 
-  public switchScene(id: string, done?: () => void) {
-    if (this.current) {
-      this.current.onDetatch(() => {
+  public switchScene(id: string, transition = true, done?: () => void) {
+    const newScene = this.scenes.get(id);
+    if (!this.current) {
+      newScene.onAttach(
+        transition ? SceneManager.TRANSITION_ATTACH : null,
+        transition ? SceneManager.TRANSITION_DURATION * 2 : null,
+        () => {
+          this.current = newScene;
+          if (typeof done === 'function') return done();
+        });
+      return;
+    }
+
+    this.current.onDetatch(
+      transition ? SceneManager.TRANSITION_DETATCH : null,
+      transition ? SceneManager.TRANSITION_DURATION : null,
+      () => {
         this.emit('sceneDetached', this.current);
+        this.current = newScene;
+        this.current.onAttach(
+          transition ? SceneManager.TRANSITION_ATTACH : null,
+          transition ? SceneManager.TRANSITION_DURATION : null,
+          () => {
+            this.emit('sceneAttached', this.current);
+            if (typeof done === 'function') return done();
+          }
+        );
+      }
+    );
+  }
 
-        this.current = this.scenes.get(id);
-        this.current.onAttach();
-        this.emit('sceneAttached', this.current);
+  /*
+  if (this.current) {
+    this.current.onDetatch(() => {
+      this.emit('sceneDetached', this.current);
 
-        if (done) return done();
-      });
-
-    } else {
       this.current = this.scenes.get(id);
       this.current.onAttach();
       this.emit('sceneAttached', this.current);
 
       if (done) return done();
-    }
+    });
+
+  } else {
+    this.current = this.scenes.get(id);
+    this.emit('sceneAttached', this.current);
+
+    if (done) return done();
   }
+  */
 
   /** Add a new EventListener */
   public addEventListener(event: string, fn: (event?: string, data?: any) => void) {

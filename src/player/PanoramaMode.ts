@@ -17,6 +17,9 @@ export default class PanoramaMode extends Mode implements ILifeCycle {
     // Exit fullscreen if active on launch
     this._player.exitFullscreen();
 
+    // Show controls if hidden
+    this._player.controlsManager.showControls();
+
     this.onResize();
   }
 

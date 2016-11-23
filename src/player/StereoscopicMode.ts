@@ -20,10 +20,16 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   private _scene: Scene;
   private _hotspots: Hotspot[];
   private _center = new Vector3();
+  private _controlsTimeout;
   private _navigationTimeout;
 
   constructor(_player: CorePlayer) {
     super(_player);
+
+    // Bind methods to this context
+    this.onClick = this.onClick.bind(this);
+    this.onSceneChange = this.onSceneChange.bind(this);
+    this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
   }
 
   onCreate() {
@@ -45,13 +51,12 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
 
     this.onResize();
 
-    // Bind methods to this context
-    this.onSceneChange = this.onSceneChange.bind(this);
-    this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
-
+    window.addEventListener('click', this.onClick);
     this._player.sceneManager.addEventListener('sceneAttached', this.onSceneChange);
     this.deviceOrientationService.addEventListener('parameterDynamics', this.onDeviceOrientation);
 
+    // Trigger initial controller hide timeout
+    this.onClick();
     return true;
   }
 
@@ -70,6 +75,8 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   }
 
   onDestroy() {
+    clearTimeout(this._controlsTimeout);
+    window.removeEventListener('click', this.onClick);
     this._player.sceneManager.removeEventListener('sceneAttached', this.onSceneChange);
     this.deviceOrientationService.removeEventListener('parameterDynamics', this.onDeviceOrientation);
 
@@ -86,6 +93,15 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     this._dominantEye = this._dominantEye === 'left' ? 'right' : 'left';
     this._scene.setEye(this._dominantEye);
     return this._dominantEye;
+  }
+
+  public onClick() {
+    clearTimeout(this._controlsTimeout);
+    this._player.controlsManager.showControls();
+    this._controlsTimeout = setTimeout(
+      this._player.controlsManager.hideControls.bind(this._player.controlsManager),
+      3000
+    );
   }
 
   protected onDeviceOrientation() {

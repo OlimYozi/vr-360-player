@@ -9,6 +9,7 @@ import Level from './Level';
 import LinkHotspot, { ILinkHotspotData } from './Hotspot/LinkHotspot';
 import InfoHotspot, { IInfoHotspotData } from './Hotspot/InfoHotspot';
 
+
 export interface ISceneData {
   id: string;
   name: string;
@@ -39,13 +40,14 @@ export default class Scene implements ILifeCycle {
   private _linkHotspots: LinkHotspot[];
   private _infoHotspots: InfoHotspot[];
 
-
   private _geometry: any;
   private _view: any;
   private _hotspotContainer: any;
   private _sources: any[];
   private _textureStores: any[];
   private _layers: any[];
+
+  private _cancelTweening: () => void;
 
   constructor(
     private _player: CorePlayer,
@@ -79,7 +81,7 @@ export default class Scene implements ILifeCycle {
     return true;
   }
 
-  onAttach() {
+  onAttach(transition?: (val: number, scene: Scene) => void, duration?: number, done?: () => void) {
     const stage = this._player.viewer.stage();
     stage.addLayer(this._layers[0]);
 
@@ -94,7 +96,27 @@ export default class Scene implements ILifeCycle {
       this.setEye((<StereoscopicMode>this._player.mode).dominantEye);
     }
 
-    this._hotspotContainer.show();
+    // If no transition specified just return callback
+    if (!transition) {
+      this._hotspotContainer.show();
+      if (typeof done === 'function') done();
+      return;
+    }
+
+    // Cancel any ongoing transition
+    if (this._cancelTweening) {
+      this._cancelTweening();
+      this._cancelTweening = null;
+    }
+
+    // Start a new tweening
+    this._cancelTweening = Marzipano.util.tween(duration, (val) => {
+      transition(val, this);
+    }, () => {
+      this._cancelTweening = null;
+      this._hotspotContainer.show();
+      if (typeof done === 'function') done();
+    });
   }
 
   onResume() {
@@ -103,15 +125,38 @@ export default class Scene implements ILifeCycle {
   onResize() {
   }
 
-  onDetatch(done?: () => void) {
+  onDetatch(transition?: (val: number, scene: Scene) => void, duration?: number, done?: () => void) {
     const stage = this._player.viewer.stage();
-    stage.removeLayer(this._layers[0]);
 
-    if (stage.hasLayer(this._layers[1]))
-      stage.removeLayer(this._layers[1]);
+    // If no transition specified just return callback
+    if (!transition) {
+      this._hotspotContainer.hide();
+      stage.removeLayer(this._layers[0]);
+      if (stage.hasLayer(this._layers[1]))
+        stage.removeLayer(this._layers[1]);
 
-    this._hotspotContainer.hide();
-    if (done) done();
+      if (typeof done === 'function') done();
+      return;
+    }
+
+    // Cancel any ongoing transition
+    if (this._cancelTweening) {
+      this._cancelTweening();
+      this._cancelTweening = null;
+    }
+
+    // Start a new tweening
+    this._cancelTweening = Marzipano.util.tween(duration, (val) => {
+      transition(val, this);
+    }, () => {
+      this._cancelTweening = null;
+      this._hotspotContainer.hide();
+      stage.removeLayer(this._layers[0]);
+      if (stage.hasLayer(this._layers[1]))
+        stage.removeLayer(this._layers[1]);
+
+      if (typeof done === 'function') done();
+    });
   }
 
   onPause() {

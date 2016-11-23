@@ -59,9 +59,10 @@ export default class CorePlayer implements ILifeCycle {
 
   onCreate() {
     this.controlsManager.onCreate();
-    this.mode.onCreate();
     this.sceneManager.loadFromFile(this._stagePath, () => {
-      this.sceneManager.switchScene('0-livingroom');
+      this.sceneManager.switchScene('0-livingroom', true, () => {
+        this.mode.onCreate();
+      });
     });
   }
 
@@ -88,8 +89,8 @@ export default class CorePlayer implements ILifeCycle {
   // METHODS
   //------------------------------------------------------------------------------------
 
-  /** Toggle current mode between [[PanoramaMode]] and [[StereoscopicMode]]
-   * @return The newely create and switched to mode
+  /** Toggle current mode between [[PanoramaMode]] and [[StereoscopicMode]].
+   * @return The newely create and switched to mode.
    */
   public toggleMode(): Mode {
     // Destroy old mode
@@ -103,7 +104,7 @@ export default class CorePlayer implements ILifeCycle {
     this.mode.onCreate();
 
     // Detach and re-attach scene
-    this.sceneManager.switchScene(this.sceneManager.current.id);
+    this.sceneManager.switchScene(this.sceneManager.current.id, false);
 
     return this.mode;
   }
