@@ -9,7 +9,7 @@ import Level from './Level';
 import LinkHotspot, { ILinkHotspotData } from './Hotspot/LinkHotspot';
 import InfoHotspot, { IInfoHotspotData } from './Hotspot/InfoHotspot';
 
-
+/** Interface describing the required data to create a new [[Scene]]. */
 export interface ISceneData {
   id: string;
   name: string;
@@ -20,6 +20,7 @@ export interface ISceneData {
   infoHotspots: IInfoHotspotData[];
 }
 
+/** Class used to create a cubic image layer in the viewer. */
 export default class Scene implements ILifeCycle {
 
   static PANORAMA_LIMITER = Marzipano.util.compose(
@@ -40,6 +41,7 @@ export default class Scene implements ILifeCycle {
   private _linkHotspots: LinkHotspot[];
   private _infoHotspots: InfoHotspot[];
 
+  private _player: Player;
   private _geometry: any;
   private _view: any;
   private _hotspotContainer: any;
@@ -49,16 +51,23 @@ export default class Scene implements ILifeCycle {
 
   private _cancelTweening: () => void;
 
+  /** Contructor initializing stores, however does not create anything until the [[onCreate]] method is called.
+   * @param _player The base player context.
+   */
   constructor(
-    private _player: Player,
+    _player: Player,
   ) {
+    this._player = _player || this._player;
     this._sources = [];
     this._textureStores = [];
     this._layers = [];
   }
 
+  /** Called after the constructor to create variables that later need to be disposed.
+   * Using data specified in [[ISceneData]] to create the scene's layers for both eyes and hotspots.
+   */
   onCreate(): boolean {
-    this._geometry = new Marzipano.CubeGeometry(this.levels);
+    this._geometry = new Marzipano.CubeGeometry(this._levels);
     this._view = new Marzipano.RectilinearView(this._initialViewParameters, Scene.PANORAMA_LIMITER);
 
     this.createLayer(this._player.viewer.stage(), 'left', { relativeWidth: 0.5, relativeX: 0 });
@@ -81,10 +90,12 @@ export default class Scene implements ILifeCycle {
     return true;
   }
 
+  /** Called by [[SceneManager.switchScene]] to change the currently displayed scene to this with and optional transition. */
   onAttach(transition?: (val: number, scene: Scene) => void, duration?: number, done?: () => void) {
     const stage = this._player.viewer.stage();
     stage.addLayer(this._layers[0]);
 
+    // Change layer size depending on mode
     if (this._player.mode instanceof PanoramaMode) {
       this._view.setLimiter(Scene.PANORAMA_LIMITER);
       this._layers[0].setEffects({ rect: { relativeWidth: 1 } });
@@ -119,12 +130,15 @@ export default class Scene implements ILifeCycle {
     });
   }
 
+  /** Called when window is focused after blur. */
   onResume() {
   }
 
+  /** Called when window viewport size changes. */
   onResize() {
   }
 
+  /** Called by [[SceneManager.switchScene]] to remove this scene with and optional transition. */
   onDetatch(transition?: (val: number, scene: Scene) => void, duration?: number, done?: () => void) {
     const stage = this._player.viewer.stage();
 
@@ -159,9 +173,11 @@ export default class Scene implements ILifeCycle {
     });
   }
 
+  /** Called when window is blurred after focus. */
   onPause() {
   }
 
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
   onDestroy() {
     this._view.destroy();
     for (var i = 0; i < this._layers.length; i++) {
@@ -181,7 +197,8 @@ export default class Scene implements ILifeCycle {
   // METHODS
   //------------------------------------------------------------------------------------
 
-  public createLayer(stage: any, eye: 'left' | 'right', rect: any) {
+  /** Internal helper method for creating scene layers for each eye. */
+  private createLayer(stage: any, eye: 'left' | 'right', rect: any) {
     //const path = FS.path(this.player.stagePath);
     const path = 'assets/tiles'; // @TODO TEMPORARY TEST PATH
     const index = this._layers.length;
@@ -196,6 +213,7 @@ export default class Scene implements ILifeCycle {
     this._layers[index].pinFirstLevel();
   }
 
+  /** Switches dominant eye moving hotspots to defined side. */
   public setEye(eye: 'left' | 'right') {
     if (eye === 'left') {
       this._hotspotContainer.setRect(this._layers[0].effects().rect);
@@ -209,66 +227,32 @@ export default class Scene implements ILifeCycle {
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
+  /** Retrieves this scene's id. */
   public get id(): string {
     return this._id;
   }
 
-  public set id(value: string) {
-    this._id = value;
-  }
-
+  /** Retrieves this scene's name. */
   public get name(): string {
     return this._name;
   }
 
-  public set name(value: string) {
-    this._name = value;
-  }
-
-  public get levels(): Level[] {
-    return this._levels;
-  }
-
-  public set levels(value: Level[]) {
-    this._levels = value;
-  }
-
-  public get initialViewParameters(): Vector3 {
-    return this._initialViewParameters;
-  }
-
-  public set initialViewParameters(value: Vector3) {
-    this._initialViewParameters = value;
-  }
-
-  public get faceSize(): number {
-    return this._faceSize;
-  }
-
-  public set faceSize(value: number) {
-    this._faceSize = value;
-  }
-
+  /** Retrieves this scene's link hotspots. */
   public get linkHotspots(): LinkHotspot[] {
     return this._linkHotspots;
   }
 
-  public set linkHotspots(value: LinkHotspot[]) {
-    this._linkHotspots = value;
-  }
-
+  /** Retrieves this scene's info hotspots. */
   public get infoHotspots(): InfoHotspot[] {
     return this._infoHotspots;
   }
 
-  public set infoHotspots(value: InfoHotspot[]) {
-    this._infoHotspots = value;
-  }
-
+  /** Retrieves this scene's view. See marzipano view documentaion. */
   public get view(): any {
     return this._view;
   }
 
+  /** Retrieves this scene's layers. See marzipano layer documentaion. */
   public get layers(): any[] {
     return this._layers;
   }
@@ -277,18 +261,29 @@ export default class Scene implements ILifeCycle {
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
+  /** Deserializes JSON data to create a new [[Scene]].
+   * @param player The base player context.
+   * @param json The JSON data required to create a new [[Scene]].
+   * @return A new Scene from the deserialized JSON data.
+   */
   static fromJSON(player: Player, json: ISceneData | string): Scene {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
         return !key ? Scene.fromJSON(player, value) : value;
       });
     } else {
-      return Object.assign(new Scene(player), json, {
-        levels: json.levels.map(level => Level.fromJSON(level)),
-        initialViewParameters: new Vector3(json.initialViewParameters.yaw, json.initialViewParameters.pitch),
-        linkHotspots: json.linkHotspots.map(hotspot => LinkHotspot.fromJSON(player, hotspot)),
-        infoHotspots: json.infoHotspots.map(hotspot => InfoHotspot.fromJSON(player, hotspot)),
+      const scene = Object.assign(Object.create(Scene.prototype), {
+        _player: player,
+        _id: json.id,
+        _name: json.name,
+        _levels: json.levels.map(level => Level.fromJSON(level)),
+        _faceSize: json.faceSize,
+        _initialViewParameters: new Vector3(json.initialViewParameters.yaw, json.initialViewParameters.pitch),
+        _linkHotspots: json.linkHotspots.map(hotspot => LinkHotspot.fromJSON(player, hotspot)),
+        _infoHotspots: json.infoHotspots.map(hotspot => InfoHotspot.fromJSON(player, hotspot)),
       });
+      Scene.apply(scene);
+      return scene;
     }
   }
 }

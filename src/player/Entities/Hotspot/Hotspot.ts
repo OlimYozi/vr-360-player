@@ -12,6 +12,8 @@ export interface IHotspotData {
 /** Base class used for focus nodes in scenes. */
 export default class Hotspot {
 
+  static EVENTS = ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'];
+
   protected _player: Player;
   protected _position: Vector3;
   protected _node: HTMLElement;
@@ -30,12 +32,30 @@ export default class Hotspot {
     this._player = _player || this._player || null;
     this.position = _position || this._position || new Vector3();
 
-    const eventList = ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'];
-    eventList.forEach((event: string) => {
-      this.node.addEventListener(event, function (event) {
-        event.stopPropagation();
-      });
-    })
+    // Bind event handlers
+    this.onPropagationStop = this.onPropagationStop.bind(this);
+
+    Hotspot.EVENTS.forEach((event: string) => {
+      this.node.addEventListener(event, this.onPropagationStop);
+    });
+  }
+
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
+  onDestroy() {
+    Hotspot.EVENTS.forEach((event: string) => {
+      this.node.removeEventListener(event, this.onPropagationStop);
+    });
+    this._player = null;
+    this._node = null;
+    this._position = null;
+  }
+
+  //------------------------------------------------------------------------------------
+  // METHODS
+  //------------------------------------------------------------------------------------
+
+  protected onPropagationStop(event: any) {
+    event.stopPropagation();
   }
 
   //------------------------------------------------------------------------------------

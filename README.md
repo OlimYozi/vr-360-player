@@ -186,6 +186,7 @@ stage.json: Main stage configuration file using JSON format* described below
 |---|---|---|
 |@types/core-js|^0.9.34|
 |@types/node|^6.0.46|
+|autoprefixer|^6.5.3|
 |awesome-typescript-loader|^2.2.4|
 |css-loader|^0.25.0|
 |extract-text-webpack-plugin|^2.0.0-beta.4|
@@ -194,6 +195,7 @@ stage.json: Main stage configuration file using JSON format* described below
 |ify-loader|^1.0.3|
 |node-sass|^3.11.2|
 |path|^0.12.7|
+|postcss-loader|^1.1.1|
 |pug|^2.0.0-beta6|
 |pug-loader|^2.3.0|
 |raw-loader|^0.5.1|
@@ -202,6 +204,7 @@ stage.json: Main stage configuration file using JSON format* described below
 |typedoc|^0.5.1|
 |typedoc-webpack-plugin|^1.1.3|
 |typescript|^2.0.8|
-|webpack|^2.1.0-beta.25|  
+|url-loader|^0.5.7|
+|webpack|^2.1.0-beta.25|
 |webpack-dev-server|^2.1.0-beta.10|
 |webpack-merge|^0.15.0|

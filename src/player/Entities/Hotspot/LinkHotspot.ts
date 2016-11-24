@@ -44,11 +44,27 @@ export default class LinkHotspot extends Hotspot {
     this.target = _target || this.target || '';
     this.rotation = _rotation || this.rotation || 0;
 
+    // Bind event handlers
+    this.onClick = this.onClick.bind(this);
+
     this.node.classList.add('link');
     this.node.appendChild(this._iconNode);
-    this.node.addEventListener('click', (event: MouseEvent) => {
-      this._player.scenesManager.switchScene(this.target);
-    })
+    this.node.addEventListener('click', this.onClick);
+  }
+
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
+  onDestroy() {
+    this._node.removeEventListener('click', this.onClick);
+    this._iconNode = null;
+    super.onDestroy();
+  }
+
+  //------------------------------------------------------------------------------------
+  // METHODS
+  //------------------------------------------------------------------------------------
+
+  protected onClick(event: MouseEvent) {
+    this._player.scenesManager.switchScene(this.target);
   }
 
   //------------------------------------------------------------------------------------

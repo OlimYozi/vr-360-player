@@ -3,6 +3,7 @@ import Mode from '../Mode';
 import PanoramaMode from '../PanoramaMode';
 import StereoscopicMode from '../StereoscopicMode';
 
+/** Class for finding and adding methods to interface conrollers. */
 export default class ControlsManager implements ILifeCycle {
 
   /* Nodes */
@@ -12,6 +13,9 @@ export default class ControlsManager implements ILifeCycle {
   private _modeToggler: HTMLElement;
   private _eyeToggler: HTMLElement;
 
+  /** Contructor binding event methods, however does not create anything until the [[onCreate]] method is called.
+   * @param _player The base player context.
+   */
   constructor(private _player: Player) {
     // Bind event listeners
     this.onSensorToggle = this.onSensorToggle.bind(this);
@@ -19,6 +23,9 @@ export default class ControlsManager implements ILifeCycle {
     this.onEyeToggle = this.onEyeToggle.bind(this);
   }
 
+  /** Called after the constructor to create variables that later need to be disposed.
+   * Finds controller dom nodes and adds event listeners connected to event handlers.
+   */
   onCreate() {
     this._controls = document.getElementById('controls');
     this._crosshair = document.getElementById('crosshair');
@@ -31,15 +38,19 @@ export default class ControlsManager implements ILifeCycle {
     this._eyeToggler.addEventListener('click', this.onEyeToggle);
   }
 
+  /** Called when window is focused after blur. */
   onResume() {
   }
 
+  /** Called when window viewport size changes. */
   onResize() {
   }
 
+  /** Called when window is blurred after focus. */
   onPause() {
   }
 
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
   onDestroy() {
     this._sensorToggle.removeEventListener('click', this.onSensorToggle);
     this._modeToggler.removeEventListener('click', this.onModeToggle);
@@ -56,18 +67,22 @@ export default class ControlsManager implements ILifeCycle {
   // METHODS
   //------------------------------------------------------------------------------------
 
+  /** Shows all interface controls. */
   public showControls() {
     this._controls.classList.add('shown');
   }
 
+  /** Hides all, but crosshair interface controls. */
   public hideControls() {
     this._controls.classList.remove('shown');
   }
 
+  /** Shows the sensor toggle interface control. */
   public showSensorToggle() {
     this._sensorToggle.style.display = 'inline-block';
   }
 
+  /** Assigns a new state to the sensor interface control. */
   public setSensorToggleState(active: boolean) {
     if (active) {
       this._sensorToggle.classList.remove('icon_orientation_sensor');
@@ -78,11 +93,13 @@ export default class ControlsManager implements ILifeCycle {
     }
   }
 
+  /** Toggles between the two sensor states. */
   public onSensorToggle(event: MouseEvent) {
     const active = this._player.mode.toggleSensor();
     this.setSensorToggleState(active);
   }
 
+  /** Assigns a new state to the player mode interface control. */
   public setModeToggleState(mode: Mode) {
     if (mode instanceof PanoramaMode) {
       this._crosshair.style.display = 'none';
@@ -97,11 +114,13 @@ export default class ControlsManager implements ILifeCycle {
     }
   }
 
+  /** Toggles between the two player mode states. */
   public onModeToggle(event: MouseEvent) {
     const mode = this._player.toggleMode();
     this.setModeToggleState(mode);
   }
 
+  /** Assigns a new state to the eye interface control. */
   public setEyeToggleState(eye: 'left' | 'right') {
     if (eye === 'left') {
       this._crosshair.style.left = (document.documentElement.clientWidth / 4) + 'px';
@@ -114,6 +133,7 @@ export default class ControlsManager implements ILifeCycle {
     }
   }
 
+  /** Toggles between the two eye states. */
   public onEyeToggle(event: MouseEvent) {
     const eye = (<StereoscopicMode>this._player.mode).toggleEye();
     this.setEyeToggleState(eye);

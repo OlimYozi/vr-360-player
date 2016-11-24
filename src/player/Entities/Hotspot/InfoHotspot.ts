@@ -51,10 +51,34 @@ export default class InfoHotspot extends Hotspot {
     this.title = _title || this.title || '';
     this.text = _text || this.text || '';
 
+    // Bind event handlers
+    this.onClick = this.onClick.bind(this);
+
     this.node.classList.add('info');
     this.node.appendChild(this._iconNode);
     this.node.appendChild(this._titleNode);
     this.node.appendChild(this._textNode);
+    this.node.addEventListener('click', this.onClick);
+  }
+
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
+  onDestroy() {
+    this._node.removeEventListener('click', this.onClick);
+    this._iconNode = null;
+    this._titleNode = null;
+    this._textNode = null;
+    super.onDestroy();
+  }
+
+  //------------------------------------------------------------------------------------
+  // METHODS
+  //------------------------------------------------------------------------------------
+
+  protected onClick(event: MouseEvent) {
+    if (this.node.classList.contains('active'))
+      this.node.classList.remove('active');
+    else
+      this.node.classList.add('active');
   }
 
   //------------------------------------------------------------------------------------
