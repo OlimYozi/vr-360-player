@@ -18,7 +18,7 @@ module.exports = function (env) {
     context: path.resolve(process.cwd(), 'src'),
 
     entry: {
-      'polyfills': './player/Player',
+      'player': './player/Player',
     },
 
     output: {
