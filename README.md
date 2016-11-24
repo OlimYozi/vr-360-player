@@ -126,6 +126,8 @@ stage.json: Main stage configuration file using JSON format* described below
 ```
 
 ## Example Usage
+Download the project to build it or use the supplied built libraries vr360player.css and vr360player.js in for example the below format.
+
 ```html
 <!DOCTYPE html>
 <html>
