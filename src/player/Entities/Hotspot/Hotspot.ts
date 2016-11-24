@@ -1,29 +1,34 @@
 const Marzipano = require('marzipano');
 
 import Vector3 from '../../Math/Vector3';
-import CorePlayer from '../../CorePlayer';
+import Player from '../../Player';
 
-/** Hotspot interface defining publicly available properties and methods */
+/** Interface defining which data is relevant for creation of an [[Hotspot]]. */
 export interface IHotspotData {
   yaw: number;
   pitch: number;
 }
 
-/** Hotspot class for adding focus points to the CorePlayer */
+/** Base class used for focus nodes in scenes. */
 export default class Hotspot {
 
-  protected _player: CorePlayer;
+  protected _player: Player;
   protected _position: Vector3;
   protected _node: HTMLElement;
 
+  /** Using supplied data either through [[Hotspot.fromJSON]] or arguments to create a new Hotspot.
+   * @param _player The base player context.
+   * @param _position The yaw and pitch position for the node.
+   */
   constructor(
-    _player?: CorePlayer,
+    _player?: Player,
     _position?: Vector3
   ) {
-    this._player = _player || this._player || null;
-    this.position = _position || this._position || new Vector3();
     this.node = document.createElement('div');
     this.node.classList.add('hotspot');
+
+    this._player = _player || this._player || null;
+    this.position = _position || this._position || new Vector3();
 
     const eventList = ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'];
     eventList.forEach((event: string) => {
@@ -33,25 +38,40 @@ export default class Hotspot {
     })
   }
 
+  //------------------------------------------------------------------------------------
+  // GETTERS & SETTERS
+  //------------------------------------------------------------------------------------
+
+  /** Retrieves the node for this hotspot. */
   public get node(): HTMLElement {
     return this._node;
   }
 
+  /** Assigns a new node to this hotspot. */
   public set node(value: HTMLElement) {
     this._node = value;
   }
 
-  /** Change the hotspot's position and update the dom node */
+  /** Assigns a new yaw and pitch position to this hotspot and updates the node. */
   set position(position: Vector3) {
     this._position = position;
   }
 
-  /** Retrieve the hotspot's position */
+  /** Retrieves the yaw and pitch position for this hotspot. */
   get position(): Vector3 {
     return this._position;
   }
 
-  static fromJSON(player: CorePlayer, json: IHotspotData | string): Hotspot {
+  //------------------------------------------------------------------------------------
+  // SERIALIZE
+  //------------------------------------------------------------------------------------
+
+  /** Deserializes JSON data to create a new [[Hotspot]].
+   * @param player The base player context.
+   * @param json The JSON data required to create a new [[Hotspot]].
+   * @return A new Hotspot from the deserialized JSON data.
+   */
+  static fromJSON(player: Player, json: IHotspotData | string): Hotspot {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
         return !key ? Hotspot.fromJSON(player, value) : value;

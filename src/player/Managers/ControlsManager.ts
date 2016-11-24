@@ -1,4 +1,4 @@
-import CorePlayer, { ILifeCycle } from '../CorePlayer';
+import Player, { ILifeCycle } from '../Player';
 import Mode from '../Mode';
 import PanoramaMode from '../PanoramaMode';
 import StereoscopicMode from '../StereoscopicMode';
@@ -12,7 +12,7 @@ export default class ControlsManager implements ILifeCycle {
   private _modeToggler: HTMLElement;
   private _eyeToggler: HTMLElement;
 
-  constructor(private _player: CorePlayer) {
+  constructor(private _player: Player) {
     // Bind event listeners
     this.onSensorToggle = this.onSensorToggle.bind(this);
     this.onModeToggle = this.onModeToggle.bind(this);
@@ -44,6 +44,12 @@ export default class ControlsManager implements ILifeCycle {
     this._sensorToggle.removeEventListener('click', this.onSensorToggle);
     this._modeToggler.removeEventListener('click', this.onModeToggle);
     this._eyeToggler.removeEventListener('click', this.onEyeToggle);
+
+    this._controls = null;
+    this._crosshair = null;
+    this._sensorToggle = null;
+    this._modeToggler = null;
+    this._eyeToggler = null;
   }
 
   //------------------------------------------------------------------------------------

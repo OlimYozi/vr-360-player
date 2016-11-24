@@ -2,7 +2,7 @@ const Marzipano = require('marzipano');
 
 import HTTP from '../Utils/HTTP';
 import Transition from '../Utils/Transition';
-import CorePlayer, { ILifeCycle } from '../CorePlayer';
+import Player, { ILifeCycle } from '../Player';
 import Scene, { ISceneData } from '../Entities/Scene';
 
 export interface IStageJSON {
@@ -13,7 +13,7 @@ export interface IStageJSON {
   }
 }
 
-export default class SceneManager {
+export default class ScenesManager {
 
   static TRANSITION_DURATION = 300;
   static TRANSITION_ATTACH = Transition.FadeIn();
@@ -24,7 +24,17 @@ export default class SceneManager {
   private _current: Scene;
   private _events = [];
 
-  constructor(public player: CorePlayer) {
+  constructor(public player: Player) {
+  }
+
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
+  onDestroy() {
+    this._scenes.forEach((scene: Scene) => {
+      scene.onDestroy();
+    });
+    this._scenes.clear();
+    this._current = null;
+    this._events = null;
   }
 
   public load(json: string) {
@@ -34,7 +44,6 @@ export default class SceneManager {
       scene.onCreate();
       this.addScene(sceneJSON.id, scene);
     });
-    this.autoRotate = data.settings.autorotateEnabled;
   }
 
   public loadFromFile(path: string, callback: () => void) {
@@ -60,8 +69,8 @@ export default class SceneManager {
     const newScene = this.scenes.get(id);
     if (!this.current) {
       newScene.onAttach(
-        transition ? SceneManager.TRANSITION_ATTACH : null,
-        transition ? SceneManager.TRANSITION_DURATION * 2 : null,
+        transition ? ScenesManager.TRANSITION_ATTACH : null,
+        transition ? ScenesManager.TRANSITION_DURATION * 2 : null,
         () => {
           this.current = newScene;
           if (typeof done === 'function') return done();
@@ -70,14 +79,14 @@ export default class SceneManager {
     }
 
     this.current.onDetatch(
-      transition ? SceneManager.TRANSITION_DETATCH : null,
-      transition ? SceneManager.TRANSITION_DURATION : null,
+      transition ? ScenesManager.TRANSITION_DETATCH : null,
+      transition ? ScenesManager.TRANSITION_DURATION : null,
       () => {
         this.emit('sceneDetached', this.current);
         this.current = newScene;
         this.current.onAttach(
-          transition ? SceneManager.TRANSITION_ATTACH : null,
-          transition ? SceneManager.TRANSITION_DURATION : null,
+          transition ? ScenesManager.TRANSITION_ATTACH : null,
+          transition ? ScenesManager.TRANSITION_DURATION : null,
           () => {
             this.emit('sceneAttached', this.current);
             if (typeof done === 'function') return done();
@@ -86,26 +95,6 @@ export default class SceneManager {
       }
     );
   }
-
-  /*
-  if (this.current) {
-    this.current.onDetatch(() => {
-      this.emit('sceneDetached', this.current);
-
-      this.current = this.scenes.get(id);
-      this.current.onAttach();
-      this.emit('sceneAttached', this.current);
-
-      if (done) return done();
-    });
-
-  } else {
-    this.current = this.scenes.get(id);
-    this.emit('sceneAttached', this.current);
-
-    if (done) return done();
-  }
-  */
 
   /** Add a new EventListener */
   public addEventListener(event: string, fn: (event?: string, data?: any) => void) {
@@ -143,20 +132,12 @@ export default class SceneManager {
     return this._scenes;
   }
 
-  public get autoRotate(): boolean {
-    return this._autoRotate;
-  }
-
-  public set autoRotate(value: boolean) {
-    this._autoRotate = value;
-  }
-
   public get current(): Scene {
     return this._current;
   }
 
-  public set current(value: Scene) {
-    this._current = value;
+  public set current(scene: Scene) {
+    this._current = scene;
   }
 
 }

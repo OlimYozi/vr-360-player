@@ -18,13 +18,13 @@ module.exports = function (env) {
     context: path.resolve(process.cwd(), 'src'),
 
     entry: {
-      'polyfills': './polyfills',
-      'vendor': './vendor',
-      'index': './index',
+      'polyfills': './player/Player',
     },
 
     output: {
-      filename: '[name].js',
+      filename: 'vr360player.js',
+      library: 'VR360Player',
+      libraryTarget: 'var',
       path: path.resolve(process.cwd(), 'build'),
     },
 
@@ -49,27 +49,32 @@ module.exports = function (env) {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({ loader: ['css', 'sass'] }),
+          loader: ExtractTextPlugin.extract({ loader: ['css', 'postcss', 'sass'] }),
         },
         {
           test: /\.(json|png|jpe?g|svg|woff2?)$/,
-          loader: 'file',
-          options: {
+          loader: 'url-loader',
+          query: {
             name: PROD ? 'assets/[hash].[ext]' : 'assets/[name].[ext]',
+            limit: 10000,
           },
         },
       ],
     },
 
     plugins: [
-      new webpack.optimize.CommonsChunkPlugin({
-        name: ['index', 'vendor', 'polyfills'],
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            require('autoprefixer')(),
+          ]
+        }
       }),
       new HtmlWebpackPlugin({
         inject: false,
         template: './index.pug',
       }),
-      new ExtractTextPlugin('./index.css'),
+      new ExtractTextPlugin('./vr360player.css'),
     ],
   };
 

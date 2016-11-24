@@ -1,4 +1,4 @@
-import CorePlayer from '../../CorePlayer';
+import Player from '../../Player';
 import Vector3 from '../../Math/Vector3';
 import Hotspot, { IHotspotData } from './Hotspot';
 import DOM from '../../Utils/DOM';
@@ -6,69 +6,95 @@ import DOM from '../../Utils/DOM';
 /* ASSETS */
 const icon = require('!raw!../../../assets/icons/icon_hotspot.svg');
 
+/** Interface defining which data is relevant for creation of an [[InfoHotspot]]. */
 export interface IInfoHotspotData extends IHotspotData {
   title: string;
   text: string;
 }
 
+/** Class used for creating information nodes in scenes. */
 export default class InfoHotspot extends Hotspot {
 
+  /* DATA */
   private _title: string;
   private _text: string;
 
+  /* NODES */
+  private _iconNode: HTMLElement;
+  private _titleNode: HTMLElement;
+  private _textNode: HTMLElement;
+
+  /** Using supplied data either through [[InfoHotspot.fromJSON]] or arguments to create a new InfoHotspot.
+   * @param _player The base player context.
+   * @param _position The yaw and pitch position for the node.
+   * @param _title The title to display inside the expanded state.
+   * @param _text The text description to display inside the expanded state.
+   */
   constructor(
-    _player: CorePlayer,
+    _player: Player,
     _position?: Vector3,
     _title?: string,
     _text?: string
   ) {
     super(_player, _position);
+
+    //this._iconNode = <HTMLElement>DOM.createNode(icon);
+    this._iconNode = document.createElement('i');
+    this._iconNode.innerHTML = 'i';
+
+    this._titleNode = document.createElement('h3');
+    this._titleNode.innerHTML = this.title;
+
+    this._textNode = document.createElement('p');
+    this._textNode.innerHTML = this.text;
+
     this.title = _title || this.title || '';
     this.text = _text || this.text || '';
 
-    //this.node = <HTMLElement>DOM.createNode(icon);
     this.node.classList.add('info');
-
-    const icon = document.createElement('i');
-    icon.innerHTML = '&#x2139;';
-
-    const title = document.createElement('h3');
-    title.innerHTML = this.title;
-
-    const text = document.createElement('p');
-    text.innerHTML = this.text;
-
-    this.node.appendChild(icon);
-    this.node.appendChild(title);
-    this.node.appendChild(text);
+    this.node.appendChild(this._iconNode);
+    this.node.appendChild(this._titleNode);
+    this.node.appendChild(this._textNode);
   }
 
   //------------------------------------------------------------------------------------
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
-
+  /** Retrieves the title for this info hotspot */
   public get title(): string {
     return this._title;
   }
 
-  public set title(value: string) {
-    this._title = value;
+  /** Assigns a new title to this info hotspot and updates the node. */
+  public set title(title: string) {
+    this._title = title;
+    if (this._titleNode)
+      this._titleNode.innerHTML = title;
   }
 
+  /** Retrieves the text description for this info hotspot. */
   public get text(): string {
     return this._text;
   }
 
-  public set text(value: string) {
-    this._text = value;
+  /** Assigns a new text description to this info hotspot and updates the node. */
+  public set text(text: string) {
+    this._text = text;
+    if (this._textNode)
+      this._textNode.innerHTML = text;
   }
 
   //------------------------------------------------------------------------------------
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
-  static fromJSON(player: CorePlayer, json: IInfoHotspotData | string): InfoHotspot {
+  /** Deserializes JSON data to create a new [[InfoHotspot]].
+   * @param player The base player context.
+   * @param json The JSON data required to create a new [[InfoHotspot]].
+   * @return A new InfoHotspot from the deserialized JSON data.
+   */
+  static fromJSON(player: Player, json: IInfoHotspotData | string): InfoHotspot {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
         return !key ? InfoHotspot.fromJSON(player, value) : value;

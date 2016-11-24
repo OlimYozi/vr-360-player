@@ -1,6 +1,6 @@
 const Marzipano = require('marzipano');
 
-import CorePlayer, { ILifeCycle } from '../CorePlayer';
+import Player, { ILifeCycle } from '../Player';
 import CSS from '../Utils/CSS';
 import PanoramaMode from '../PanoramaMode';
 import StereoscopicMode from '../StereoscopicMode';
@@ -50,7 +50,7 @@ export default class Scene implements ILifeCycle {
   private _cancelTweening: () => void;
 
   constructor(
-    private _player: CorePlayer,
+    private _player: Player,
   ) {
     this._sources = [];
     this._textureStores = [];
@@ -277,7 +277,7 @@ export default class Scene implements ILifeCycle {
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
-  static fromJSON(player: CorePlayer, json: ISceneData | string): Scene {
+  static fromJSON(player: Player, json: ISceneData | string): Scene {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
         return !key ? Scene.fromJSON(player, value) : value;

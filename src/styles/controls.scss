@@ -24,12 +24,16 @@
     cursor: pointer;
     opacity: 0;
     transform: translate3d(0, 2rem, 0);
-    transition-property: background, opacity, transform;
-    transition-duration: 200ms, 600ms, 600ms;
 
-    &:nth-child(1) { transition-delay: 0ms, 0ms, 0ms }
-    &:nth-child(2) { transition-delay: 0ms, 200ms, 200ms }
-    &:nth-child(3) { transition-delay: 0ms, 400ms, 400ms }
+    &:nth-child(1) {
+      transition: background 200ms 0ms, opacity 600ms 0ms, transform 600ms 0ms;
+    }
+    &:nth-child(2) {
+      transition: background 200ms 0ms, opacity 600ms 200ms, transform 600ms 200ms;
+    }
+    &:nth-child(3) {
+      transition: background 200ms 0ms, opacity 600ms 400ms, transform 600ms 400ms;
+    }
 
     @media (min-width: 996px) {
       margin-left: 2rem;

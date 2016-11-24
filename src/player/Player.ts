@@ -1,10 +1,14 @@
 const Marzipano = require('marzipano');
 
+import 'core-js/es6';
+
 import ControlsManager from './Managers/ControlsManager';
-import SceneManager from './Managers/SceneManager';
+import ScenesManager from './Managers/ScenesManager';
 import Mode from './Mode';
 import PanoramaMode from './PanoramaMode';
 import StereoscopicMode from './StereoscopicMode';
+
+import '../styles/index.scss';
 
 /** Interface defining the life cycle methods the class is expected to implement. */
 export interface ILifeCycle {
@@ -16,15 +20,15 @@ export interface ILifeCycle {
   onResize();
   /** Called when window is blurred after focus. */
   onPause();
-  /** Should be called at the end of a class' life cycle and should dispose all assigned variables.  */
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
   onDestroy();
 }
 
 /** Virtual reality 360 degree player library supporting panoramic and stereoscopic modes. */
-export default class CorePlayer implements ILifeCycle {
+export default class Player implements ILifeCycle {
 
   private _controlsManager: ControlsManager;
-  private _sceneManager: SceneManager;
+  private _scenesManager: ScenesManager;
 
   private _viewer: any;
   private _mode: Mode;
@@ -40,7 +44,7 @@ export default class CorePlayer implements ILifeCycle {
   constructor(private _node: HTMLElement, private _stagePath: string) {
     // Create managers for controls and scenes
     this._controlsManager = new ControlsManager(this);
-    this._sceneManager = new SceneManager(this);
+    this._scenesManager = new ScenesManager(this);
 
     // Insert viewer and stage into the DOM
     this._viewer = new Marzipano.Viewer(this._node, {
@@ -52,37 +56,69 @@ export default class CorePlayer implements ILifeCycle {
     this._stereoscopicMode = new StereoscopicMode(this);
     this._mode = this._panoramaMode;
 
+    // Bind methods to this context
+    this.onResume = this.onResume.bind(this);
+    this.onResize = this.onResize.bind(this);
+    this.onPause = this.onPause.bind(this);
+    this.onDestroy = this.onDestroy.bind(this);
+
     // Call resize to fit viewer to parent canvas and then call onCreate().
     this.onResize();
     this.onCreate();
   }
 
+  /** Called after the constructor to create variables that later need to be disposed. */
   onCreate() {
     this.controlsManager.onCreate();
-    this.sceneManager.loadFromFile(this._stagePath, () => {
-      this.sceneManager.switchScene('0-livingroom', true, () => {
+    this.scenesManager.loadFromFile(this._stagePath, () => {
+      // Create first scene with transition and callback.
+      this.scenesManager.switchScene('0-livingroom', true, () => {
         this.mode.onCreate();
       });
     });
+
+    // Event Listeners
+    window.addEventListener('focus', this.onResume);
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('blur', this.onPause);
+    window.addEventListener('unload', this.onDestroy);
   }
 
+  /** Called when window is focused after blur. */
   onResume() {
     this.mode.onResume();
   }
 
+  /** Called when window viewport size changes. */
   onResize() {
     this.viewer.updateSize();
     this.mode.onResize();
   }
 
+  /** Called when window is blurred after focus. */
   onPause() {
     this.mode.onPause();
   }
 
+  /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
   onDestroy() {
-    this.viewer.onDestroy();
-    this.mode.onDestroy();
-    this.controlsManager.onDestroy();
+    window.removeEventListener('focus', this.onResume);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('blur', this.onPause);
+    window.removeEventListener('unload', this.onDestroy);
+
+    this._controlsManager.onDestroy();
+    this._scenesManager.onDestroy();
+    this._viewer.destroy();
+    this._panoramaMode.onDestroy();
+    this._stereoscopicMode.onDestroy();
+
+    this._controlsManager = null;
+    this._scenesManager = null;
+    this._viewer = null;
+    this._mode = null;
+    this._panoramaMode = null;
+    this._stereoscopicMode = null;
   }
 
   //------------------------------------------------------------------------------------
@@ -104,7 +140,7 @@ export default class CorePlayer implements ILifeCycle {
     this.mode.onCreate();
 
     // Detach and re-attach scene
-    this.sceneManager.switchScene(this.sceneManager.current.id, false);
+    this.scenesManager.switchScene(this.scenesManager.current.id, false);
 
     return this.mode;
   }
@@ -142,22 +178,27 @@ export default class CorePlayer implements ILifeCycle {
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
-  public get sceneManager(): SceneManager {
-    return this._sceneManager;
+  /** Retrieves the manager that is responsible for scene loading and switching. */
+  public get scenesManager(): ScenesManager {
+    return this._scenesManager;
   }
 
+  /** Retrieves the manager that is responsible for the interface controls and methods. */
   public get controlsManager(): ControlsManager {
     return this._controlsManager;
   }
 
+  /** Retrieves the main viewer instance that renders the stage and scenes. */
   public get viewer(): any {
     return this._viewer;
   }
 
+  /** Retrieves the viewers control methods such as [[DeviceOrientationService]], not to be confused with [[ControlsManager]]. */
   public get controls(): any {
     return this.viewer.controls();
   }
 
+  /** Retrieves the current view mode of either type [[PanoramaMode]] or [[StereoscopicModes]]. */
   public get mode(): Mode {
     return this._mode;
   }

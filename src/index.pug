@@ -7,8 +7,7 @@ html
 
     title VR 360 Player
 
-    script(src="polyfills.js")
-    link(href="index.css", rel="stylesheet")
+    link(href="vr360player.css", rel="stylesheet")
   body
 
     #vr-360-player
@@ -19,6 +18,12 @@ html
       a#mode-toggler.icon_vr
 
     i#crosshair
+
+    script(src="vr360player.js")
     
-    script(src="vendor.js")
-    script(src="index.js")
+    script.
+      console.log(VR360Player);
+      var player = new VR360Player.default(
+        document.getElementById('vr-360-player'),
+        'assets/stage.json'
+      );

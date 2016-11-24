@@ -2,7 +2,7 @@
 Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.
 
 ## Installation & Scripts
-To get started you are going to need [Node v6.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) (only for deploying).
+To get started you are going to need [Node v6.0+](https://nodejs.org/en/) and [BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) (only for deploying).
 Windows users can use a tool like: [CASH](https://github.com/dthree/cash) or [Cygwin](https://www.cygwin.com/).
 Then clone this repository either with a GUI or with the following command:
 
@@ -22,6 +22,10 @@ Bellow are a list of NPM scripts that you can run to aid development.
 <!--|`npm test`|Not yet added|-->
 
 Now you are ready to build with ❤!
+
+## Documentation
+The available documentation can be found in this read me and in an API reference that can be found on these
+[Github pages API reference](https://trutoo.github.io/vr-360-player/).
 
 ## Stage Creation
 To create a new stage use [Marzipano's web based tool](http://www.marzipano.net/tool) and accompanied by your own generated images.
@@ -119,6 +123,53 @@ stage.json: Main stage configuration file using JSON format* described below
     }
   ]
 }
+```
+
+## Example Usage
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" name="viewport">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+
+  <style>@-ms-viewport { width: device-width; }</style>
+
+  <title>VR 360 Player</title>
+
+  <!-- Player CSS Library -->
+  <link href="vr360player.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Player Container -->
+  <div id="vr-360-player"></div>
+
+  <!-- Player Controls -->
+  <menu class="shown" id="controls">
+    <a class="icon_orientation_drag" id="sensor-toggler" style="display: none"></a>
+    <a class="icon_eye_left" id="eye-toggler" style="display: none"></a>
+    <a class="icon_vr" id="mode-toggler"></a>
+  </menu>
+
+  <!-- Player Crosshair -->
+  <i id="crosshair"></i> 
+
+  <!-- Player JavaScript Library -->
+  <script src="vr360player.js"></script>
+
+  <!-- Player Initialization: can be extracted to an external js file. -->
+  <script>
+    var player = new VR360Player.default(
+      document.getElementById('vr-360-player'),
+      'assets/stage.json'
+    );
+  </script>
+
+</body>
+</html>
 ```
 
 ## Player Dependencies

@@ -1,9 +1,11 @@
+/** Interface defining which data is relevant for creation of an [[Level]]. */
 export interface ILevelData {
   tileSize: number;
   size: number;
   fallbackOnly?: boolean;
 }
 
+/** Used as a data storage class exclusively */
 export default class Level {
 
   constructor(
@@ -24,30 +26,34 @@ export default class Level {
     return this._tileSize;
   }
 
-  public set tileSize(value: number) {
-    this._tileSize = value;
+  public set tileSize(size: number) {
+    this._tileSize = size;
   }
 
   public get size(): number {
     return this._size;
   }
 
-  public set size(value: number) {
-    this._size = value;
+  public set size(size: number) {
+    this._size = size;
   }
 
   public get fallbackOnly(): boolean {
     return this._fallbackOnly;
   }
 
-  public set fallbackOnly(value: boolean) {
-    this._fallbackOnly = value;
+  public set fallbackOnly(isFallback: boolean) {
+    this._fallbackOnly = isFallback;
   }
 
   //------------------------------------------------------------------------------------
   // SERIALIZE
   //------------------------------------------------------------------------------------
 
+  /** Deserializes JSON data to create a new [[Level]].
+   * @param json The JSON data required to create a new [[Level]].
+   * @return A new Level from the deserialized JSON data.
+   */
   static fromJSON(json: ILevelData | string): Level {
     if (typeof json === 'string') {
       return JSON.parse(json, (key: string, value: any) => {
