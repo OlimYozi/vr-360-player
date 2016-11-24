@@ -65,7 +65,7 @@
 				<h1 id="virtual-reality-360-degree-player">Virtual Reality 360 Degree Player</h1>
 				<p>Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.</p>
 				<h2 id="installation-scripts">Installation &amp; Scripts</h2>
-				<p>To get started you are going to need <a href="https://nodejs.org/en/">Node v6.0+</a> and <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell">BASH</a>) (only for deploying).
+				<p>To get started you are going to need <a href="https://nodejs.org/en/">Node v6.0+</a> and <a href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29">BASH</a> (only for deploying).
 					Windows users can use a tool like: <a href="https://github.com/dthree/cash">CASH</a> or <a href="https://www.cygwin.com/">Cygwin</a>.
 				Then clone this repository either with a GUI or with the following command:</p>
 				<p>  <code>$ git clone https://github.com/trutoo/vr-360-player</code></p>
@@ -96,6 +96,9 @@
 				</table>
 				<!--|`npm test`|Not yet added|-->
 				<p>Now you are ready to build with ❤!</p>
+				<h2 id="documentation">Documentation</h2>
+				<p>The available documentation can be found in this read me and in an API reference that can be found on these
+				<a href="https://trutoo.github.io/vr-360-player/">Github pages API reference</a>.</p>
 				<h2 id="stage-creation">Stage Creation</h2>
 				<p>To create a new stage use <a href="http://www.marzipano.net/tool">Marzipano&#39;s web based tool</a> and accompanied by your own generated images.
 				Supported parameters are as follows:</p>
@@ -187,6 +190,52 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
   ]
 }
 </code></pre>
+				<h2 id="example-usage">Example Usage</h2>
+				<p>Download the project to build it or use the supplied built libraries vr360player.css and vr360player.js in for example the below format.</p>
+				<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"x-ua-compatible"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">@-<span class="hljs-keyword">ms</span>-<span class="hljs-keyword">viewport</span> { <span class="hljs-selector-tag">width</span>: <span class="hljs-selector-tag">device-width</span>; }</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>VR 360 Player<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Player CSS Library --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"vr360player.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Player Container --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vr-360-player"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Player Controls --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"shown"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"controls"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon_orientation_drag"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sensor-toggler"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon_eye_left"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"eye-toggler"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon_vr"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mode-toggler"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Player Crosshair --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"crosshair"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 
+
+  <span class="hljs-comment">&lt;!-- Player JavaScript Library --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"vr360player.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Player Initialization: can be extracted to an external js file. --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> VR360Player.default(
+      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'vr-360-player'</span>),
+      <span class="hljs-string">'assets/stage.json'</span>
+    );
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 				<h2 id="player-dependencies">Player Dependencies</h2>
 				<table>
 					<thead>
@@ -228,6 +277,10 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
 							<td>^6.0.46</td>
 						</tr>
 						<tr>
+							<td>autoprefixer</td>
+							<td>^6.5.3</td>
+						</tr>
+						<tr>
 							<td>awesome-typescript-loader</td>
 							<td>^2.2.4</td>
 						</tr>
@@ -258,6 +311,10 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
 						<tr>
 							<td>path</td>
 							<td>^0.12.7</td>
+						</tr>
+						<tr>
+							<td>postcss-loader</td>
+							<td>^1.1.1</td>
 						</tr>
 						<tr>
 							<td>pug</td>
@@ -292,6 +349,10 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
 							<td>^2.0.8</td>
 						</tr>
 						<tr>
+							<td>url-loader</td>
+							<td>^0.5.7</td>
+						</tr>
+						<tr>
 							<td>webpack</td>
 							<td>^2.1.0-beta.25</td>
 						</tr>
@@ -322,9 +383,6 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/dom.html" class="tsd-kind-icon">DOM</a>
@@ -360,10 +418,13 @@ stage.json: Main stage configuration <span class="hljs-built_in">file</span> <sp
 						<a href="classes/panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="classes/scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>

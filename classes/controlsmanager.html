@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class for finding and adding methods to interface conrollers.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -91,6 +98,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#hidecontrols" class="tsd-kind-icon">hide<wbr>Controls</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#oneyetoggle" class="tsd-kind-icon">on<wbr>Eye<wbr>Toggle</a></li>
@@ -102,6 +110,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#seteyetogglestate" class="tsd-kind-icon">set<wbr>Eye<wbr>Toggle<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#setmodetogglestate" class="tsd-kind-icon">set<wbr>Mode<wbr>Toggle<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#setsensortogglestate" class="tsd-kind-icon">set<wbr>Sensor<wbr>Toggle<wbr>State</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#showcontrols" class="tsd-kind-icon">show<wbr>Controls</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controlsmanager.html#showsensortoggle" class="tsd-kind-icon">show<wbr>Sensor<wbr>Toggle</a></li>
 							</ul>
 						</section>
@@ -114,19 +123,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Controls<wbr>Manager<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="controlsmanager.html" class="tsd-signature-type">ControlsManager</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Controls<wbr>Manager<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="controlsmanager.html" class="tsd-signature-type">ControlsManager</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L12">Managers/ControlsManager.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L14">Managers/ControlsManager.ts:14</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Contructor binding event methods, however does not create anything until the <a href="controlsmanager.html#oncreate">onCreate</a> method is called.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>_player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5>_player: <a href="player.html" class="tsd-signature-type">Player</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The base player context.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="controlsmanager.html" class="tsd-signature-type">ControlsManager</a></h4>
@@ -136,6 +155,28 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hidecontrols" class="tsd-anchor"></a>
+					<h3>hide<wbr>Controls</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">hide<wbr>Controls<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L76">Managers/ControlsManager.ts:76</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Hides all, but crosshair interface controls.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="oncreate" class="tsd-anchor"></a>
 					<h3>on<wbr>Create</h3>
@@ -147,9 +188,15 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L21">Managers/ControlsManager.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L29">Managers/ControlsManager.ts:29</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called after the constructor to create variables that later need to be disposed.
+									Finds controller dom nodes and adds event listeners connected to event handlers.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -165,9 +212,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L41">Managers/ControlsManager.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L54">Managers/ControlsManager.ts:54</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Should be called at the end of a class&#39; life cycle and should dispose all assigned variables.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -182,9 +234,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L101">Managers/ControlsManager.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L137">Managers/ControlsManager.ts:137</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Toggles between the two eye states.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -205,9 +262,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L84">Managers/ControlsManager.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L118">Managers/ControlsManager.ts:118</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Toggles between the two player mode states.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -229,9 +291,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L38">Managers/ControlsManager.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L50">Managers/ControlsManager.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window is blurred after focus.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -247,9 +314,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L35">Managers/ControlsManager.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L46">Managers/ControlsManager.ts:46</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window viewport size changes.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -265,9 +337,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L32">Managers/ControlsManager.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L42">Managers/ControlsManager.ts:42</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window is focused after blur.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -282,9 +359,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L65">Managers/ControlsManager.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L97">Managers/ControlsManager.ts:97</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Toggles between the two sensor states.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -305,9 +387,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L89">Managers/ControlsManager.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L124">Managers/ControlsManager.ts:124</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Assigns a new state to the eye interface control.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -328,9 +415,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L70">Managers/ControlsManager.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L103">Managers/ControlsManager.ts:103</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Assigns a new state to the player mode interface control.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -351,15 +443,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L55">Managers/ControlsManager.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L86">Managers/ControlsManager.ts:86</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Assigns a new state to the sensor interface control.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>active: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="showcontrols" class="tsd-anchor"></a>
+					<h3>show<wbr>Controls</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">show<wbr>Controls<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L71">Managers/ControlsManager.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Shows all interface controls.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -374,9 +493,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/ControlsManager.ts#L51">Managers/ControlsManager.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ControlsManager.ts#L81">Managers/ControlsManager.ts:81</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Shows the sensor toggle interface control.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -403,6 +527,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="controlsmanager.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="controlsmanager.html#hidecontrols" class="tsd-kind-icon">hide<wbr>Controls</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="controlsmanager.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a>
@@ -438,15 +565,15 @@
 								<a href="controlsmanager.html#setsensortogglestate" class="tsd-kind-icon">set<wbr>Sensor<wbr>Toggle<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="controlsmanager.html#showcontrols" class="tsd-kind-icon">show<wbr>Controls</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="controlsmanager.html#showsensortoggle" class="tsd-kind-icon">show<wbr>Sensor<wbr>Toggle</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="dom.html" class="tsd-kind-icon">DOM</a>
 					</li>
@@ -481,10 +608,13 @@
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>

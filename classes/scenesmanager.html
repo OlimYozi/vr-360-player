@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SceneManager | vr-360-player</title>
+	<title>ScenesManager | vr-360-player</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,21 +54,28 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="scenemanager.html">SceneManager</a>
+					<a href="scenesmanager.html">ScenesManager</a>
 				</li>
 			</ul>
-			<h1>Class SceneManager</h1>
+			<h1>Class ScenesManager</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class for managing scenes and switching between them.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SceneManager</span>
+						<span class="target">ScenesManager</span>
 					</li>
 				</ul>
 			</section>
@@ -79,34 +86,37 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="scenemanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="scenesmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="scenemanager.html#player" class="tsd-kind-icon">player</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="scenesmanager.html#player" class="tsd-kind-icon">player</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scenesmanager.html#transition_attach" class="tsd-kind-icon">TRANSITION_<wbr>ATTACH</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scenesmanager.html#transition_detatch" class="tsd-kind-icon">TRANSITION_<wbr>DETATCH</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="scenesmanager.html#transition_duration" class="tsd-kind-icon">TRANSITION_<wbr>DURATION</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scenemanager.html#autorotate" class="tsd-kind-icon">auto<wbr>Rotate</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scenemanager.html#current" class="tsd-kind-icon">current</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scenemanager.html#scenes" class="tsd-kind-icon">scenes</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scenesmanager.html#current" class="tsd-kind-icon">current</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scenesmanager.html#scenes" class="tsd-kind-icon">scenes</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#load" class="tsd-kind-icon">load</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenemanager.html#switchscene" class="tsd-kind-icon">switch<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scenesmanager.html#switchscene" class="tsd-kind-icon">switch<wbr>Scene</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,22 +128,27 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Scene<wbr>Manager<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="scenemanager.html" class="tsd-signature-type">SceneManager</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Scenes<wbr>Manager<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="scenesmanager.html" class="tsd-signature-type">ScenesManager</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L18">Managers/SceneManager.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L22">Managers/ScenesManager.ts:22</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Contructor binding event methods, however does not create anything until the <a href="mode.html#oncreate">onCreate</a> method is called.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5>player: <a href="player.html" class="tsd-signature-type">Player</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="scenemanager.html" class="tsd-signature-type">SceneManager</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="scenesmanager.html" class="tsd-signature-type">ScenesManager</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -143,10 +158,88 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="player" class="tsd-anchor"></a>
 					<h3>player</h3>
-					<div class="tsd-signature tsd-kind-icon">player<span class="tsd-signature-symbol">:</span> <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></div>
+					<div class="tsd-signature tsd-kind-icon">player<span class="tsd-signature-symbol">:</span> <a href="player.html" class="tsd-signature-type">Player</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L20">Managers/SceneManager.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L27">Managers/ScenesManager.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="transition_attach" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> TRANSITION_<wbr>ATTACH</h3>
+					<div class="tsd-signature tsd-kind-icon">TRANSITION_<wbr>ATTACH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;Transition.FadeIn()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L17">Managers/ScenesManager.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>val: <span class="tsd-signature-type">number</span></h5>
+											</li>
+											<li>
+												<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="transition_detatch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> TRANSITION_<wbr>DETATCH</h3>
+					<div class="tsd-signature tsd-kind-icon">TRANSITION_<wbr>DETATCH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;Transition.FadeOut()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L18">Managers/ScenesManager.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>val: <span class="tsd-signature-type">number</span></h5>
+											</li>
+											<li>
+												<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="transition_duration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> TRANSITION_<wbr>DURATION</h3>
+					<div class="tsd-signature tsd-kind-icon">TRANSITION_<wbr>DURATION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;300</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L16">Managers/ScenesManager.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,63 +247,41 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="autorotate" class="tsd-anchor"></a>
-					<h3>auto<wbr>Rotate</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> autoRotate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> autoRotate<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L109">Managers/SceneManager.ts:109</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L113">Managers/SceneManager.ts:113</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="current" class="tsd-anchor"></a>
 					<h3>current</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> current<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> current<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> current<span class="tsd-signature-symbol">(</span>scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L117">Managers/SceneManager.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L158">Managers/ScenesManager.ts:158</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves currently displayed scene.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="scene.html" class="tsd-signature-type">Scene</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L121">Managers/SceneManager.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L163">Managers/ScenesManager.ts:163</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Assigns a new scene to be displayed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+									<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -227,9 +298,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L105">Managers/SceneManager.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L153">Managers/ScenesManager.ts:153</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves all loaded scenes.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -247,7 +323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L74">Managers/SceneManager.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L121">Managers/ScenesManager.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,9 +375,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L44">Managers/SceneManager.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L70">Managers/ScenesManager.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a new scene to the manager.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -325,7 +406,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L91">Managers/SceneManager.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L138">Managers/ScenesManager.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -356,9 +437,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L48">Managers/SceneManager.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L75">Managers/ScenesManager.ts:75</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves if exits the scene connected to supplied id.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -379,13 +465,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L23">Managers/SceneManager.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L44">Managers/ScenesManager.ts:44</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Load scenes from a json string containing at least the values specified in <a href="../interfaces/istagejson.html">IStageJSON</a>.
+									See README for more information.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>json: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The data following <a href="../interfaces/istagejson.html">IStageJSON</a> format.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -402,16 +497,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L33">Managers/SceneManager.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L58">Managers/ScenesManager.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Load scenes from a json file path containing at least the values specified in <a href="../interfaces/istagejson.html">IStageJSON</a>.
+									See README for more information.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The data path following <a href="../interfaces/istagejson.html">IStageJSON</a> format.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function to call when configuration is loaded.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -431,6 +538,28 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ondestroy" class="tsd-anchor"></a>
+					<h3>on<wbr>Destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L31">Managers/ScenesManager.ts:31</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Should be called at the end of a class&#39; life cycle and should dispose all assigned variables.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removeeventlistener" class="tsd-anchor"></a>
 					<h3>remove<wbr>Event<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -440,7 +569,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L80">Managers/SceneManager.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L127">Managers/ScenesManager.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -486,22 +615,39 @@
 					<a name="switchscene" class="tsd-anchor"></a>
 					<h3>switch<wbr>Scene</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">switch<wbr>Scene<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, done<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">switch<wbr>Scene<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, transition<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, done<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Managers/SceneManager.ts#L52">Managers/SceneManager.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Managers/ScenesManager.ts#L84">Managers/ScenesManager.ts:84</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Switches to a new scene using id and optionally using a transition.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene id to switch to.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> transition: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Boolean defining if a transition should be used when switching scenes.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> done: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to call when switch is complete.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -539,9 +685,6 @@
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="dom.html" class="tsd-kind-icon">DOM</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -575,51 +718,63 @@
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="scenemanager.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="scenesmanager.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="scenemanager.html#player" class="tsd-kind-icon">player</a>
+								<a href="scenesmanager.html#player" class="tsd-kind-icon">player</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="scenesmanager.html#transition_attach" class="tsd-kind-icon">TRANSITION_<wbr>ATTACH</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="scenesmanager.html#transition_detatch" class="tsd-kind-icon">TRANSITION_<wbr>DETATCH</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="scenesmanager.html#transition_duration" class="tsd-kind-icon">TRANSITION_<wbr>DURATION</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="scenemanager.html#autorotate" class="tsd-kind-icon">auto<wbr>Rotate</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="scenemanager.html#current" class="tsd-kind-icon">current</a>
+								<a href="scenesmanager.html#current" class="tsd-kind-icon">current</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="scenemanager.html#scenes" class="tsd-kind-icon">scenes</a>
+								<a href="scenesmanager.html#scenes" class="tsd-kind-icon">scenes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
+								<a href="scenesmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a>
+								<a href="scenesmanager.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#emit" class="tsd-kind-icon">emit</a>
+								<a href="scenesmanager.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a>
+								<a href="scenesmanager.html#getscene" class="tsd-kind-icon">get<wbr>Scene</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#load" class="tsd-kind-icon">load</a>
+								<a href="scenesmanager.html#load" class="tsd-kind-icon">load</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a>
+								<a href="scenesmanager.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+								<a href="scenesmanager.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scenemanager.html#switchscene" class="tsd-kind-icon">switch<wbr>Scene</a>
+								<a href="scenesmanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="scenesmanager.html#switchscene" class="tsd-kind-icon">switch<wbr>Scene</a>
 							</li>
 						</ul>
 					</li>

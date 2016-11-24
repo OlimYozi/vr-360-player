@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Hotspot class for adding focus points to the CorePlayer</p>
+						<p>Base class used for focus nodes in scenes.</p>
 					</div>
 				</div>
 			</section>
@@ -97,12 +97,13 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="hotspot.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="hotspot.html#_node" class="tsd-kind-icon">_node</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="hotspot.html#_player" class="tsd-kind-icon">_player</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="hotspot.html#_position" class="tsd-kind-icon">_position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="hotspot.html#events" class="tsd-kind-icon">EVENTS</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -115,6 +116,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hotspot.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="hotspot.html#onpropagationstop" class="tsd-kind-icon">on<wbr>Propagation<wbr>Stop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="hotspot.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
@@ -127,22 +130,37 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Hotspot<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">?: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a>, _position<span class="tsd-signature-symbol">?: </span><a href="vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Hotspot<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">?: </span><a href="player.html" class="tsd-signature-type">Player</a>, _position<span class="tsd-signature-symbol">?: </span><a href="vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L17">Entities/Hotspot/Hotspot.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L19">Entities/Hotspot/Hotspot.ts:19</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Using supplied data either through <a href="hotspot.html#fromjson">Hotspot.fromJSON</a> or arguments to create a new Hotspot.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _player: <a href="player.html" class="tsd-signature-type">Player</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The base player context.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> _position: <a href="vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The yaw and pitch position for the node.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="hotspot.html" class="tsd-signature-type">Hotspot</a></h4>
@@ -150,7 +168,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_node" class="tsd-anchor"></a>
@@ -158,17 +176,17 @@
 					<div class="tsd-signature tsd-kind-icon">_node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L17">Entities/Hotspot/Hotspot.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L19">Entities/Hotspot/Hotspot.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_player" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _player</h3>
-					<div class="tsd-signature tsd-kind-icon">_player<span class="tsd-signature-symbol">:</span> <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></div>
+					<div class="tsd-signature tsd-kind-icon">_player<span class="tsd-signature-symbol">:</span> <a href="player.html" class="tsd-signature-type">Player</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L15">Entities/Hotspot/Hotspot.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L17">Entities/Hotspot/Hotspot.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +196,17 @@
 					<div class="tsd-signature tsd-kind-icon">_position<span class="tsd-signature-symbol">:</span> <a href="vector3.html" class="tsd-signature-type">Vector3</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L16">Entities/Hotspot/Hotspot.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L18">Entities/Hotspot/Hotspot.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="events" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> EVENTS</h3>
+					<div class="tsd-signature tsd-kind-icon">EVENTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[&#x27;touchstart&#x27;, &#x27;touchmove&#x27;, &#x27;touchend&#x27;, &#x27;touchcancel&#x27;, &#x27;wheel&#x27;, &#x27;mousewheel&#x27;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L15">Entities/Hotspot/Hotspot.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,17 +224,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L36">Entities/Hotspot/Hotspot.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L66">Entities/Hotspot/Hotspot.ts:66</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves the node for this hotspot.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLElement</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L40">Entities/Hotspot/Hotspot.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L71">Entities/Hotspot/Hotspot.ts:71</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Assigns a new node to this hotspot.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -228,12 +266,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L50">Entities/Hotspot/Hotspot.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L81">Entities/Hotspot/Hotspot.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Retrieve the hotspot&#39;s position</p>
+									<p>Retrieves the yaw and pitch position for this hotspot.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vector3.html" class="tsd-signature-type">Vector3</a></h4>
@@ -241,12 +279,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L45">Entities/Hotspot/Hotspot.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L76">Entities/Hotspot/Hotspot.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Change the hotspot&#39;s position and update the dom node</p>
+									<p>Assigns a new yaw and pitch position to this hotspot and updates the node.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,29 +300,86 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromjson" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a>, json<span class="tsd-signature-symbol">: </span><a href="../interfaces/ihotspotdata.html" class="tsd-signature-type">IHotspotData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ondestroy" class="tsd-anchor"></a>
+					<h3>on<wbr>Destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Entities/Hotspot/Hotspot.ts#L54">Entities/Hotspot/Hotspot.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L44">Entities/Hotspot/Hotspot.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Should be called at the end of a class&#39; life cycle and should dispose all assigned variables.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="onpropagationstop" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Propagation<wbr>Stop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Propagation<wbr>Stop<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L57">Entities/Hotspot/Hotspot.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5>event: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromjson" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromJSON</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">fromJSON<span class="tsd-signature-symbol">(</span>player<span class="tsd-signature-symbol">: </span><a href="player.html" class="tsd-signature-type">Player</a>, json<span class="tsd-signature-symbol">: </span><a href="../interfaces/ihotspotdata.html" class="tsd-signature-type">IHotspotData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hotspot.html" class="tsd-signature-type">Hotspot</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Entities/Hotspot/Hotspot.ts#L94">Entities/Hotspot/Hotspot.ts:94</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deserializes JSON data to create a new <a href="hotspot.html">Hotspot</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>player: <a href="player.html" class="tsd-signature-type">Player</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The base player context.</p>
+									</div>
 								</li>
 								<li>
 									<h5>json: <a href="../interfaces/ihotspotdata.html" class="tsd-signature-type">IHotspotData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The JSON data required to create a new <a href="hotspot.html">Hotspot</a>.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="hotspot.html" class="tsd-signature-type">Hotspot</a></h4>
+							<p>A new Hotspot from the deserialized JSON data.</p>
 						</li>
 					</ul>
 				</section>
@@ -305,9 +400,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="dom.html" class="tsd-kind-icon">DOM</a>
@@ -341,11 +433,20 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="hotspot.html#_position" class="tsd-kind-icon">_position</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="hotspot.html#events" class="tsd-kind-icon">EVENTS</a>
+							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="hotspot.html#node" class="tsd-kind-icon">node</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="hotspot.html#position" class="tsd-kind-icon">position</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hotspot.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="hotspot.html#onpropagationstop" class="tsd-kind-icon">on<wbr>Propagation<wbr>Stop</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="hotspot.html#fromjson" class="tsd-kind-icon">fromJSON</a>
@@ -370,10 +471,13 @@
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>

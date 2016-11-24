@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class used for enabling the panoramic mode in the player. This is a simple 360 degree view used for computers.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -127,20 +134,30 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Panorama<wbr>Mode<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="panoramamode.html" class="tsd-signature-type">PanoramaMode</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Panorama<wbr>Mode<span class="tsd-signature-symbol">(</span>_player<span class="tsd-signature-symbol">: </span><a href="player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="panoramamode.html" class="tsd-signature-type">PanoramaMode</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L8">PanoramaMode.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L9">PanoramaMode.ts:9</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Contructor initializer, however does not create anything until the <a href="panoramamode.html#oncreate">onCreate</a> method is called.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>_player: <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></h5>
+									<h5>_player: <a href="player.html" class="tsd-signature-type">Player</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The base player context.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="panoramamode.html" class="tsd-signature-type">PanoramaMode</a></h4>
@@ -153,13 +170,18 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 					<a name="_player" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _player</h3>
-					<div class="tsd-signature tsd-kind-icon">_player<span class="tsd-signature-symbol">:</span> <a href="coreplayer.html" class="tsd-signature-type">CorePlayer</a></div>
+					<div class="tsd-signature tsd-kind-icon">_player<span class="tsd-signature-symbol">:</span> <a href="player.html" class="tsd-signature-type">Player</a></div>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#_player">_player</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L10">PanoramaMode.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L14">PanoramaMode.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The base player context.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
@@ -175,9 +197,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#deviceorientationservice">deviceOrientationService</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Mode.ts#L70">Mode.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Mode.ts#L83">Mode.ts:83</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves the device orientation service used for player panning.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="deviceorientationservice.html" class="tsd-signature-type">DeviceOrientationService</a></h4>
 						</li>
 					</ul>
@@ -197,9 +224,15 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L14">PanoramaMode.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L21">PanoramaMode.ts:21</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called after the constructor to create variables that later need to be disposed.
+									Also exits fullscreen and shows controllers</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -216,9 +249,14 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L35">PanoramaMode.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L49">PanoramaMode.ts:49</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Should be called at the end of a class&#39; life cycle and should dispose all assigned variables.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -234,9 +272,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#ondeviceorientation">onDeviceOrientation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Mode.ts#L62">Mode.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Mode.ts#L74">Mode.ts:74</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Event handler for device orientation.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -253,9 +296,14 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L31">PanoramaMode.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L44">PanoramaMode.ts:44</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window is blurred after focus.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -272,9 +320,14 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L27">PanoramaMode.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L39">PanoramaMode.ts:39</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window viewport size changes.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -291,9 +344,14 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/PanoramaMode.ts#L23">PanoramaMode.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/PanoramaMode.ts#L34">PanoramaMode.ts:34</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when window is focused after blur.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -309,9 +367,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#togglesensor">toggleSensor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Mode.ts#L52">Mode.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Mode.ts#L63">Mode.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Toggles the active state of the device sensor for player panning.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
@@ -333,9 +396,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="dom.html" class="tsd-kind-icon">DOM</a>
@@ -407,10 +467,13 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
+						<a href="player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>

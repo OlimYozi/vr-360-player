@@ -79,6 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fadein" class="tsd-kind-icon">Fade<wbr>In</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fadeout" class="tsd-kind-icon">Fade<wbr>Out</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#frombottom" class="tsd-kind-icon">From<wbr>Bottom</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fromcenter" class="tsd-kind-icon">From<wbr>Center</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fromcenterandopacity" class="tsd-kind-icon">From<wbr>Center<wbr>And<wbr>Opacity</a></li>
@@ -86,9 +88,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fromtop" class="tsd-kind-icon">From<wbr>Top</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fromtopandopacity" class="tsd-kind-icon">From<wbr>Top<wbr>And<wbr>Opacity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#fromwhite" class="tsd-kind-icon">From<wbr>White</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#opacity" class="tsd-kind-icon">Opacity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#throughblack" class="tsd-kind-icon">Through<wbr>Black</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#width" class="tsd-kind-icon">Width</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transition.html#zoomcenter" class="tsd-kind-icon">Zoom<wbr>Center</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,16 +99,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="frombottom" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Bottom</h3>
+					<a name="fadein" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Fade<wbr>In</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Bottom<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">Fade<wbr>In<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L33">Utils/Transition.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L6">Utils/Transition.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -115,7 +117,116 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fadeout" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Fade<wbr>Out</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">Fade<wbr>Out<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L16">Utils/Transition.ts:16</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="frombottom" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Bottom</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Bottom<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L46">Utils/Transition.ts:46</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -123,13 +234,13 @@
 					<a name="fromcenter" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Center</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Center<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Center<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L51">Utils/Transition.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L83">Utils/Transition.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -138,7 +249,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -146,13 +278,13 @@
 					<a name="fromcenterandopacity" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Center<wbr>And<wbr>Opacity</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Center<wbr>And<wbr>Opacity<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Center<wbr>And<wbr>Opacity<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L67">Utils/Transition.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L100">Utils/Transition.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -161,7 +293,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -169,13 +322,13 @@
 					<a name="fromright" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Right</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Right<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Right<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L15">Utils/Transition.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L26">Utils/Transition.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,7 +337,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -192,13 +366,13 @@
 					<a name="fromtop" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Top</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Top<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Top<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L24">Utils/Transition.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L36">Utils/Transition.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -207,7 +381,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -215,13 +410,13 @@
 					<a name="fromtopandopacity" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>Top<wbr>And<wbr>Opacity</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Top<wbr>And<wbr>Opacity<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Top<wbr>And<wbr>Opacity<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L84">Utils/Transition.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L118">Utils/Transition.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -230,7 +425,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -238,13 +454,13 @@
 					<a name="fromwhite" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> From<wbr>White</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>White<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>White<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L93">Utils/Transition.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L128">Utils/Transition.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -253,30 +469,28 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="opacity" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> Opacity</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">Opacity<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L6">Utils/Transition.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -284,13 +498,13 @@
 					<a name="throughblack" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> Through<wbr>Black</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">Through<wbr>Black<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">Through<wbr>Black<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L102">Utils/Transition.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L138">Utils/Transition.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -299,7 +513,31 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a>, oldScene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+												<li>
+													<h5>oldScene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -307,13 +545,13 @@
 					<a name="width" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> Width</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">Width<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">Width<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b726569/src/player/Utils/Transition.ts#L42">Utils/Transition.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L56">Utils/Transition.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -322,7 +560,72 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="zoomcenter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Zoom<wbr>Center</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">Zoom<wbr>Center<span class="tsd-signature-symbol">(</span>ease<span class="tsd-signature-symbol">?: </span><a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/8e599bf/src/player/Utils/Transition.ts#L66">Utils/Transition.ts:66</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ease: <a href="easing.html#linear" class="tsd-signature-type">Linear</a><span class="tsd-signature-symbol"> =&nbsp;Easing.Linear</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scene<span class="tsd-signature-symbol">: </span><a href="scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>val: <span class="tsd-signature-type">number</span></h5>
+												</li>
+												<li>
+													<h5>scene: <a href="scene.html" class="tsd-signature-type">Scene</a></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -343,9 +646,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="controlsmanager.html" class="tsd-kind-icon">Controls<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="coreplayer.html" class="tsd-kind-icon">Core<wbr>Player</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="dom.html" class="tsd-kind-icon">DOM</a>
@@ -381,10 +681,13 @@
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="scene.html" class="tsd-kind-icon">Scene</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="scenemanager.html" class="tsd-kind-icon">Scene<wbr>Manager</a>
+						<a href="scenesmanager.html" class="tsd-kind-icon">Scenes<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stereoscopicmode.html" class="tsd-kind-icon">Stereoscopic<wbr>Mode</a>
@@ -394,6 +697,12 @@
 					<li class="current tsd-kind-class">
 						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="transition.html#fadein" class="tsd-kind-icon">Fade<wbr>In</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="transition.html#fadeout" class="tsd-kind-icon">Fade<wbr>Out</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="transition.html#frombottom" class="tsd-kind-icon">From<wbr>Bottom</a>
 							</li>
@@ -416,13 +725,13 @@
 								<a href="transition.html#fromwhite" class="tsd-kind-icon">From<wbr>White</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="transition.html#opacity" class="tsd-kind-icon">Opacity</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="transition.html#throughblack" class="tsd-kind-icon">Through<wbr>Black</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="transition.html#width" class="tsd-kind-icon">Width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="transition.html#zoomcenter" class="tsd-kind-icon">Zoom<wbr>Center</a>
 							</li>
 						</ul>
 					</li>
