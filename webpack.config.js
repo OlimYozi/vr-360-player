@@ -85,6 +85,9 @@ module.exports = function (env) {
     //------------------------------------------------------------------------------------
 
     config = extend(true, config, {
+      output: {
+        path: path.resolve(process.cwd(), 'dist'),
+      },
 
       plugins: [
         new webpack.NoErrorsPlugin(),

@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --content-base build --inline --progress --host 0.0.0.0 --port 9202",
     "prestart": "rimraf build && mkdir -p build/assets/ && cp -r src/assets/tiles build/assets && cp src/assets/stage.json build/assets",
     "build:dev": "rimraf build && webpack --progress --profile --env.development",
-    "build:prod": "rimraf build && webpack --progress --profile --bail --env.production",
+    "build:prod": "rimraf dist && webpack --progress --profile --bail --env.production",
     "deploy": "npm run build:prod && ./deploy.sh"
   },
   "repository": {

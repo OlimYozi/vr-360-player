@@ -24,7 +24,7 @@ coverage
 .lock-wscript
 
 # Compiled binary and documentation
-# build
+build
 docs
 
 # Dependency directories
