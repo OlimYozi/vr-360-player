@@ -40,8 +40,9 @@ export default class Player implements ILifeCycle {
   /** The constructor initializes managers, modes and inserts the viewer into the dom before calling onCreate().
    * @param _node the canvas element to which the player shall be attached to.
    * @param _stagePath the path from which to load the stage.json file accompanied by the tiles folder with each stage scenes images.
+   * @param _initialSceneId the id of the initial scene to load, must be declared inside the stage.json.
    */
-  constructor(private _node: HTMLElement, private _stagePath: string) {
+  constructor(private _node: HTMLElement, private _stagePath: string, private _initialSceneId?: string) {
     // Create managers for controls and scenes
     this._controlsManager = new ControlsManager(this);
     this._scenesManager = new ScenesManager(this);
@@ -71,8 +72,11 @@ export default class Player implements ILifeCycle {
   onCreate() {
     this.controlsManager.onCreate();
     this.scenesManager.loadFromFile(this._stagePath, () => {
+      // Select initial scene to load.
+      this._initialSceneId = this._initialSceneId || this.scenesManager.sceneIds[0];
+
       // Create first scene with transition and callback.
-      this.scenesManager.switchScene('0-livingroom', true, () => {
+      this.scenesManager.switchScene(this._initialSceneId, true, () => {
         this.mode.onCreate();
       });
     });

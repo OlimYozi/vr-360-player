@@ -154,6 +154,11 @@ export default class ScenesManager {
     return this._scenes;
   }
 
+  /** Retrieves all loaded scene ids */
+  public get sceneIds(): IterableIterator<string> {
+    return this._scenes.keys();
+  }
+
   /** Retrieves currently displayed scene. */
   public get current(): Scene {
     return this._current;
