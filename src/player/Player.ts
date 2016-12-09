@@ -73,7 +73,7 @@ export default class Player implements ILifeCycle {
     this.controlsManager.onCreate();
     this.scenesManager.loadFromFile(this._stagePath, () => {
       // Select initial scene to load.
-      this._initialSceneId = this._initialSceneId || this.scenesManager.sceneIds[0];
+      this._initialSceneId = this._initialSceneId || this.scenesManager.sceneIds.next().value;
 
       // Create first scene with transition and callback.
       this.scenesManager.switchScene(this._initialSceneId, true, () => {
