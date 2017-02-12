@@ -68,7 +68,7 @@ export default class DeviceOrientationService {
     this._getPitchCallbacks.length = 0;
 
     // Emit control offsets.
-    if (previous.yaw != null && previous.pitch != null && previous.roll != null) {
+    if (previous.yaw !== null && previous.pitch !== null && previous.roll !== null) {
       this._dynamics.yaw.offset = -(current.yaw - previous.yaw);
       this._dynamics.pitch.offset = (current.pitch - previous.pitch);
 

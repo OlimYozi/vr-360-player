@@ -50,17 +50,17 @@ export default class Scene implements ILifeCycle {
   private _levels: Level[];
   private _faceSize: number;
   private _initialViewParameters: Vector4;
-  private _linkHotspots: LinkHotspot[];
-  private _infoHotspots: InfoHotspot[];
+  private _linkHotspots: PairSet<LinkHotspot>[];
+  private _infoHotspots: PairSet<InfoHotspot>[];
 
   private _player: Player;
   private _geometry: any;
   private _projectionCenter: Vector4;
   private _views: PairSet<any>;
-  private _hotspotContainer: any;
   private _sources: PairSet<any>;
   private _textureStores: PairSet<any>;
   private _layers: PairSet<any>;
+  private _hotspots: PairSet<any>;
 
   private _cancelTweening: () => void;
 
@@ -74,6 +74,7 @@ export default class Scene implements ILifeCycle {
     this._sources = new PairSet();
     this._textureStores = new PairSet();
     this._layers = new PairSet();
+    this._hotspots = new PairSet();
   }
 
   /** Called after the constructor to create variables that later need to be disposed.
@@ -89,21 +90,6 @@ export default class Scene implements ILifeCycle {
 
     this.createLayer(this._player.viewer.stage(), this._views.primary, 'left', { relativeWidth: 0.5, relativeX: 0 });
     this.createLayer(this._player.viewer.stage(), this._views.secondary, 'right', { relativeWidth: 0.5, relativeX: 0.5 });
-
-    this._hotspotContainer = new Marzipano.HotspotContainer(
-      this._player.viewer._controlContainer,
-      this._player.viewer.stage(),
-      this._views.primary,
-      this._player.viewer.renderLoop(),
-      { rect: this._layers.primary.effects().rect }
-    );
-
-    this._linkHotspots.forEach((hotspot: LinkHotspot) => {
-      this._hotspotContainer.createHotspot(hotspot.node, hotspot.position);
-    })
-    this._infoHotspots.forEach((hotspot: InfoHotspot) => {
-      this._hotspotContainer.createHotspot(hotspot.node, hotspot.position);
-    })
     return true;
   }
 
@@ -115,14 +101,13 @@ export default class Scene implements ILifeCycle {
     if (this._player.mode instanceof PanoramaMode) {
       this._views.primary.setLimiter(Scene.PANORAMA_LIMITER);
       this._views.primary.setProjectionCenterX(0);
-      this._views.secondary.setProjectionCenterX(0);
       this._layers.primary.setEffects({ rect: { relativeWidth: 1 } });
-      this.eye = 'left';
+      this._hotspots.primary.setRect(this._layers.primary.effects().rect);
     } else {
       this._views.primary.setLimiter(Scene.STEREOSCOPIC_LIMITER);
       this._views.primary.setProjectionCenterX(this.projectionCenter.x);
       this._layers.primary.setEffects({ rect: { relativeWidth: 0.5 } });
-      this.eye = (<StereoscopicMode>this._player.mode).dominantEye;
+      this._hotspots.primary.setRect(this._layers.primary.effects().rect);
       stage.addLayer(this._layers.secondary);
     }
     stage.addLayer(this._layers.primary);
@@ -135,7 +120,7 @@ export default class Scene implements ILifeCycle {
 
     // If no transition specified just return callback
     if (!transition) {
-      this._hotspotContainer.show();
+      this._hotspots.pair(container => container.show());
       if (typeof done === 'function') done();
       return;
     }
@@ -151,7 +136,7 @@ export default class Scene implements ILifeCycle {
       transition(val, this);
     }, () => {
       this._cancelTweening = null;
-      this._hotspotContainer.show();
+      this._hotspots.pair(container => container.show());
       if (typeof done === 'function') done();
     });
   }
@@ -170,7 +155,7 @@ export default class Scene implements ILifeCycle {
 
     // If no transition specified just return callback
     if (!transition) {
-      this._hotspotContainer.hide();
+      this._hotspots.pair(container => container.hide());
       stage.removeLayer(this._layers.primary);
       if (stage.hasLayer(this._layers.secondary))
         stage.removeLayer(this._layers.secondary);
@@ -190,7 +175,7 @@ export default class Scene implements ILifeCycle {
       transition(val, this);
     }, () => {
       this._cancelTweening = null;
-      this._hotspotContainer.hide();
+      this._hotspots.pair(container => container.hide());
       stage.removeLayer(this._layers.primary);
       if (stage.hasLayer(this._layers.secondary))
         stage.removeLayer(this._layers.secondary);
@@ -208,14 +193,14 @@ export default class Scene implements ILifeCycle {
     this._textureStores.pair(store => store.destroy());
     this._views.pair(view => view.destroy());
     this._layers.pair(layer => layer.destroy());
-    this._hotspotContainer.destroy();
+    this._hotspots.pair(container => container.destroy());
 
     this._geometry = null;
     this._views = null;
     this._sources = null;
     this._textureStores = null;
     this._layers = null;
-    this._hotspotContainer = null;
+    this._hotspots = null;
   }
 
   //------------------------------------------------------------------------------------
@@ -240,14 +225,36 @@ export default class Scene implements ILifeCycle {
     );
     layer.pinFirstLevel();
 
+    const hotspots = new Marzipano.HotspotContainer(
+      this._player.viewer._controlContainer,
+      stage,
+      view,
+      this._player.viewer.renderLoop(),
+      { rect: rect }
+    );
+
     if (eye === 'left') {
       this._sources.primary = source;
       this._textureStores.primary = store;
       this._layers.primary = layer;
+      this._hotspots.primary = hotspots;
+      this._linkHotspots.forEach((hotspotPair: PairSet<LinkHotspot>) => {
+        hotspots.createHotspot(hotspotPair.primary.node, hotspotPair.primary.position);
+      });
+      this._infoHotspots.forEach((hotspotPair: PairSet<InfoHotspot>) => {
+        hotspots.createHotspot(hotspotPair.primary.node, hotspotPair.primary.position);
+      });
     } else {
       this._sources.secondary = source;
       this._textureStores.secondary = store;
       this._layers.secondary = layer;
+      this._hotspots.secondary = hotspots;
+      this._linkHotspots.forEach((hotspotPair: PairSet<LinkHotspot>) => {
+        hotspots.createHotspot(hotspotPair.secondary.node, hotspotPair.secondary.position);
+      });
+      this._infoHotspots.forEach((hotspotPair: PairSet<InfoHotspot>) => {
+        hotspots.createHotspot(hotspotPair.secondary.node, hotspotPair.secondary.position);
+      });
     }
   }
 
@@ -261,16 +268,6 @@ export default class Scene implements ILifeCycle {
     this._views.secondary.setProjectionCenterX(-center.x);
   }
 
-  /** Sets the dominant eye moving hotspots to defined side. */
-  public set eye(eye: 'left' | 'right') {
-    if (eye === 'left') {
-      this._hotspotContainer.setRect(this._layers.primary.effects().rect);
-    } else {
-      this._hotspotContainer.setRect(this._layers.secondary.effects().rect);
-    }
-    this._hotspotContainer._update();
-  }
-
   /** Retrieves this scene's id. */
   public get id(): string {
     return this._id;
@@ -282,12 +279,12 @@ export default class Scene implements ILifeCycle {
   }
 
   /** Retrieves this scene's link hotspots. */
-  public get linkHotspots(): LinkHotspot[] {
+  public get linkHotspots(): PairSet<LinkHotspot>[] {
     return this._linkHotspots;
   }
 
   /** Retrieves this scene's info hotspots. */
-  public get infoHotspots(): InfoHotspot[] {
+  public get infoHotspots(): PairSet<InfoHotspot>[] {
     return this._infoHotspots;
   }
 
@@ -328,8 +325,18 @@ export default class Scene implements ILifeCycle {
         _levels: json.levels.map(level => Level.fromJSON(level)),
         _faceSize: json.faceSize,
         _initialViewParameters: new Vector4(json.initialViewParameters.yaw, json.initialViewParameters.pitch, 0, 90),
-        _linkHotspots: json.linkHotspots.map(hotspot => LinkHotspot.fromJSON(player, hotspot)),
-        _infoHotspots: json.infoHotspots.map(hotspot => InfoHotspot.fromJSON(player, hotspot)),
+        _linkHotspots: json.linkHotspots.map(hotspot => {
+          return new PairSet<LinkHotspot>(
+            LinkHotspot.fromJSON(player, hotspot),
+            LinkHotspot.fromJSON(player, hotspot)
+          );
+        }),
+        _infoHotspots: json.infoHotspots.map(hotspot => {
+          return new PairSet<InfoHotspot>(
+            InfoHotspot.fromJSON(player, hotspot),
+            InfoHotspot.fromJSON(player, hotspot)
+          );
+        }),
       });
       Scene.apply(scene);
       return scene;

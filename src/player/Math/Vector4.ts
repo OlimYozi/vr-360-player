@@ -179,6 +179,10 @@ export default class Vector4 {
     return this._z;
   }
 
+  get w(): number {
+    return this._w;
+  }
+
   set x(x: number) {
     this._x = x;
   }

@@ -10,6 +10,7 @@ import LinkHotspot from './Entities/Hotspot/LinkHotspot';
 import InfoHotspot from './Entities/Hotspot/InfoHotspot';
 import WakeLockService from './Services/WakeLockService';
 import DeviceOrientationService from './Services/DeviceOrientationService';
+import PairSet from "./Utils/PairSet";
 
 /** Class used for enabling the stereoscopic mode in the player. This emulates WebVR with two side-by-side scenes.
  * This mode also uses the device sensor to pan the scene and navigation through prolonged gazing at a [[LinkHotspot]].
@@ -18,12 +19,9 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
 
   private _wakeLockService: WakeLockService;
 
-  /* SETTINGS */
-  private _dominantEye: 'left' | 'right' = 'left';
-
   /* SCENE */
   private _scene: Scene;
-  private _hotspots: Hotspot[];
+  private _hotspots: PairSet<Hotspot>[];
   private _center = new Vector4();
   private _controlsTimeout;
   private _navigationTimeout;
@@ -105,12 +103,6 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   // METHODS
   //------------------------------------------------------------------------------------
 
-  /** Switch dominant eye moving all hotspots to the defined side. */
-  public toggleEye(): 'left' | 'right' {
-    this.dominantEye = this._dominantEye === 'left' ? 'right' : 'left';
-    return this.dominantEye;
-  }
-
   /** Event handler for click and taps on the stage to reveal interface controllers for 3 seconds. */
   public onClick() {
     clearTimeout(this._controlsTimeout);
@@ -127,36 +119,37 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     if (!this._scene)
       return;
 
-    this._center.yaw = this._player.scenesManager.current.views.primary.yaw();
     this._center.pitch = this._player.scenesManager.current.views.primary.pitch();
+    this._center.yaw = this._player.scenesManager.current.views.primary.yaw();
 
-    this._hotspots.forEach((hotspot: Hotspot) => {
+    this._hotspots.forEach((hotspotPair: PairSet<Hotspot>) => {
+      const primary = hotspotPair.primary;
 
       // Check if crosshair is near the hotspot
-      if (hotspot.position.distance(this._center) < 0.15) {
-        if (!hotspot.node.classList.contains('active')) {
-          hotspot.node.classList.add('active');
+      if (primary.position.distance(this._center) < 0.15) {
+        if (!primary.node.classList.contains('active')) {
+          hotspotPair.pair(hotspot => hotspot.node.classList.add('active'));
 
           // If hotspot is of type LinkHotspot trigger a navigation timeout
-          if (hotspot instanceof LinkHotspot) {
+          if (primary instanceof LinkHotspot) {
             this._navigationTimeout = setTimeout(() => {
-              this._player.scenesManager.switchScene(hotspot.target);
+              this._player.scenesManager.switchScene(primary.target);
             }, 1500);
           }
         }
 
         // If hotspot is of type InfoHotspot set a deativation 2s timeout repeatedly until crosshair leaves area
-        if (hotspot instanceof InfoHotspot) {
+        if (primary instanceof InfoHotspot) {
           clearTimeout(this._infoTimeout);
           this._infoTimeout = setTimeout(() => {
-            hotspot.node.classList.remove('active');
+            hotspotPair.pair(hotspot => hotspot.node.classList.remove('active'));
           }, 2000);
         }
       } else {
 
         // If hotspot is of type LinkHotspot and active clear navigation timeout due to crosshair has left hotspot vicinity
-        if (hotspot instanceof LinkHotspot && hotspot.node.classList.contains('active')) {
-          hotspot.node.classList.remove('active');
+        if (primary instanceof LinkHotspot && primary.node.classList.contains('active')) {
+          hotspotPair.pair(hotspot => hotspot.node.classList.remove('active'));
           clearTimeout(this._navigationTimeout);
         }
       }
@@ -181,16 +174,5 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   /** Retrieves the current projection center for the views. */
   public get projectionCenter(): Vector4 {
     return this._scene.projectionCenter;
-  }
-
-  /** Assigns the dominant eye moving all hotspots to the defined side. */
-  public set dominantEye(eye: 'left' | 'right') {
-    this._dominantEye = eye;
-    this._scene.eye = this._dominantEye;
-  }
-
-  /** Retrieves the dominant eye position. */
-  public get dominantEye(): 'left' | 'right' {
-    return this._dominantEye;
   }
 }

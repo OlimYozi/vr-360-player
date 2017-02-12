@@ -15,13 +15,22 @@
 
 #crosshair {
   position: absolute;
-  display: none;
   top: 50%;
   left: 25%;
-  margin: -4px 0 0 -4px;
-  width: 8px;
+  width: 50%;
   height: 8px;
-  background: white;
+  margin-top: -4px;
   pointer-events: none;
-  border-radius: 50%;
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+  }
+  &::before { left: -4px; }
+  &::after { right: -4px; }
 }

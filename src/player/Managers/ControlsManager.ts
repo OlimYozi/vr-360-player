@@ -13,7 +13,6 @@ export default class ControlsManager implements ILifeCycle {
   private _projectionX: HTMLElement;
   private _sensorToggler: HTMLElement;
   private _modeToggler: HTMLElement;
-  private _eyeToggler: HTMLElement;
 
   /** Contructor binding event methods, however does not create anything until the [[onCreate]] method is called.
    * @param _player The base player context.
@@ -23,7 +22,6 @@ export default class ControlsManager implements ILifeCycle {
     this.onProjectionXChange = this.onProjectionXChange.bind(this);
     this.onSensorToggle = this.onSensorToggle.bind(this);
     this.onModeToggle = this.onModeToggle.bind(this);
-    this.onEyeToggle = this.onEyeToggle.bind(this);
   }
 
   /** Called after the constructor to create variables that later need to be disposed.
@@ -35,12 +33,10 @@ export default class ControlsManager implements ILifeCycle {
     this._projectionX = document.getElementById('projection-x');
     this._sensorToggler = document.getElementById('sensor-toggler');
     this._modeToggler = document.getElementById('mode-toggler');
-    this._eyeToggler = document.getElementById('eye-toggler');
 
     this._projectionX.addEventListener('input', this.onProjectionXChange);
     this._sensorToggler.addEventListener('click', this.onSensorToggle);
     this._modeToggler.addEventListener('click', this.onModeToggle);
-    this._eyeToggler.addEventListener('click', this.onEyeToggle);
   }
 
   /** Called when window is focused after blur. */
@@ -60,13 +56,11 @@ export default class ControlsManager implements ILifeCycle {
     this._projectionX.removeEventListener('input', this.onProjectionXChange);
     this._sensorToggler.removeEventListener('click', this.onSensorToggle);
     this._modeToggler.removeEventListener('click', this.onModeToggle);
-    this._eyeToggler.removeEventListener('click', this.onEyeToggle);
 
     this._controls = null;
     this._crosshair = null;
     this._sensorToggler = null;
     this._modeToggler = null;
-    this._eyeToggler = null;
   }
 
   //------------------------------------------------------------------------------------
@@ -85,8 +79,10 @@ export default class ControlsManager implements ILifeCycle {
 
   /** Updates the projection X center. */
   public onProjectionXChange(event: Event) {
-    (<StereoscopicMode>this._player.mode).projectionCenter =
-      new Vector4(parseFloat((<HTMLInputElement>event.target).value), 0.5);
+    const center = new Vector4(parseFloat((<HTMLInputElement>event.target).value), 0.5);
+    (<StereoscopicMode>this._player.mode).projectionCenter = center;
+    this._crosshair.style.left = (50 * (0.5 + center.x)) + '%';
+    this._crosshair.style.width = (100 * (0.5 - center.x)) + '%';
   }
 
   /** Shows the sensor toggle interface control. */
@@ -116,13 +112,11 @@ export default class ControlsManager implements ILifeCycle {
     if (mode instanceof PanoramaMode) {
       this._crosshair.style.display = 'none';
       this._projectionX.style.display = 'none';
-      this._eyeToggler.style.display = 'none';
       this._modeToggler.classList.remove('icon_panorama');
       this._modeToggler.classList.add('icon_vr');
     } else {
       this._crosshair.style.display = 'block';
       this._projectionX.style.display = 'inline-block';
-      this._eyeToggler.style.display = 'inline-block';
       this._modeToggler.classList.remove('icon_vr');
       this._modeToggler.classList.add('icon_panorama');
     }
@@ -132,24 +126,5 @@ export default class ControlsManager implements ILifeCycle {
   public onModeToggle(event: MouseEvent) {
     const mode = this._player.toggleMode();
     this.setModeToggleState(mode);
-  }
-
-  /** Assigns a new state to the eye interface control. */
-  public setEyeToggleState(eye: 'left' | 'right') {
-    if (eye === 'left') {
-      this._crosshair.style.left = (document.documentElement.clientWidth / 4) + 'px';
-      this._eyeToggler.classList.remove('icon_eye_right');
-      this._eyeToggler.classList.add('icon_eye_left');
-    } else {
-      this._crosshair.style.left = (document.documentElement.clientWidth / 4 * 3) + 'px';
-      this._eyeToggler.classList.remove('icon_eye_left');
-      this._eyeToggler.classList.add('icon_eye_right');
-    }
-  }
-
-  /** Toggles between the two eye states. */
-  public onEyeToggle(event: MouseEvent) {
-    const eye = (<StereoscopicMode>this._player.mode).toggleEye();
-    this.setEyeToggleState(eye);
   }
 }
