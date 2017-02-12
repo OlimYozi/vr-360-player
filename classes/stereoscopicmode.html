@@ -102,30 +102,30 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="stereoscopicmode.html#_player" class="tsd-kind-icon">_player</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="stereoscopicmode.html#interaction_events" class="tsd-kind-icon">INTERACTION_<wbr>EVENTS</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="stereoscopicmode.html#deviceorientationservice" class="tsd-kind-icon">device<wbr>Orientation<wbr>Service</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="stereoscopicmode.html#dominanteye" class="tsd-kind-icon">dominant<wbr>Eye</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="stereoscopicmode.html#projectioncenter" class="tsd-kind-icon">projection<wbr>Center</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stereoscopicmode.html#onclick" class="tsd-kind-icon">on<wbr>Click</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#ondestroy" class="tsd-kind-icon">on<wbr>Destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="stereoscopicmode.html#ondeviceorientation" class="tsd-kind-icon">on<wbr>Device<wbr>Orientation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stereoscopicmode.html#oninteraction" class="tsd-kind-icon">on<wbr>Interaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="stereoscopicmode.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stereoscopicmode.html#toggleeye" class="tsd-kind-icon">toggle<wbr>Eye</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="stereoscopicmode.html#togglesensor" class="tsd-kind-icon">toggle<wbr>Sensor</a></li>
 							</ul>
 						</section>
@@ -145,7 +145,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L30">StereoscopicMode.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L30">StereoscopicMode.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -169,7 +169,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_player" class="tsd-anchor"></a>
@@ -178,7 +178,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#_player">_player</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Mode.ts#L15">Mode.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Mode.ts#L15">Mode.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -186,6 +186,16 @@
 							<p>The base player context.</p>
 						</div>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="interaction_events" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> INTERACTION_<wbr>EVENTS</h3>
+					<div class="tsd-signature tsd-kind-icon">INTERACTION_<wbr>EVENTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[&#x27;touchstart&#x27;, &#x27;touchmove&#x27;, &#x27;click&#x27;, &#x27;mousedown&#x27;, &#x27;drag&#x27;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L20">StereoscopicMode.ts:20</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -201,7 +211,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#deviceorientationservice">deviceOrientationService</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Mode.ts#L83">Mode.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Mode.ts#L84">Mode.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,44 +224,41 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="dominanteye" class="tsd-anchor"></a>
-					<h3>dominant<wbr>Eye</h3>
+					<a name="projectioncenter" class="tsd-anchor"></a>
+					<h3>projection<wbr>Center</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> dominantEye<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> dominantEye<span class="tsd-signature-symbol">(</span>eye<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> projectionCenter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector4.html" class="tsd-signature-type">Vector4</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> projectionCenter<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><a href="vector4.html" class="tsd-signature-type">Vector4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L183">StereoscopicMode.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L182">StereoscopicMode.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Retrieves the dominant eye position.</p>
+									<p>Retrieves the current projection center for the views.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"left"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"right"</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <a href="vector4.html" class="tsd-signature-type">Vector4</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L177">StereoscopicMode.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L177">StereoscopicMode.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Assigns the dominant eye moving all hotspots to the defined side.</p>
+									<p>Assigns the center to use for the view projection.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>eye: <span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></h5>
+									<h5>center: <a href="vector4.html" class="tsd-signature-type">Vector4</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -261,28 +268,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="onclick" class="tsd-anchor"></a>
-					<h3>on<wbr>Click</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Click<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L115">StereoscopicMode.ts:115</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Event handler for click and taps on the stage to reveal interface controllers for 3 seconds.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="oncreate" class="tsd-anchor"></a>
 					<h3>on<wbr>Create</h3>
@@ -295,7 +280,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L47">StereoscopicMode.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L47">StereoscopicMode.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,7 +305,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L93">StereoscopicMode.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L96">StereoscopicMode.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,12 +328,34 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#ondeviceorientation">onDeviceOrientation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L125">StereoscopicMode.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L124">StereoscopicMode.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Event handler for device orientation used for gaze navigation and displaying info hotspots for 2 seconds.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="oninteraction" class="tsd-anchor"></a>
+					<h3>on<wbr>Interaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Interaction<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L114">StereoscopicMode.ts:114</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Event handler for click and taps on the stage to reveal interface controllers for 3 seconds.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -367,7 +374,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L87">StereoscopicMode.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L90">StereoscopicMode.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,7 +398,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L82">StereoscopicMode.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L85">StereoscopicMode.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +422,7 @@
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<p>Overrides <a href="mode.html">Mode</a>.<a href="mode.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L76">StereoscopicMode.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/StereoscopicMode.ts#L79">StereoscopicMode.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -424,31 +431,6 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="toggleeye" class="tsd-anchor"></a>
-					<h3>toggle<wbr>Eye</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Eye<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/StereoscopicMode.ts#L109">StereoscopicMode.ts:109</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Switch dominant eye moving all hotspots to the defined side.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"left"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"right"</span>
-							</h4>
 						</li>
 					</ul>
 				</section>
@@ -463,7 +445,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="mode.html">Mode</a>.<a href="mode.html#togglesensor">toggleSensor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Mode.ts#L63">Mode.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Mode.ts#L64">Mode.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -523,6 +505,9 @@
 					<li class=" tsd-kind-class">
 						<a href="mode.html" class="tsd-kind-icon">Mode</a>
 					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="pairset.html" class="tsd-kind-icon">Pair<wbr>Set</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
@@ -546,14 +531,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="stereoscopicmode.html#_player" class="tsd-kind-icon">_player</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="stereoscopicmode.html#interaction_events" class="tsd-kind-icon">INTERACTION_<wbr>EVENTS</a>
+							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 								<a href="stereoscopicmode.html#deviceorientationservice" class="tsd-kind-icon">device<wbr>Orientation<wbr>Service</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="stereoscopicmode.html#dominanteye" class="tsd-kind-icon">dominant<wbr>Eye</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stereoscopicmode.html#onclick" class="tsd-kind-icon">on<wbr>Click</a>
+								<a href="stereoscopicmode.html#projectioncenter" class="tsd-kind-icon">projection<wbr>Center</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#oncreate" class="tsd-kind-icon">on<wbr>Create</a>
@@ -564,6 +549,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 								<a href="stereoscopicmode.html#ondeviceorientation" class="tsd-kind-icon">on<wbr>Device<wbr>Orientation</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="stereoscopicmode.html#oninteraction" class="tsd-kind-icon">on<wbr>Interaction</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a>
 							</li>
@@ -572,9 +560,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="stereoscopicmode.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stereoscopicmode.html#toggleeye" class="tsd-kind-icon">toggle<wbr>Eye</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="stereoscopicmode.html#togglesensor" class="tsd-kind-icon">toggle<wbr>Sensor</a>
@@ -587,7 +572,7 @@
 						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="vector3.html" class="tsd-kind-icon">Vector3</a>
+						<a href="vector4.html" class="tsd-kind-icon">Vector4</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="wakelockservice.html" class="tsd-kind-icon">Wake<wbr>Lock<wbr>Service</a>

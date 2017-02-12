@@ -110,7 +110,8 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#layers" class="tsd-kind-icon">layers</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#linkhotspots" class="tsd-kind-icon">link<wbr>Hotspots</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="scene.html#projectioncenter" class="tsd-kind-icon">projection<wbr>Center</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="scene.html#views" class="tsd-kind-icon">views</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -123,7 +124,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onpause" class="tsd-kind-icon">on<wbr>Pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="scene.html#seteye" class="tsd-kind-icon">set<wbr>Eye</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="scene.html#fromjson" class="tsd-kind-icon">fromJSON</a></li>
 							</ul>
 						</section>
@@ -142,7 +142,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L52">Entities/Scene.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L65">Entities/Scene.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -171,20 +171,20 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="panorama_limiter" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> PANORAMA_<wbr>LIMITER</h3>
-					<div class="tsd-signature tsd-kind-icon">PANORAMA_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.util.compose(Marzipano.RectilinearView.limit.vfov(110 * Math.PI / 180, 110 * Math.PI / 180),Marzipano.RectilinearView.limit.hfov(110 * Math.PI / 180, 110 * Math.PI / 180),Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2))</span></div>
+					<div class="tsd-signature tsd-kind-icon">PANORAMA_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.RectilinearView.limit.traditional(4096, 120 * Math.PI / 180)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L26">Entities/Scene.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L28">Entities/Scene.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="stereoscopic_limiter" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> STEREOSCOPIC_<wbr>LIMITER</h3>
-					<div class="tsd-signature tsd-kind-icon">STEREOSCOPIC_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.util.compose(Marzipano.RectilinearView.limit.vfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.hfov(90 * Math.PI / 180, 90 * Math.PI / 180),Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2))</span></div>
+					<div class="tsd-signature tsd-kind-icon">STEREOSCOPIC_<wbr>LIMITER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;Marzipano.RectilinearView.limit.traditional(4096, 90 * Math.PI / 180)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L31">Entities/Scene.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L31">Entities/Scene.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L231">Entities/Scene.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L272">Entities/Scene.ts:272</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -217,13 +217,13 @@
 					<a name="infohotspots" class="tsd-anchor"></a>
 					<h3>info<wbr>Hotspots</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> infoHotspots<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> infoHotspots<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L246">Entities/Scene.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L287">Entities/Scene.ts:287</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -231,7 +231,7 @@
 									<p>Retrieves this scene&#39;s info hotspots.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><a href="infohotspot.html" class="tsd-signature-type">InfoHotspot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -239,13 +239,13 @@
 					<a name="layers" class="tsd-anchor"></a>
 					<h3>layers</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> layers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> layers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L256">Entities/Scene.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L302">Entities/Scene.ts:302</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,7 +253,7 @@
 									<p>Retrieves this scene&#39;s layers. See marzipano layer documentaion.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,13 +261,13 @@
 					<a name="linkhotspots" class="tsd-anchor"></a>
 					<h3>link<wbr>Hotspots</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> linkHotspots<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> linkHotspots<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L241">Entities/Scene.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L282">Entities/Scene.ts:282</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,7 +275,7 @@
 									<p>Retrieves this scene&#39;s link hotspots.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><a href="linkhotspot.html" class="tsd-signature-type">LinkHotspot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -289,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L236">Entities/Scene.ts:236</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L277">Entities/Scene.ts:277</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -301,17 +301,59 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> view<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="projectioncenter" class="tsd-anchor"></a>
+					<h3>projection<wbr>Center</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> projectionCenter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector4.html" class="tsd-signature-type">Vector4</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> projectionCenter<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><a href="vector4.html" class="tsd-signature-type">Vector4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L251">Entities/Scene.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L292">Entities/Scene.ts:292</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves this scene&#39;s projection center.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="vector4.html" class="tsd-signature-type">Vector4</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L266">Entities/Scene.ts:266</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets this scene&#39;s projection center.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>center: <a href="vector4.html" class="tsd-signature-type">Vector4</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="views" class="tsd-anchor"></a>
+					<h3>views</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> views<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L297">Entities/Scene.ts:297</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -319,7 +361,7 @@
 									<p>Retrieves this scene&#39;s view. See marzipano view documentaion.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="pairset.html" class="tsd-signature-type">PairSet</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -336,7 +378,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L94">Entities/Scene.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L97">Entities/Scene.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -404,7 +446,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#oncreate">onCreate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L69">Entities/Scene.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L83">Entities/Scene.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +470,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#ondestroy">onDestroy</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L181">Entities/Scene.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L192">Entities/Scene.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -450,7 +492,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L142">Entities/Scene.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L153">Entities/Scene.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +560,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onpause">onPause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L177">Entities/Scene.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L188">Entities/Scene.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +583,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresize">onResize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L138">Entities/Scene.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L149">Entities/Scene.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +606,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ilifecycle.html">ILifeCycle</a>.<a href="../interfaces/ilifecycle.html#onresume">onResume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L134">Entities/Scene.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L145">Entities/Scene.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -572,34 +614,6 @@
 									<p>Called when window is focused after blur.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="seteye" class="tsd-anchor"></a>
-					<h3>set<wbr>Eye</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Eye<span class="tsd-signature-symbol">(</span>eye<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L217">Entities/Scene.ts:217</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Switches dominant eye moving hotspots to defined side.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>eye: <span class="tsd-signature-type">"left"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"right"</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -614,7 +628,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/b6b2458/src/player/Entities/Scene.ts#L269">Entities/Scene.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/trutoo/vr-360-player/blob/97b5a8d/src/player/Entities/Scene.ts#L315">Entities/Scene.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -690,6 +704,9 @@
 					<li class=" tsd-kind-class">
 						<a href="mode.html" class="tsd-kind-icon">Mode</a>
 					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="pairset.html" class="tsd-kind-icon">Pair<wbr>Set</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="panoramamode.html" class="tsd-kind-icon">Panorama<wbr>Mode</a>
 					</li>
@@ -725,8 +742,11 @@
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="scene.html#name" class="tsd-kind-icon">name</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="scene.html#projectioncenter" class="tsd-kind-icon">projection<wbr>Center</a>
+							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="scene.html#view" class="tsd-kind-icon">view</a>
+								<a href="scene.html#views" class="tsd-kind-icon">views</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="scene.html#onattach" class="tsd-kind-icon">on<wbr>Attach</a>
@@ -749,9 +769,6 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="scene.html#onresume" class="tsd-kind-icon">on<wbr>Resume</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="scene.html#seteye" class="tsd-kind-icon">set<wbr>Eye</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="scene.html#fromjson" class="tsd-kind-icon">fromJSON</a>
 							</li>
@@ -769,7 +786,7 @@
 						<a href="transition.html" class="tsd-kind-icon">Transition</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="vector3.html" class="tsd-kind-icon">Vector3</a>
+						<a href="vector4.html" class="tsd-kind-icon">Vector4</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="wakelockservice.html" class="tsd-kind-icon">Wake<wbr>Lock<wbr>Service</a>
