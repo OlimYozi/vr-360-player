@@ -17,6 +17,8 @@ import PairSet from "./Utils/PairSet";
  */
 export default class StereoscopicMode extends Mode implements ILifeCycle {
 
+  static INTERACTION_EVENTS = ['touchstart', 'touchmove', 'click', 'mousedown', 'drag'];
+
   private _wakeLockService: WakeLockService;
 
   /* SCENE */
@@ -34,7 +36,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     super(_player);
 
     // Bind methods to this context
-    this.onClick = this.onClick.bind(this);
+    this.onInteraction = this.onInteraction.bind(this);
     this.onSceneChange = this.onSceneChange.bind(this);
     this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
   }
@@ -61,12 +63,15 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
 
     this.onResize();
 
-    window.addEventListener('click', this.onClick);
+    StereoscopicMode.INTERACTION_EVENTS.forEach((event: string) => {
+      window.addEventListener(event, this.onInteraction);
+    });
+
     this._player.scenesManager.addEventListener('sceneAttached', this.onSceneChange);
     this.deviceOrientationService.addEventListener('parameterDynamics', this.onDeviceOrientation);
 
     // Trigger initial controller hide timeout
-    this.onClick();
+    this.onInteraction();
     return true;
   }
 
@@ -90,7 +95,9 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   /** Should be called at the end of a class' life cycle and should dispose all assigned variables. */
   onDestroy() {
     clearTimeout(this._controlsTimeout);
-    window.removeEventListener('click', this.onClick);
+    StereoscopicMode.INTERACTION_EVENTS.forEach((event: string) => {
+      window.removeEventListener(event, this.onInteraction);
+    });
     this._player.scenesManager.removeEventListener('sceneAttached', this.onSceneChange);
     this.deviceOrientationService.removeEventListener('parameterDynamics', this.onDeviceOrientation);
 
@@ -104,7 +111,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   //------------------------------------------------------------------------------------
 
   /** Event handler for click and taps on the stage to reveal interface controllers for 3 seconds. */
-  public onClick() {
+  public onInteraction() {
     clearTimeout(this._controlsTimeout);
     this._player.controlsManager.showControls();
     this._controlsTimeout = setTimeout(
