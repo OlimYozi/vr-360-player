@@ -17,7 +17,7 @@ import PairSet from "./Utils/PairSet";
  */
 export default class StereoscopicMode extends Mode implements ILifeCycle {
 
-  static INTERACTION_EVENTS = ['touchstart', 'touchmove', 'click', 'mousedown', 'drag'];
+  static INTERACTION_EVENTS = ['touchstart', 'touchmove', 'mousedown', 'mousemove', 'drag'];
 
   private _wakeLockService: WakeLockService;
 

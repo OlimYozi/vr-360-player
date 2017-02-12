@@ -100,12 +100,10 @@ export default class Scene implements ILifeCycle {
     // Change layer size depending on mode
     if (this._player.mode instanceof PanoramaMode) {
       this._views.primary.setLimiter(Scene.PANORAMA_LIMITER);
-      this._views.primary.setProjectionCenterX(0);
       this._layers.primary.setEffects({ rect: { relativeWidth: 1 } });
       this._hotspots.primary.setRect(this._layers.primary.effects().rect);
     } else {
       this._views.primary.setLimiter(Scene.STEREOSCOPIC_LIMITER);
-      this._views.primary.setProjectionCenterX(this.projectionCenter.x);
       this._layers.primary.setEffects({ rect: { relativeWidth: 0.5 } });
       this._hotspots.primary.setRect(this._layers.primary.effects().rect);
       stage.addLayer(this._layers.secondary);
@@ -114,6 +112,7 @@ export default class Scene implements ILifeCycle {
 
     // Make sure view parameters are equal after attach
     setTimeout(() => {
+      this.projectionCenter = new Vector4();
       this._views.primary.setParameters(this._initialViewParameters);
       this._views.secondary.setParameters(this._initialViewParameters);
     }, 0);
@@ -264,8 +263,8 @@ export default class Scene implements ILifeCycle {
 
   /** Sets this scene's projection center. */
   public set projectionCenter(center: Vector4) {
-    this._views.primary.setProjectionCenterX(center.x);
-    this._views.secondary.setProjectionCenterX(-center.x);
+    this._views.primary.setProjectionCenterX(-center.x);
+    this._views.secondary.setProjectionCenterX(center.x);
   }
 
   /** Retrieves this scene's id. */

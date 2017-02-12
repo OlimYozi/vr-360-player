@@ -81,8 +81,8 @@ export default class ControlsManager implements ILifeCycle {
   public onProjectionXChange(event: Event) {
     const center = new Vector4(parseFloat((<HTMLInputElement>event.target).value), 0.5);
     (<StereoscopicMode>this._player.mode).projectionCenter = center;
-    this._crosshair.style.left = (50 * (0.5 + center.x)) + '%';
-    this._crosshair.style.width = (100 * (0.5 - center.x)) + '%';
+    this._crosshair.style.left = (50 * (0.5 - center.x)) + '%';
+    this._crosshair.style.width = (100 * (0.5 + center.x)) + '%';
   }
 
   /** Shows the sensor toggle interface control. */
