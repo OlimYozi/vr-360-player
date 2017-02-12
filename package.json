@@ -1,6 +1,6 @@
 {
   "name": "vr-360-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.",
   "main": "build/vr360player.js",
   "scripts": {
