@@ -108,7 +108,6 @@ module.exports = function (env) {
 
       plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin(),
         new webpack.LoaderOptionsPlugin({
           minimize: true
         }),
