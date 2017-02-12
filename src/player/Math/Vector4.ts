@@ -1,29 +1,31 @@
-export default class Vector3 {
+export default class Vector4 {
 
   constructor(
     private _x?: number,
     private _y?: number,
-    private _z?: number
+    private _z?: number,
+    private _w?: number
   ) {
     this.x = _x || 0;
     this.y = _y || 0;
     this.z = _z || 0;
+    this.w = _w || 0;
   }
 
   //------------------------------------------------------------------------------------
   // MAIN
   //------------------------------------------------------------------------------------
 
-  equals(vector: Vector3): boolean {
-    return this.x === vector.x && this.y === vector.y && this.z === vector.z;
+  equals(vector: Vector4): boolean {
+    return this.x === vector.x && this.y === vector.y && this.z === vector.z && this.w === vector.w;
   }
 
   toString(): string {
-    return `vec3:(${this.x}, ${this.y}, ${this.z})`;
+    return `vec3:(${this.x}, ${this.y}, ${this.z}), ${this.w})`;
   }
 
   get magnitude(): number {
-    return this.x * this.x + this.y * this.y + this.z * this.z;
+    return this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w;
   }
 
   get normal(): number {
@@ -31,102 +33,111 @@ export default class Vector3 {
   }
 
   get array(): Array<number> {
-    return [this.x, this.y, this.z];
+    return [this.x, this.y, this.z, this.w];
   }
 
   //------------------------------------------------------------------------------------
   // BASIC ARITHMETICS
   //------------------------------------------------------------------------------------
 
-  add(vector: Vector3): Vector3 {
-    return new Vector3(
+  add(vector: Vector4): Vector4 {
+    return new Vector4(
       this.x + vector.x,
       this.y + vector.y,
-      this.z + vector.z
+      this.z + vector.z,
+      this.w + vector.w
     );
   }
 
-  subtract(vector: Vector3): Vector3 {
-    return new Vector3(
+  subtract(vector: Vector4): Vector4 {
+    return new Vector4(
       this.x - vector.x,
       this.y - vector.y,
-      this.z - vector.z
+      this.z - vector.z,
+      this.w - vector.w
     );
   }
 
-  multiply(vector: Vector3): Vector3 {
-    return new Vector3(
+  multiply(vector: Vector4): Vector4 {
+    return new Vector4(
       this.x * vector.x,
       this.y * vector.y,
-      this.z * vector.z
+      this.z * vector.z,
+      this.w * vector.w
     );
   }
 
-  divide(vector: Vector3): Vector3 {
-    return new Vector3(
+  divide(vector: Vector4): Vector4 {
+    return new Vector4(
       (vector.x === 0 ? 0 : this.x / vector.x),
       (vector.y === 0 ? 0 : this.y / vector.y),
-      (vector.z === 0 ? 0 : this.z / vector.z)
+      (vector.z === 0 ? 0 : this.z / vector.z),
+      (vector.w === 0 ? 0 : this.w / vector.w)
     );
   }
 
-  scale(scalar: number): Vector3 {
-    return new Vector3(
+  scale(scalar: number): Vector4 {
+    return new Vector4(
       this.x * scalar,
       this.y * scalar,
-      this.z * scalar
+      this.z * scalar,
+      this.w * scalar
     );
   }
 
-  angle(vector: Vector3): number {
+  angle(vector: Vector4): number {
     return Math.acos(this.dot(vector) / (this.normal * vector.normal));
   }
 
-  dot(vector: Vector3): number {
-    return this.x * vector.x + this.y * vector.y + this.z * vector.z;
+  dot(vector: Vector4): number {
+    return this.x * vector.x + this.y * vector.y + this.z * vector.z + this.w * vector.w;
   }
 
-  cross(vector: Vector3): Vector3 {
-    return new Vector3(
+  cross(vector: Vector4): Vector4 {
+    return new Vector4(
       (this.y * vector.z) - (this.z * vector.y),
       (this.z * vector.x) - (this.x * vector.z),
-      (this.x * vector.y) - (this.y * vector.x),
+      (this.x * vector.y) - (this.y * vector.x)
     );
   }
 
-  distance(vector: Vector3): number {
+  distance(vector: Vector4): number {
     var dx: number = this.x - vector.x,
       dy: number = this.y - vector.y,
-      dz: number = this.z - vector.z;
+      dz: number = this.z - vector.z,
+      dw: number = this.w - vector.w;
 
-    return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    return Math.sqrt(dx * dx + dy * dy + dz * dz + dw * dw);
   }
 
-  negate(): Vector3 {
-    return new Vector3(
+  negate(): Vector4 {
+    return new Vector4(
       -1 * Math.abs(this.x),
       -1 * Math.abs(this.y),
-      -1 * Math.abs(this.z)
+      -1 * Math.abs(this.z),
+      -1 * Math.abs(this.w)
     );
   }
 
-  abs(): Vector3 {
-    return new Vector3(
+  abs(): Vector4 {
+    return new Vector4(
       Math.abs(this.x),
       Math.abs(this.y),
-      Math.abs(this.z)
+      Math.abs(this.z),
+      Math.abs(this.w)
     );
   }
 
-  reflect(): Vector3 {
-    return new Vector3(
+  reflect(): Vector4 {
+    return new Vector4(
       -1 * this.x,
       -1 * this.y,
-      -1 * this.z
+      -1 * this.z,
+      -1 * this.w
     );
   }
 
-  lerp(vector: Vector3, amount: number): Vector3 {
+  lerp(vector: Vector4, amount: number): Vector4 {
     return this.add(vector.subtract(this).scale(amount));
   }
 
@@ -134,19 +145,21 @@ export default class Vector3 {
   // STATIC FUNCTIONS
   //------------------------------------------------------------------------------------
 
-  static max(a: Vector3, b: Vector3): Vector3 {
-    return new Vector3(
+  static max(a: Vector4, b: Vector4): Vector4 {
+    return new Vector4(
       (a.x > b.x ? a.x : b.x),
       (a.y > b.y ? a.y : b.y),
-      (a.z > b.z ? a.z : b.z)
+      (a.z > b.z ? a.z : b.z),
+      (a.w > b.w ? a.w : b.w)
     );
   }
 
-  static min(a: Vector3, b: Vector3): Vector3 {
-    return new Vector3(
+  static min(a: Vector4, b: Vector4): Vector4 {
+    return new Vector4(
       (a.x < b.x ? a.x : b.x),
       (a.y < b.y ? a.y : b.y),
-      (a.z < b.z ? a.z : b.z)
+      (a.z < b.z ? a.z : b.z),
+      (a.w < b.w ? a.w : b.w)
     );
   }
 
@@ -178,6 +191,10 @@ export default class Vector3 {
     this._z = z;
   }
 
+  set w(w: number) {
+    this._w = w;
+  }
+
   //------------------------------------------------------------------------------------
   // GETTERS & SETTERS FOR YAW, PITCH, ROLL
   //------------------------------------------------------------------------------------
@@ -195,23 +212,23 @@ export default class Vector3 {
   }
 
   get fov(): number {
-    return this._z;
+    return this._w;
   }
 
-  set yaw(x: number) {
-    this._x = x;
+  set yaw(yaw: number) {
+    this._x = yaw;
   }
 
-  set pitch(y: number) {
-    this._y = y;
+  set pitch(pitch: number) {
+    this._y = pitch;
   }
 
-  set roll(z: number) {
-    this._z = z;
+  set roll(roll: number) {
+    this._z = roll;
   }
 
-  set fov(z: number) {
-    this._z = z;
+  set fov(fov: number) {
+    this._w = fov;
   }
 
   //------------------------------------------------------------------------------------
@@ -230,15 +247,23 @@ export default class Vector3 {
     return this._z;
   }
 
-  set r(x: number) {
-    this._x = x;
+  get a(): number {
+    return this._w;
   }
 
-  set g(y: number) {
-    this._y = y;
+  set r(r: number) {
+    this._x = r;
   }
 
-  set b(z: number) {
-    this._z = z;
+  set g(g: number) {
+    this._y = g;
+  }
+
+  set b(b: number) {
+    this._z = b;
+  }
+
+  set a(a: number) {
+    this._w = a;
   }
 }

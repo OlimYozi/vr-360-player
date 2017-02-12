@@ -1,10 +1,10 @@
 import Player from '../../Player';
-import Vector3 from '../../Math/Vector3';
+import Vector4 from '../../Math/Vector4';
 import Hotspot, { IHotspotData } from './Hotspot';
 import DOM from '../../Utils/DOM';
 
 /* ASSETS */
-const icon = require('!raw!../../../assets/icons/icon_hotspot.svg');
+const icon = require('!raw-loader!../../../assets/icons/icon_hotspot.svg');
 
 /** Interface defining which data is relevant for creation of an [[InfoHotspot]]. */
 export interface IInfoHotspotData extends IHotspotData {
@@ -32,7 +32,7 @@ export default class InfoHotspot extends Hotspot {
    */
   constructor(
     _player: Player,
-    _position?: Vector3,
+    _position?: Vector4,
     _title?: string,
     _text?: string
   ) {

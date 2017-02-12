@@ -182,6 +182,11 @@ export default class Player implements ILifeCycle {
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
+  /** Retrieves the path from which the current scene was loaded. */
+  public get stagePath(): string {
+    return this._stagePath;
+  }
+
   /** Retrieves the manager that is responsible for scene loading and switching. */
   public get scenesManager(): ScenesManager {
     return this._scenesManager;

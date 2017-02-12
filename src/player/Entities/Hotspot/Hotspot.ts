@@ -1,6 +1,6 @@
 const Marzipano = require('marzipano');
 
-import Vector3 from '../../Math/Vector3';
+import Vector4 from '../../Math/Vector4';
 import Player from '../../Player';
 
 /** Interface defining which data is relevant for creation of an [[Hotspot]]. */
@@ -15,7 +15,7 @@ export default class Hotspot {
   static EVENTS = ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'];
 
   protected _player: Player;
-  protected _position: Vector3;
+  protected _position: Vector4;
   protected _node: HTMLElement;
 
   /** Using supplied data either through [[Hotspot.fromJSON]] or arguments to create a new Hotspot.
@@ -24,13 +24,13 @@ export default class Hotspot {
    */
   constructor(
     _player?: Player,
-    _position?: Vector3
+    _position?: Vector4
   ) {
     this.node = document.createElement('div');
     this.node.classList.add('hotspot');
 
     this._player = _player || this._player || null;
-    this.position = _position || this._position || new Vector3();
+    this.position = _position || this._position || new Vector4();
 
     // Bind event handlers
     this.onPropagationStop = this.onPropagationStop.bind(this);
@@ -73,12 +73,12 @@ export default class Hotspot {
   }
 
   /** Assigns a new yaw and pitch position to this hotspot and updates the node. */
-  set position(position: Vector3) {
+  set position(position: Vector4) {
     this._position = position;
   }
 
   /** Retrieves the yaw and pitch position for this hotspot. */
-  get position(): Vector3 {
+  get position(): Vector4 {
     return this._position;
   }
 
@@ -99,7 +99,7 @@ export default class Hotspot {
     } else {
       const hotspot = Object.assign(Object.create(Hotspot.prototype), json, {
         _player: player,
-        position: new Vector3(json.yaw, json.pitch),
+        position: new Vector4(json.yaw, json.pitch),
       });
       Hotspot.apply(hotspot);
       return hotspot;

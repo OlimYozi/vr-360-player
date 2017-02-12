@@ -37,24 +37,41 @@ module.exports = function (env) {
       rules: [
         {
           test: /node_modules/,
-          loader: 'ify'
+          loader: 'ify-loader'
         },
         {
           test: /\.ts$/,
-          loader: 'awesome-typescript',
+          loader: 'awesome-typescript-loader',
         },
         {
           test: /\.pug$/,
-          loader: 'pug',
+          loader: 'pug-loader',
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({ loader: ['css', 'postcss', 'sass'] }),
+          use: ExtractTextPlugin.extract({
+            use: [
+              {
+                loader: 'css-loader',
+              }, {
+                loader: 'postcss-loader',
+                options: {
+                  plugins: function () {
+                    return [
+                      require('autoprefixer')
+                    ];
+                  }
+                }
+              }, {
+                loader: 'sass-loader',
+              }
+            ]
+          }),
         },
         {
           test: /\.(json|png|jpe?g|svg|woff2?)$/,
           loader: 'url-loader',
-          query: {
+          options: {
             name: PROD ? 'assets/[hash].[ext]' : 'assets/[name].[ext]',
             limit: 10000,
           },

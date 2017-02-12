@@ -24,7 +24,8 @@ export default class Mode implements ILifeCycle {
 
     this._deviceOrientationService.getPitch((err, pitch) => {
       if (err) return;
-      this._player.scenesManager.current.view.setPitch(-pitch);
+      this._player.scenesManager.current.views.primary.setPitch(-pitch);
+      this._player.scenesManager.current.views.secondary.setPitch(-pitch);
     });
 
     this._player.controls.registerMethod('deviceOrientation', this._deviceOrientationService);

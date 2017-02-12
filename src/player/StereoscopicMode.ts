@@ -2,7 +2,7 @@ const Marzipano = require('marzipano');
 
 import Player, { ILifeCycle } from './Player';
 import FS from './Utils/FS';
-import Vector3 from './Math/Vector3';
+import Vector4 from './Math/Vector4';
 import Mode from './Mode';
 import Scene, { ISceneData } from './Entities/Scene';
 import Hotspot from './Entities/Hotspot/Hotspot';
@@ -24,7 +24,7 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   /* SCENE */
   private _scene: Scene;
   private _hotspots: Hotspot[];
-  private _center = new Vector3();
+  private _center = new Vector4();
   private _controlsTimeout;
   private _navigationTimeout;
   private _infoTimeout;
@@ -127,8 +127,8 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
     if (!this._scene)
       return;
 
-    this._center.yaw = this._player.scenesManager.current.view.yaw();
-    this._center.pitch = this._player.scenesManager.current.view.pitch();
+    this._center.yaw = this._player.scenesManager.current.views.primary.yaw();
+    this._center.pitch = this._player.scenesManager.current.views.primary.pitch();
 
     this._hotspots.forEach((hotspot: Hotspot) => {
 
@@ -173,10 +173,20 @@ export default class StereoscopicMode extends Mode implements ILifeCycle {
   // GETTERS & SETTERS
   //------------------------------------------------------------------------------------
 
+  /** Assigns the center to use for the view projection. */
+  public set projectionCenter(center: Vector4) {
+    this._scene.projectionCenter = center;
+  }
+
+  /** Retrieves the current projection center for the views. */
+  public get projectionCenter(): Vector4 {
+    return this._scene.projectionCenter;
+  }
+
   /** Assigns the dominant eye moving all hotspots to the defined side. */
   public set dominantEye(eye: 'left' | 'right') {
     this._dominantEye = eye;
-    this._scene.setEye(this._dominantEye);
+    this._scene.eye = this._dominantEye;
   }
 
   /** Retrieves the dominant eye position. */

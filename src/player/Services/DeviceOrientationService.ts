@@ -1,5 +1,5 @@
 const Marzipano = require('marzipano');
-import Vector3 from '../Math/Vector3';
+import Vector4 from '../Math/Vector4';
 
 /** Custom control method to alter the view according to the device orientation. */
 export default class DeviceOrientationService {
@@ -8,9 +8,9 @@ export default class DeviceOrientationService {
 
   private _dynamics: any;
 
-  private _previous: Vector3;
-  private _current: Vector3;
-  private _tmp: Vector3;
+  private _previous: Vector4;
+  private _current: Vector4;
+  private _tmp: Vector4;
 
   private _getPitchCallbacks = [];
 
@@ -26,9 +26,9 @@ export default class DeviceOrientationService {
       window.addEventListener('deviceorientation', this.onDeviceOrientation);
     }
 
-    this._previous = new Vector3();
-    this._current = new Vector3();
-    this._tmp = new Vector3();
+    this._previous = new Vector4();
+    this._current = new Vector4();
+    this._tmp = new Vector4();
   }
 
   destroy() {
@@ -116,8 +116,8 @@ export default class DeviceOrientationService {
    * http://www.euclideanspace.com/maths/geometry/rotations/conversions/eulerToMatrix/index.htm
    * http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToEuler/index.htm
    */
-  static rotateEuler(euler: Vector3, result?: Vector3): Vector3 {
-    result = result || new Vector3();
+  static rotateEuler(euler: Vector4, result?: Vector4): Vector4 {
+    result = result || new Vector4();
     let heading; // Includes 90-degree rotation around z axis
     let bank;
     let attitude;

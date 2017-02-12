@@ -6,7 +6,7 @@ export default class Transition {
   static FadeIn(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { opacity: val }));
       })
@@ -16,7 +16,7 @@ export default class Transition {
   static FadeOut(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { opacity: 1 - val }));
       })
@@ -26,7 +26,7 @@ export default class Transition {
   static FromRight(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { rect: { relativeX: 1 - val } }));
       })
@@ -36,7 +36,7 @@ export default class Transition {
   static FromTop(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { rect: { relativeY: -1 + val } }));
       })
@@ -46,7 +46,7 @@ export default class Transition {
   static FromBottom(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { rect: { relativeY: 1 - val } }));
       })
@@ -56,7 +56,7 @@ export default class Transition {
   static Width(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { rect: { relativeWidth: val } }));
       })
@@ -66,7 +66,7 @@ export default class Transition {
   static ZoomCenter(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, {
           rect: {
@@ -83,7 +83,7 @@ export default class Transition {
   static FromCenter(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       val = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, {
           rect: {
@@ -100,7 +100,7 @@ export default class Transition {
   static FromCenterAndOpacity(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       const eased = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, {
           rect: {
@@ -118,7 +118,7 @@ export default class Transition {
   static FromTopAndOpacity(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       const eased = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { opacity: val, rect: { relativeY: -1 + eased } }));
       });
@@ -128,7 +128,7 @@ export default class Transition {
   static FromWhite(ease = Easing.Linear): (val: number, scene: Scene) => void {
     return (val: number, scene: Scene) => {
       const eased = ease(val);
-      scene.layers.forEach((layer: any) => {
+      scene.layers.pair((layer: any) => {
         let effects = layer.effects();
         layer.setEffects(Object.assign(effects, { colorOffset: [1 - val, 1 - val, 1 - val, 0] }));
       });
@@ -142,18 +142,18 @@ export default class Transition {
 
       if (eased < 0.5) {
         offset = eased * 2;
-        scene.layers.forEach((layer: any) => {
+        scene.layers.pair((layer: any) => {
           let effects = layer.effects();
           layer.setEffects(Object.assign(effects, { opacity: 0 }));
         });
-        oldScene.layers.forEach((layer: any) => {
+        oldScene.layers.pair((layer: any) => {
           let effects = layer.effects();
           layer.setEffects(Object.assign(effects, { colorOffset: [-offset, -offset, -offset, 0] }));
         });
       }
       else {
         offset = 1 - ((eased - 0.5) * 2);
-        scene.layers.forEach((layer: any) => {
+        scene.layers.pair((layer: any) => {
           let effects = layer.effects();
           layer.setEffects(Object.assign(effects, { opacity: 1, colorOffset: [-offset, -offset, -offset, 0] }));
         });
