@@ -25,12 +25,6 @@ export interface ISceneData {
 /** Class used to create a cubic image layer in the viewer. */
 export default class Scene implements ILifeCycle {
 
-  static PANORAMA_LIMITER = Marzipano.RectilinearView.limit.traditional(
-    4096, 120 * Math.PI / 180);
-
-  static STEREOSCOPIC_LIMITER = Marzipano.RectilinearView.limit.traditional(
-    4096, 90 * Math.PI / 180);
-
   /** DEPRECATED // Avoid until fixed
   static PANORAMA_LIMITER = Marzipano.util.compose(
     Marzipano.RectilinearView.limit.vfov(110 * Math.PI / 180, 110 * Math.PI / 180),
@@ -45,6 +39,7 @@ export default class Scene implements ILifeCycle {
     Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 2)); 
   */
 
+
   private _id: string;
   private _name: string;
   private _levels: Level[];
@@ -52,6 +47,9 @@ export default class Scene implements ILifeCycle {
   private _initialViewParameters: Vector4;
   private _linkHotspots: PairSet<LinkHotspot>[];
   private _infoHotspots: PairSet<InfoHotspot>[];
+
+  private _panoramaLimiter: any;
+  private _stereoscopicLimiter: any;
 
   private _player: Player;
   private _geometry: any;
@@ -81,11 +79,14 @@ export default class Scene implements ILifeCycle {
    * Using data specified in [[ISceneData]] to create the scene's layers for both eyes and hotspots.
    */
   onCreate(): boolean {
+    this._panoramaLimiter = Marzipano.RectilinearView.limit.traditional(this._faceSize, 120 * Math.PI / 180);
+    this._stereoscopicLimiter = Marzipano.RectilinearView.limit.traditional(this._faceSize, 90 * Math.PI / 180);
+
     this._geometry = new Marzipano.CubeGeometry(this._levels);
     this._projectionCenter = new Vector4(0, 0);
     this._views = new PairSet(
-      new Marzipano.RectilinearView(this._initialViewParameters, Scene.PANORAMA_LIMITER),
-      new Marzipano.RectilinearView(this._initialViewParameters, Scene.STEREOSCOPIC_LIMITER)
+      new Marzipano.RectilinearView(this._initialViewParameters, this._panoramaLimiter),
+      new Marzipano.RectilinearView(this._initialViewParameters, this._stereoscopicLimiter)
     );
 
     this.createLayer(this._player.viewer.stage(), this._views.primary, 'left', { relativeWidth: 0.5, relativeX: 0 });
@@ -99,11 +100,11 @@ export default class Scene implements ILifeCycle {
 
     // Change layer size depending on mode
     if (this._player.mode instanceof PanoramaMode) {
-      this._views.primary.setLimiter(Scene.PANORAMA_LIMITER);
+      this._views.primary.setLimiter(this._panoramaLimiter);
       this._layers.primary.setEffects({ rect: { relativeWidth: 1 } });
       this._hotspots.primary.setRect(this._layers.primary.effects().rect);
     } else {
-      this._views.primary.setLimiter(Scene.STEREOSCOPIC_LIMITER);
+      this._views.primary.setLimiter(this._stereoscopicLimiter);
       this._layers.primary.setEffects({ rect: { relativeWidth: 0.5 } });
       this._hotspots.primary.setRect(this._layers.primary.effects().rect);
       stage.addLayer(this._layers.secondary);

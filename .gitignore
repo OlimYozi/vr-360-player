@@ -26,6 +26,7 @@ coverage
 # Compiled binary and documentation
 build
 docs
+stages
 
 # Dependency directories
 node_modules

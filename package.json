@@ -1,11 +1,11 @@
 {
   "name": "vr-360-player",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Virtual reality 360 degree player for 36 Technology Ltd, INC. by Trutoo AB.",
   "main": "build/vr360player.js",
   "scripts": {
     "start": "webpack-dev-server --content-base build --inline --progress --host 0.0.0.0 --port 9202",
-    "prestart": "rimraf build/ && copyfiles -u 2 src/assets/stage.json src/assets/tiles/** build/assets/",
+    "prestart": "rimraf build/ && copyfiles -u 2 'src/assets/stage.json' 'src/assets/tiles/**' 'build/assets/'",
     "build:dev": "rimraf build/ && webpack --progress --profile --env.development",
     "build:prod": "rimraf dist/ && webpack --progress --profile --bail --env.production",
     "deploy": "npm run build:prod && ./deploy.sh"
